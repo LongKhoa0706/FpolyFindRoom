@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:textColor="#000000"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:text="Xác minh số điện thoại "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:textColor="#ccc"
+            android:gravity="center"
+            android:textSize="16dp"
+            android:text="Mã đã gửi vào 090202123"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="wrap_content">
+
+            </EditText>
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="wrap_content">
+
+            </EditText>
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="wrap_content">
+
+            </EditText>
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="wrap_content">
+
+            </EditText>
+
+        </LinearLayout>
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:textColor="#ccc"
+            android:gravity="center"
+            android:textSize="16dp"
+            android:text="Chưa nhận được mã? Gửi lại "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <Button
+            android:id="@+id/btnVerifyPhone"
+            android:text="Xác nhận"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Button>
+
+
+    </LinearLayout>
+
+</LinearLayout>

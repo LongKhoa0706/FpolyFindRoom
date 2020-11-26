@@ -36,7 +36,7 @@
 
             <TextView
                 android:id="@+id/txtSlide"
-                android:textSize="30dp"
+                android:textSize="25dp"
                 android:textColor="#eeee"
                 android:text="Chào mừng bạn đến với Findroom, nơi có trải nghiệm thuê phòng tốt nhất"
                 android:layout_width="match_parent"

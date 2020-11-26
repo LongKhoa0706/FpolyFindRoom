@@ -3,7 +3,9 @@ package com.longkhoa.fpolyfindroom;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
@@ -22,8 +24,26 @@ public class OnBoardingScreenActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewPagerOnboard);
 //        linearLayout = findViewById(R.id.dotViewPager);
         slideAdapter = new SlideAdapter(this);
-
         viewPager.setAdapter(slideAdapter);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 2){
+                    startActivity(new Intent(OnBoardingScreenActivity.this,ClientActivity.class));
+                    finish();
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
     }
 }

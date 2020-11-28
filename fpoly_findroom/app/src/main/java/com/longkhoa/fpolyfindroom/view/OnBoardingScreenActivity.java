@@ -1,13 +1,15 @@
-package com.longkhoa.fpolyfindroom;
+package com.longkhoa.fpolyfindroom.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+
+import com.longkhoa.fpolyfindroom.R;
+import com.longkhoa.fpolyfindroom.adapter.SlideAdapter;
 
 public class OnBoardingScreenActivity extends AppCompatActivity {
     ViewPager viewPager;

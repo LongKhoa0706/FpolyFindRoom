@@ -20,25 +20,15 @@
                android:layout_height="200dp">
            </ImageView>
 
-
            <TextView
-               android:text="Tên"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-           </TextView>
-           <EditText
 
-               android:hint="Nhập tên"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-           </EditText>
-           <TextView
                android:layout_marginTop="20dp"
                android:text="Họ và đệm"
                android:layout_width="match_parent"
                android:layout_height="wrap_content">
            </TextView>
            <EditText
+               android:id="@+id/edtUserName"
                android:textSize="15dp"
                android:hint="Họ và đệm"
                android:layout_width="match_parent"
@@ -52,6 +42,7 @@
                android:layout_height="wrap_content">
            </TextView>
            <EditText
+               android:id="@+id/edtPhone"
                android:textSize="15dp"
                android:hint="Số điện thoại "
                android:layout_width="match_parent"
@@ -64,6 +55,7 @@
                android:layout_height="wrap_content">
            </TextView>
            <EditText
+               android:id="@+id/edtEmail"
                android:textSize="15dp"
                android:hint="Địa chỉ email "
                android:layout_width="match_parent"
@@ -76,8 +68,10 @@
                android:layout_height="wrap_content">
            </TextView>
            <EditText
+
+               android:id="@+id/edtPassword"
                android:textSize="15dp"
-               android:hint="Nhập lại mật "
+               android:hint="Mật khẩu"
                android:layout_width="match_parent"
                android:layout_height="wrap_content">
            </EditText>
@@ -88,6 +82,7 @@
                android:layout_height="wrap_content">
            </TextView>
            <EditText
+               android:id="@+id/edtRepassword"
                android:textSize="15dp"
                android:hint="Xác nhận mật khẩu"
                android:layout_width="match_parent"

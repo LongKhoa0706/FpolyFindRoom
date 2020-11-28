@@ -1,4 +1,4 @@
-package com.longkhoa.fpolyfindroom;
+package com.longkhoa.fpolyfindroom.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
+
+import com.longkhoa.fpolyfindroom.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
     Handler handler;

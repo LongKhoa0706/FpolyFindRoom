@@ -1,4 +1,4 @@
-package com.longkhoa.fpolyfindroom;
+package com.longkhoa.fpolyfindroom.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
+import com.longkhoa.fpolyfindroom.R;
 
 public class SlideAdapter  extends PagerAdapter {
     Context context;

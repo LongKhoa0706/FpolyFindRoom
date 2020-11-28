@@ -56,7 +56,7 @@ public class RegisterFragment  extends Fragment implements RegisterInterface {
                String userName = edtUserName.getText().toString();
                String repassword = edtRepassword.getText().toString();
 
-                User user = new User(email,phone,userName,password,"","",false,"");
+                User user = new User("3","4","3333","12","","",false,"");
                 registerPresenter.register(user);
 
             }
@@ -66,13 +66,12 @@ public class RegisterFragment  extends Fragment implements RegisterInterface {
     private void loadFragment(Fragment fragment) {
         if (fragment != null) {
             getFragmentManager().beginTransaction().replace(R.id.frameClient, fragment).addToBackStack(null).commit();
-
         }
     }
 
     @Override
     public void registerSuccess() {
-        progressDialog.show();
+//        progressDialog.show();
         Toasty.success(getActivity(), "Success!", Toast.LENGTH_SHORT, true).show();
     }
 
@@ -86,7 +85,6 @@ public class RegisterFragment  extends Fragment implements RegisterInterface {
     public void showLoading() {
         progressDialog.show();
         Log.d("AAAA","SHOW");
-
     }
 
     @Override

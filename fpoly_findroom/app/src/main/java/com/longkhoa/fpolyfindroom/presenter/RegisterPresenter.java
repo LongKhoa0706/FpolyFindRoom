@@ -3,13 +3,11 @@ package com.longkhoa.fpolyfindroom.presenter;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.longkhoa.fpolyfindroom.model.User;
 import com.longkhoa.fpolyfindroom.networking.RetrofitClient;
-import com.longkhoa.fpolyfindroom.service.RegisterService;
+import com.longkhoa.fpolyfindroom.service.AuthService;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.IOException;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -18,10 +16,10 @@ import retrofit2.Response;
 
 // Tầng Presenter là nơi đảm nhiệm xử lý logic vd đăng ký đăng nhập, get data
 public class RegisterPresenter {
-    private  RegisterInterface registerInterface;
-     RegisterService registerService;
+    private RegisterInterface registerInterface;
+    AuthService authService;
 
-    class Result{
+    class Result {
         int statusCode;
         String message;
     }
@@ -30,54 +28,41 @@ public class RegisterPresenter {
         this.registerInterface = registerInterface;
     }
 
-    public void register(User user){
-        registerService = RetrofitClient.getRetrofitInstance().create(RegisterService.class);
-            Call<ResponseBody> jsonObjectCall = registerService.registerUser(user);
+    public void register(User user) {
+        authService = RetrofitClient.getRetrofitInstance().create(AuthService.class);
+        Call<ResponseBody> jsonObjectCall = authService.registerUser(user);
         jsonObjectCall.enqueue(new Callback<ResponseBody>() {
-              @Override
-              public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
 
-                  if (response.isSuccessful()){
-//                      try {
-//                          JSONObject json = new JSONObject(response.body().toString());
-//                          Log.i("KET QUA", json.getString("message"));
-//                          registerInterface.registerSuccess();
-//                      } catch (JSONException e) {
-//                          e.printStackTrace();
-//                      }
+                if (response.isSuccessful()) {
+                    try {
+                        if (response.body() != null) {
+                            String jsonString = response.body().string();
+                            Log.i("Jsonnnnn", jsonString);
+                            Gson gson = new Gson();
+                            Result status = gson.fromJson(jsonString, Result.class);
+                            Log.i("KET QUA", String.valueOf(status.message) + "");
+                            registerInterface.registerSuccess();
+                        } else {
+                            Log.i("Jsonnnnn", "FAIL");
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 
-//                      String jsonString = response.body();
+                } else {
+                    Log.i("KET QUA FAIL", String.valueOf(response.message()) + "");
+//                          registerInterface.registerFail(status.message);
+                }
+            }
 
-                      Gson gson = new Gson();
-
-//                      Result status = gson.fromJson(jsonString, Result.class);
-//                      Log.i("KET QUA", call.);
-                      registerInterface.registerSuccess();
-
-
-                  }else {
-
-                      registerInterface.registerFail(response.message());
-
-                  }
-
-              }
-
-              @Override
-              public void onFailure(Call<ResponseBody> call, Throwable t) {
-                  Log.d("dasds",t.getMessage());
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.d("dasds", t.getMessage());
 //                  registerInterface.registerFail(t.getMessage());
-              }
-          });
-
-
-//        if (username.isEmpty()){
-//            registerInterface.registerFail();
-//        }else {
-//
-//            registerService.registerUser(user);
-//            registerInterface.registerSuccess();
-//        }
+            }
+        });
     }
 
 }

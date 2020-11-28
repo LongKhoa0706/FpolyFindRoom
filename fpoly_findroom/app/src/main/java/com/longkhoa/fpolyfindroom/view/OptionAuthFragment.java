@@ -44,7 +44,6 @@ public class OptionAuthFragment extends Fragment {
     private void loadFragment(Fragment fragment) {
         if (fragment != null) {
             getFragmentManager().beginTransaction().replace(R.id.frameClient, fragment).addToBackStack(null).commit();
-
         }
     }
 }

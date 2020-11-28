@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ForgotPasswordFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarDoiMatKhau"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/background">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đổi mật khẩu"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            android:id="@+id/toolbar_title" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edtNhapMatKhauCu"
+        android:layout_below="@+id/toolbarDoiMatKhau"
+        android:layout_marginTop="32dp"
+        app:passwordToggleEnabled="true"
+        android:layout_width="match_parent"
+        android:padding="8dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="Mật khẩu cũ..." />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edtNhapMatKhauMoi"
+        android:layout_below="@+id/edtNhapMatKhauCu"
+        app:passwordToggleEnabled="true"
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="Mật khẩu mới..." />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edtNhapLaiMatKhauMoi"
+        android:layout_below="@+id/edtNhapMatKhauMoi"
+        app:passwordToggleEnabled="true"
+        android:layout_width="match_parent"
+        android:padding="8dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="Nhập lại mật khẩu mới..." />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnHuy"
+        android:padding="16dp"
+        android:layout_below="@+id/edtNhapLaiMatKhauMoi"
+        android:layout_width="160dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/black"
+        android:text="HỦY" />
+
+    <Button
+        android:padding="16dp"
+        android:id="@+id/btnCapNhap"
+        android:layout_below="@+id/edtNhapLaiMatKhauMoi"
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="8dp"
+        android:textSize="18dp"
+        android:layout_marginRight="16dp"
+        android:textStyle="bold"
+        android:backgroundTint="#E4C76E"
+        android:text="CẬP NHẬP" />
+
+
+</RelativeLayout>

@@ -1,8 +1,10 @@
-package com.longkhoa.fpolyfindroom;
+package com.longkhoa.fpolyfindroom.view.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.longkhoa.fpolyfindroom.R;
 
 public class MainActivity extends AppCompatActivity {
 

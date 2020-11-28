@@ -19,18 +19,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FpolyFindRoom">
 
-        <activity android:name=".view.ClientActivity">
+
+        <activity android:name=".view.activity.ClientActivity">
+
+<!--        <activity android:name=".OnBoardingScreenActivity"></activity>-->
+<!--        <activity android:name=".SplashScreenActivity">-->
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.OnBoardingScreenActivity" />
-        <activity android:name=".view.SplashScreenActivity">
+
+        <activity android:name=".view.activity.OnBoardingActivity" />
+        <activity android:name=".view.activity.SplashScreenActivity">
 
         </activity>
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".view.activity.MainActivity">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -38,6 +45,9 @@
 
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".view.activity.DashBoardActivity">
+
         </activity>
     </application>
 

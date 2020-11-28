@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/ic_house">
+    </item>
+    <item
+        android:id="@+id/menuu"
+        android:title="Yêu thích"
+        android:icon="@drawable/ic_house">
+    </item>
+    <item
+        android:id="@+id/cuahang"
+        android:title="Map"
+        android:icon="@drawable/ic_house">
+    </item>
+    <item
+        android:id="@+id/taikhoan"
+        android:title="Tài khoản"
+        android:icon="@drawable/ic_house">
+    </item>
+
+</menu>

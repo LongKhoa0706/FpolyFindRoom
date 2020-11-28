@@ -1,4 +1,4 @@
-package com.longkhoa.fpolyfindroom.view;
+package com.longkhoa.fpolyfindroom.view.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,7 +20,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashScreenActivity.this, OnBoardingScreenActivity.class));
+                startActivity(new Intent(SplashScreenActivity.this, OnBoardingActivity.class));
 //                overridePendingTransition(R.anim.animation_enter, R.anim.animation_exit);
 //                startService(new Intent(SplashScreenActivity.this, MessagingService.class));
 

@@ -1,4 +1,4 @@
-package com.longkhoa.fpolyfindroom.view;
+package com.longkhoa.fpolyfindroom.view.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import com.longkhoa.fpolyfindroom.R;
 import com.longkhoa.fpolyfindroom.adapter.SlideAdapter;
 
-public class OnBoardingScreenActivity extends AppCompatActivity {
+public class OnBoardingActivity extends AppCompatActivity {
     ViewPager viewPager;
     LinearLayout linearLayout;
     SlideAdapter slideAdapter;
@@ -36,7 +36,7 @@ public class OnBoardingScreenActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 if (position == 2){
-                    startActivity(new Intent(OnBoardingScreenActivity.this,ClientActivity.class));
+                    startActivity(new Intent(OnBoardingActivity.this, ClientActivity.class));
                     finish();
                 }
             }

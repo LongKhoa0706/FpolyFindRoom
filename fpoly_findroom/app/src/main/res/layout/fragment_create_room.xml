@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <LinearLayout
+           android:orientation="vertical"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+
+           <Toolbar
+               android:layout_gravity="right"
+               android:elevation="2dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+
+               <LinearLayout
+                   android:layout_gravity="right"
+                   android:orientation="horizontal"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+
+                   <ImageView
+
+                       android:src="@drawable/baseline_access_time_black_24dp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content">
+
+                   </ImageView>
+
+                   <TextView
+                       android:layout_marginLeft="5dp"
+                       android:layout_marginTop="3dp"
+                       android:text="Thêm hình "
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content">
+
+                   </TextView>
+
+               </LinearLayout>
+
+           </Toolbar>
+           <ImageView
+               android:src="@drawable/splash"
+               android:adjustViewBounds="true"
+               android:scaleType="centerCrop"
+               android:layout_width="match_parent"
+               android:layout_height="200dp">
+
+           </ImageView>
+           <LinearLayout
+               android:layout_marginTop="10dp"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+
+               <ImageView
+                   android:src="@drawable/iconpremium"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+               </ImageView>
+
+               <TextView
+                   android:layout_marginLeft="10dp"
+                   android:textColor="#FF9800"
+                   android:layout_marginTop="3dp"
+                   android:text="Căn hộ"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+
+               </TextView>
+
+           </LinearLayout>
+           <TextView
+
+               android:layout_marginTop="5dp"
+               android:textColor="#000"
+               android:textStyle="bold"
+               android:text="Phòng trọ đẹp "
+               android:textSize="23dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+           </TextView>
+           <LinearLayout
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+
+               <ImageView
+                   android:layout_marginTop="8dp"
+                   android:background="@drawable/outline_location_on_yellow_100_24dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+
+               </ImageView>
+
+               <TextView
+                   android:layout_marginTop="5dp"
+                   android:layout_marginLeft="8dp"
+                   android:text="41-43 Đ. Đinh Tiên Hoàng, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh, Việt Nam"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+
+               </TextView>
+
+
+
+           </LinearLayout>
+           <View
+               android:background="#70cccccc"
+               android:layout_marginTop="10dp"
+               android:layout_width="match_parent"
+               android:layout_height="1dp">
+
+           </View>
+           <TextView
+
+               android:layout_marginTop="10dp"
+               android:textColor="#000"
+               android:textStyle="bold"
+               android:text="Tổng quan"
+               android:textAllCaps="true"
+               android:textSize="18dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+           </TextView>
+           <View
+               android:background="#70cccccc"
+               android:layout_marginTop="10dp"
+               android:layout_width="match_parent"
+               android:layout_height="1dp">
+
+           </View>
+           <com.google.android.material.textfield.TextInputLayout
+               android:layout_width="match_parent"
+
+               android:layout_height="wrap_content">
+               <com.google.android.material.textfield.TextInputEditText
+                   android:layout_width="match_parent"
+                   android:hint="Giá"
+                   android:background="@android:color/transparent"
+                   android:layout_height="wrap_content">
+
+               </com.google.android.material.textfield.TextInputEditText>
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <LinearLayout
+               android:layout_marginTop="10dp"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <com.google.android.material.textfield.TextInputLayout
+                   android:layout_width="match_parent"
+                   android:layout_weight="1"
+                   android:layout_marginRight="20dp"
+                   android:layout_height="wrap_content">
+                   <com.google.android.material.textfield.TextInputEditText
+                       android:layout_width="match_parent"
+                       android:hint="Giá"
+                       android:background="@android:color/transparent"
+                       android:layout_height="wrap_content">
+
+                   </com.google.android.material.textfield.TextInputEditText>
+               </com.google.android.material.textfield.TextInputLayout>
+               <com.google.android.material.textfield.TextInputLayout
+                   android:layout_width="match_parent"
+                   android:layout_weight="1"
+                   android:layout_height="wrap_content">
+                   <com.google.android.material.textfield.TextInputEditText
+                       android:layout_width="match_parent"
+                       android:hint="Giá"
+                       android:background="@android:color/transparent"
+                       android:layout_height="wrap_content">
+
+                   </com.google.android.material.textfield.TextInputEditText>
+               </com.google.android.material.textfield.TextInputLayout>
+           </LinearLayout>
+
+           <LinearLayout
+               android:layout_marginTop="10dp"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <com.google.android.material.textfield.TextInputLayout
+                   android:layout_width="match_parent"
+                   android:layout_weight="1"
+                   android:layout_marginRight="20dp"
+                   android:layout_height="wrap_content">
+                   <com.google.android.material.textfield.TextInputEditText
+                       android:layout_width="match_parent"
+                       android:hint="Giá"
+                       android:background="@android:color/transparent"
+                       android:layout_height="wrap_content">
+
+                   </com.google.android.material.textfield.TextInputEditText>
+               </com.google.android.material.textfield.TextInputLayout>
+               <com.google.android.material.textfield.TextInputLayout
+                   android:layout_width="match_parent"
+                   android:layout_weight="1"
+                   android:layout_height="wrap_content">
+                   <com.google.android.material.textfield.TextInputEditText
+                       android:layout_width="match_parent"
+                       android:hint="Giá"
+                       android:background="@android:color/transparent"
+                       android:layout_height="wrap_content">
+
+                   </com.google.android.material.textfield.TextInputEditText>
+               </com.google.android.material.textfield.TextInputLayout>
+           </LinearLayout>
+
+           <View
+               android:background="#70cccccc"
+               android:layout_marginTop="15dp"
+               android:layout_width="match_parent"
+               android:layout_height="1dp">
+
+           </View>
+           <TextView
+
+               android:layout_marginTop="10dp"
+               android:textColor="#000"
+               android:textStyle="bold"
+               android:text="vật chất tiện nghi "
+               android:textAllCaps="true"
+               android:textSize="18dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+           </TextView>
+           <View
+               android:background="#70cccccc"
+               android:layout_marginTop="10dp"
+               android:layout_width="match_parent"
+               android:layout_height="1dp">
+
+           </View>
+
+           <LinearLayout
+               android:layout_marginTop="10dp"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+
+               <ImageView
+                   android:layout_marginTop="4dp"
+                   android:src="@drawable/outline_add_circle_outline_red_50_18dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+               </ImageView>
+
+               <TextView
+                   android:layout_marginLeft="6dp"
+                   android:textColor="#FF9800"
+                   android:layout_marginTop="3dp"
+                   android:text="Thêm tiện nghi"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+
+               </TextView>
+
+           </LinearLayout>
+
+           <View
+               android:background="#70cccccc"
+               android:layout_marginTop="10dp"
+               android:layout_width="match_parent"
+               android:layout_height="1dp">
+
+           </View>
+           <TextView
+
+               android:layout_marginTop="10dp"
+               android:textColor="#000"
+               android:textStyle="bold"
+               android:text="Mô tả "
+               android:textAllCaps="true"
+               android:textSize="18dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+           </TextView>
+           <View
+               android:background="#70cccccc"
+               android:layout_marginTop="10dp"
+               android:layout_width="match_parent"
+               android:layout_height="1dp">
+
+           </View>
+           <com.google.android.material.textfield.TextInputLayout
+               android:layout_width="match_parent"
+
+               android:layout_marginRight="20dp"
+               android:layout_height="wrap_content">
+               <com.google.android.material.textfield.TextInputEditText
+                   android:layout_width="match_parent"
+                   android:hint="Giá"
+                   android:background="@android:color/transparent"
+                   android:layout_height="100dp">
+
+               </com.google.android.material.textfield.TextInputEditText>
+           </com.google.android.material.textfield.TextInputLayout>
+
+       </LinearLayout>
+
+   </ScrollView>
+
+</LinearLayout>

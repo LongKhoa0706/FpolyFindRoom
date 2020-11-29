@@ -6,11 +6,13 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.WindowManager;
 
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 import com.longkhoa.fpolyfindroom.R;
-import com.longkhoa.fpolyfindroom.view.FavoriteFragment;
-import com.longkhoa.fpolyfindroom.view.HomeFragment;
+import com.longkhoa.fpolyfindroom.view.AddInfoRoomFragment;
+import com.longkhoa.fpolyfindroom.view.favorite.FavoriteFragment;
+import com.longkhoa.fpolyfindroom.view.home.HomeFragment;
 import com.longkhoa.fpolyfindroom.view.MapFragment;
 import com.longkhoa.fpolyfindroom.view.ProfileFragment;
 
@@ -23,12 +25,13 @@ public class DashBoardActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_trang_chu);
+        setContentView(R.layout.activity_dashboard);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         chipNavigationBar = findViewById(R.id.bottomTrangChu);
         if (savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.frame1, new HomeFragment())
+                    .add(R.id.dashboard_frame, new HomeFragment())
                     .commit();
             chipNavigationBar.setItemSelected(R.id.home, true);
             chipNavigationBar.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
@@ -51,7 +54,7 @@ public class DashBoardActivity extends AppCompatActivity {
                     }
                     if (fragment != null) {
                         manager = getSupportFragmentManager();
-                        manager.beginTransaction().replace(R.id.frame1, fragment).commit();
+                        manager.beginTransaction().replace(R.id.dashboard_frame, fragment).commit();
                     } else {
                         Log.e(TAG, "Erro");
                     }

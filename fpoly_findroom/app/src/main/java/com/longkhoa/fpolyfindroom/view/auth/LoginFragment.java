@@ -26,7 +26,6 @@ public class LoginFragment extends Fragment implements LoginInterface {
     EditText edtUserName,edtPassword;
     LoginPresenter loginPresenter;
 
-
     TextView tvQuenMatKhau;
     @Nullable
     @Override
@@ -44,7 +43,7 @@ public class LoginFragment extends Fragment implements LoginInterface {
 //                startActivity(new Intent(getActivity(), DashBoardActivity.class));
 //                overridePendingTransition(0,0);
 //                Toast.makeText(LoginActivity.this,"Đăng nhạp thành công!!!",Toast.LENGTH_LONG).show();
-                loginPresenter.login("11232321w31","123456");
+                loginPresenter.login("1123232131","123456");
             }
         });
         return view;
@@ -60,6 +59,5 @@ public class LoginFragment extends Fragment implements LoginInterface {
     public void loginFail(String message) {
         Log.d("LOIIII",message.toString());
         Toasty.error(getActivity(),message,Toasty.LENGTH_SHORT).show();
-
     }
 }

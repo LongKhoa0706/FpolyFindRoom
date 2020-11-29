@@ -7,7 +7,7 @@
     tools:context=".view.activity.DashBoardActivity">
 
     <FrameLayout
-        android:id="@+id/frame1"
+        android:id="@+id/dashboard_frame"
         android:layout_above="@+id/bottomTrangChu"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

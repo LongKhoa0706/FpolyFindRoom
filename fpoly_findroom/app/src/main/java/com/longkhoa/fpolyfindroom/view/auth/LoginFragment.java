@@ -18,6 +18,7 @@ import com.longkhoa.fpolyfindroom.R;
 import com.longkhoa.fpolyfindroom.presenter.LoginInterface;
 import com.longkhoa.fpolyfindroom.presenter.LoginPresenter;
 import com.longkhoa.fpolyfindroom.view.activity.DashBoardActivity;
+import com.longkhoa.fpolyfindroom.view.activity.MainActivity;
 
 import es.dmoral.toasty.Toasty;
 
@@ -44,6 +45,8 @@ public class LoginFragment extends Fragment implements LoginInterface {
 //                overridePendingTransition(0,0);
 //                Toast.makeText(LoginActivity.this,"Đăng nhạp thành công!!!",Toast.LENGTH_LONG).show();
                 loginPresenter.login("1123232131","123456");
+                Intent i = new Intent(getContext(), DashBoardActivity.class);
+                startActivity(i);
             }
         });
         return view;

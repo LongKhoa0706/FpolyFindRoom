@@ -3,102 +3,101 @@
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-   <ScrollView
-       android:layout_width="match_parent"
-       android:layout_height="match_parent">
-       <LinearLayout
-           android:orientation="vertical"
-           android:paddingLeft="15dp"
-           android:paddingRight="15dp"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-           <ImageView
-               android:layout_marginTop="20dp"
-               android:src="@drawable/logosize"
-               android:layout_width="match_parent"
-               android:layout_height="200dp">
-           </ImageView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
 
-           <TextView
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/logosize"></ImageView>
 
-               android:layout_marginTop="20dp"
-               android:text="Họ và đệm"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-           </TextView>
-           <EditText
-               android:id="@+id/edtUserName"
-               android:textSize="15dp"
-               android:hint="Họ và đệm"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-           </EditText>
-           <TextView
+            <TextView
 
-               android:layout_marginTop="20dp"
-               android:text="Số điện thoại"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-           </TextView>
-           <EditText
-               android:id="@+id/edtPhone"
-               android:textSize="15dp"
-               android:hint="Số điện thoại "
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-           </EditText>
-           <TextView
-               android:layout_marginTop="20dp"
-               android:text="Địa chỉ email"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-           </TextView>
-           <EditText
-               android:id="@+id/edtEmail"
-               android:textSize="15dp"
-               android:hint="Địa chỉ email "
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-           </EditText>
-           <TextView
-               android:layout_marginTop="20dp"
-               android:text="Mật khẩu"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-           </TextView>
-           <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Họ và đệm"></TextView>
 
-               android:id="@+id/edtPassword"
-               android:textSize="15dp"
-               android:hint="Mật khẩu"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-           </EditText>
-           <TextView
-               android:layout_marginTop="20dp"
-               android:text="Xác nhận mật khẩu"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-           </TextView>
-           <EditText
-               android:id="@+id/edtRepassword"
-               android:textSize="15dp"
-               android:hint="Xác nhận mật khẩu"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-           </EditText>
+            <EditText
+                android:id="@+id/edtUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Họ và đệm"
+                android:textSize="15dp"></EditText>
 
-           <Button
-               android:id="@+id/btnSubmitRegister"
-               android:layout_marginTop="10dp"
-               android:text="Đăng ký "
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
+            <TextView
 
-           </Button>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Số điện thoại"></TextView>
 
-       </LinearLayout>
-   </ScrollView>
+            <EditText
+                android:id="@+id/edtPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Số điện thoại "
+                android:textSize="15dp"></EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Địa chỉ email"></TextView>
+
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Địa chỉ email "
+                android:textSize="15dp"></EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Mật khẩu"></TextView>
+
+            <EditText
+
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mật khẩu"
+                android:textSize="15dp"></EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Xác nhận mật khẩu"></TextView>
+
+            <EditText
+                android:id="@+id/edtRepassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Xác nhận mật khẩu"
+                android:textSize="15dp"></EditText>
+
+            <Button
+                android:id="@+id/btnSubmitRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Đăng ký ">
+
+            </Button>
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

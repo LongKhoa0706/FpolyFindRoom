@@ -105,5 +105,6 @@ public class Room {
 
     public void setCategoriesDistrict(String categoriesDistrict) {
         this.categoriesDistrict = categoriesDistrict;
+
     }
 }

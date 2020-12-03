@@ -32,8 +32,6 @@ public class DashBoardActivity extends AppCompatActivity {
     FragmentManager manager;
     Fragment fragment= null;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

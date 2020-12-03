@@ -133,6 +133,32 @@
 
         </LinearLayout>
 
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_marginTop="1dp"
+                android:src="@drawable/outline_email_black_18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </ImageView>
+
+            <TextView
+                android:textColor="#000"
+                android:layout_marginLeft="5dp"
+                android:text="Đăng xuất"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

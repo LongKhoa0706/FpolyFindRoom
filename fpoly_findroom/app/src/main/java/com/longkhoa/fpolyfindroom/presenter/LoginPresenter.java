@@ -26,7 +26,7 @@ public class LoginPresenter {
                 if (response.isSuccessful()){
                     loginInterface.loginSuccess();
                 }else {
-//                    Log.d("LOGIN",response.message());
+                    Log.d("LOGIN",response.message());
                   loginInterface.loginFail(response.message().toString());
                 }
             }

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:elevation="20dp"
+        android:id="@+id/cardViewRoom"
+        app:cardCornerRadius="10dp"
+        android:layout_marginBottom="15dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgItemRoom"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:src="@drawable/splash"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+            </ImageView>
+
+            <LinearLayout
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtItemPriceRoom"
+                    android:textStyle="bold"
+                    android:textColor="#ff00"
+                    android:textSize="20dp"
+                    android:layout_marginTop="8dp"
+                    android:text="2.800.000đ"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/txtItemCategoriRoom"
+
+                    android:textSize="13dp"
+                    android:text="Phòng cho thuê "
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+                <View
+                    android:layout_marginTop="8dp"
+                    android:background="#ccc"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp">
+                </View>
+
+                <TextView
+                    android:id="@+id/txtItemTitleRoom"
+
+                    android:layout_marginTop="10dp"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:text="Nhà nguyên căn "
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/txtItemAddressRoom"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#000"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:text="Điện Biên Phủ "
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:src="@drawable/outline_location_on_red_50_18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </ImageView>
+                    <TextView
+
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/txtItemAddress"
+                        android:layout_marginLeft="5dp"
+                        android:text="Phường 15, Bình Thạnh, TPHCM"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

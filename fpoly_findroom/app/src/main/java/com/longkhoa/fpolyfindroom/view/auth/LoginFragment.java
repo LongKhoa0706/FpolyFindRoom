@@ -32,18 +32,15 @@ public class LoginFragment extends Fragment implements LoginInterface {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.login_fragment, container, false);
         btnLogin = view.findViewById(R.id.btnDangNhap);
-        edtPassword = view.findViewById(R.id.edtPasswordd);
+//        edtPassword = view.findViewById(R.id.edtPasswordd);
         edtUserName = view.findViewById(R.id.edtUserName);
         loginPresenter = new LoginPresenter(this);
-
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-//                startActivity(new Intent(getActivity(), DashBoardActivity.class));
-//                overridePendingTransition(0,0);
-//                Toast.makeText(LoginActivity.this,"Đăng nhạp thành công!!!",Toast.LENGTH_LONG).show();
-                loginPresenter.login("1123232131","123456");
+                startActivity(new Intent(getActivity(),DashBoardActivity.class));
+//                startActivity(new Intent(getActivity(),DashBoardActivity.class));
+                Log.d("LOIIII",edtUserName.getText().toString());
             }
         });
         return view;
@@ -51,13 +48,14 @@ public class LoginFragment extends Fragment implements LoginInterface {
 
     @Override
     public void loginSuccess() {
-        Toasty.success(getActivity(),"Login Thành công",Toasty.LENGTH_SHORT).show();
+//        Toasty.success(getActivity(),"Login Thành công",Toasty.LENGTH_SHORT).show();
         startActivity(new Intent(getActivity(),DashBoardActivity.class));
     }
 
     @Override
     public void loginFail(String message) {
         Log.d("LOIIII",message.toString());
+        startActivity(new Intent(getActivity(),DashBoardActivity.class));
         Toasty.error(getActivity(),message,Toasty.LENGTH_SHORT).show();
     }
 }

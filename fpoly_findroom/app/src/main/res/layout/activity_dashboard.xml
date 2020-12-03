@@ -8,20 +8,41 @@
 
     <FrameLayout
         android:id="@+id/dashboard_frame"
-        android:layout_above="@+id/bottomTrangChu"
+        android:layout_above="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </FrameLayout>
-
-    <com.ismaeldivita.chipnavigation.ChipNavigationBar
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:id="@+id/bottomTrangChu"
+    <com.luseen.spacenavigation.SpaceNavigationView
+        android:id="@+id/bottomBar"
+        android:elevation="5dp"
         android:layout_alignParentBottom="true"
-        android:elevation="18dp"
-        android:background="@drawable/ruond"
-        android:padding="8dp"
-        app:cnb_menuResource="@menu/bottom_menu"
-        app:cnb_unselectedColor="@color/background"
-        tools:ignore="MissingClass" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"/>
+
+
+
+<!--    <nl.joery.animatedbottombar.AnimatedBottomBar-->
+<!--        android:id="@+id/bottom_bar"-->
+<!--        android:background="#FFF"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:abb_selectedTabType="text"-->
+<!--        app:abb_indicatorAppearance="round"-->
+<!--        app:abb_indicatorMargin="16dp"-->
+<!--        app:abb_indicatorHeight="4dp"-->
+<!--        app:abb_tabs="@menu/tabs"-->
+<!--        app:abb_selectedIndex="1" />-->
+
+<!--    <com.ismaeldivita.chipnavigation.ChipNavigationBar-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:id="@+id/bottomTrangChu"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:elevation="18dp"-->
+<!--        android:background="@drawable/ruond"-->
+<!--        android:padding="8dp"-->
+<!--        app:cnb_menuResource="@menu/bottom_menu"-->
+<!--        tools:ignore="MissingClass" />-->
+
 </RelativeLayout>

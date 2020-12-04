@@ -27,6 +27,17 @@ public class User {
     @SerializedName("avatar")
     private String avatar;
 
+    private String token;
+
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
     public User(String email, String phone, String userName, String password, String createAt, String updateAt, boolean verify, String avatar) {
         this.email = email;
         this.phone = phone;

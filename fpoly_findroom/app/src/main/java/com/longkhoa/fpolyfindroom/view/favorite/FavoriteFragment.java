@@ -26,9 +26,9 @@ public class FavoriteFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-<<<<<<< HEAD
-        View view = inflater.inflate(R.layout.custom_item_room, container, false);
-=======
+//<<<<<<< HEAD
+//        View view = inflater.inflate(R.layout.custom_item_room, container, false);
+//=======
         View view = inflater.inflate(R.layout.favorite_fragment, container, false);
 //        RecyclerView recyclerView_favorite = view.findViewById(R.id.recyclerview_favorite);
 //        LinearLayoutManager linearLayoutManager_favorite = new LinearLayoutManager(getActivity());
@@ -40,7 +40,7 @@ public class FavoriteFragment extends Fragment {
 //        arrayList_favorite.add(new Favorite(R.drawable.banner,R.drawable.outline_favorite_border_white_24dp,"abc","hjkl","vbn"));
 //        FavoriteAdapter favoriteAdapter = new FavoriteAdapter(arrayList_favorite,getActivity());
 //        recyclerView_favorite.setAdapter(favoriteAdapter);
->>>>>>> a5a166a5cb55f4029f3f524bd6397450b2a9e7e8
+//>>>>>>> a5a166a5cb55f4029f3f524bd6397450b2a9e7e8
         return view;
     }
 }

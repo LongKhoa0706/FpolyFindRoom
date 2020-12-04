@@ -3,14 +3,11 @@ package com.longkhoa.fpolyfindroom.view.auth;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,8 +16,8 @@ import androidx.fragment.app.Fragment;
 
 import com.longkhoa.fpolyfindroom.R;
 import com.longkhoa.fpolyfindroom.model.User;
-import com.longkhoa.fpolyfindroom.presenter.RegisterInterface;
-import com.longkhoa.fpolyfindroom.presenter.RegisterPresenter;
+import com.longkhoa.fpolyfindroom.presenter.auth.RegisterInterface;
+import com.longkhoa.fpolyfindroom.presenter.auth.RegisterPresenter;
 
 import es.dmoral.toasty.Toasty;
 
@@ -56,7 +53,7 @@ public class RegisterFragment  extends Fragment implements RegisterInterface {
                String userName = edtUserName.getText().toString();
                String repassword = edtRepassword.getText().toString();
 
-                User user = new User("3","4","3333","12","","",false,"");
+                User user = new User(email,phone,userName,password,"","",false,"");
                 registerPresenter.register(user);
 
             }
@@ -73,6 +70,8 @@ public class RegisterFragment  extends Fragment implements RegisterInterface {
     public void registerSuccess() {
 //        progressDialog.show();
         Toasty.success(getActivity(), "Success!", Toast.LENGTH_SHORT, true).show();
+//        LoginFragment loginFragment = new LoginFragment();
+//        loadFragment(loginFragment);
     }
 
     @Override

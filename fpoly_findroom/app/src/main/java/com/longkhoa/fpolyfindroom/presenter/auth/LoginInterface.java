@@ -1,4 +1,4 @@
-package com.longkhoa.fpolyfindroom.presenter;
+package com.longkhoa.fpolyfindroom.presenter.auth;
 
 public interface LoginInterface {
     void loginSuccess();

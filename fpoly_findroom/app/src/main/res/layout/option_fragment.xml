@@ -58,7 +58,7 @@
       <RelativeLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:background="@drawable/bg1">
+          android:background="@drawable/spinner_drawable">
 
           <FrameLayout
               android:layout_width="match_parent"

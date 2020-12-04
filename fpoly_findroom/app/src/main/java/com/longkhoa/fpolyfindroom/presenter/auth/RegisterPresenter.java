@@ -1,4 +1,4 @@
-package com.longkhoa.fpolyfindroom.presenter;
+package com.longkhoa.fpolyfindroom.presenter.auth;
 
 import android.util.Log;
 
@@ -30,27 +30,26 @@ public class RegisterPresenter {
 
     public void register(User user) {
         authService = RetrofitClient.getRetrofitInstance().create(AuthService.class);
-        Call<ResponseBody> jsonObjectCall = authService.registerUser(user);
-        jsonObjectCall.enqueue(new Callback<ResponseBody>() {
+        authService.registerUser(user).enqueue(new Callback<User>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-
+            public void onResponse(Call<User> call, Response<User> response) {
                 if (response.isSuccessful()) {
-                    try {
-                        if (response.body() != null) {
-                            String jsonString = response.body().string();
-                            Log.i("Jsonnnnn", jsonString);
-                            Gson gson = new Gson();
-                            Result status = gson.fromJson(jsonString, Result.class);
-                            Log.i("KET QUA", String.valueOf(status.message) + "");
-                            registerInterface.registerSuccess();
-                        } else {
-                            Log.i("Jsonnnnn", "FAIL");
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
+//                    try {
+//                        if (response.body() != null) {
+//                            String jsonString = response.body();
+//                            Log.i("Jsonnnnn", jsonString);
+//                            Gson gson = new Gson();
+//                            Result status = gson.fromJson(jsonString, Result.class);
+//                            Log.i("KET QUA", String.valueOf(status.message) + "");
+//                            registerInterface.registerSuccess();
+//                        } else {
+//                            Log.i("Jsonnnnn", "FAIL");
+//                        }
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+                    Log.d("======>",response.);
+                    registerInterface.registerSuccess();
                 } else {
                     Log.i("KET QUA FAIL", String.valueOf(response.message()) + "");
 //                          registerInterface.registerFail(status.message);
@@ -58,9 +57,8 @@ public class RegisterPresenter {
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Log.d("dasds", t.getMessage());
-//                  registerInterface.registerFail(t.getMessage());
+            public void onFailure(Call<User> call, Throwable t) {
+
             }
         });
     }

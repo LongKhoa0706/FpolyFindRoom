@@ -1,4 +1,4 @@
-package com.longkhoa.fpolyfindroom.presenter;
+package com.longkhoa.fpolyfindroom.presenter.auth;
 
 import android.util.Log;
 

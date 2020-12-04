@@ -45,7 +45,7 @@ public class DashBoardActivity extends AppCompatActivity {
         spaceNavigationView.setCentreButtonColor(ContextCompat.getColor(this, R.color.primayApp));
         spaceNavigationView.addSpaceItem(new SpaceItem("", R.drawable.outline_home_black_18dp));
         spaceNavigationView.addSpaceItem(new SpaceItem("", R.drawable.outline_favorite_border_white_18dp));
-        spaceNavigationView.addSpaceItem(new SpaceItem("", R.drawable.baseline_access_time_black_24dp));
+        spaceNavigationView.addSpaceItem(new SpaceItem("", R.drawable.outline_map_white_18dp));
         spaceNavigationView.addSpaceItem(new SpaceItem("", R.drawable.outline_person_white_18dp));
         spaceNavigationView.setActiveSpaceItemColor(ContextCompat.getColor(this, R.color.primayApp));
         spaceNavigationView.setInActiveSpaceItemColor(ContextCompat.getColor(this, R.color.gray));
@@ -61,7 +61,7 @@ public class DashBoardActivity extends AppCompatActivity {
                 Log.d("AAA",itemIndex+"");
                 switch (itemIndex){
                     case  0:
-                        fragment = new DetailRoomFragment();
+                        fragment = new HomeFragment();
                         loadFragment(fragment);
                         break;
                     case 1:

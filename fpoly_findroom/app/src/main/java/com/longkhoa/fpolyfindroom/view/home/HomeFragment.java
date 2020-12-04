@@ -33,7 +33,6 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home_fragment, container, false);
-
         //district
         RecyclerView recyclerView = view.findViewById(R.id.recyclerview_district);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
@@ -90,13 +89,13 @@ public class HomeFragment extends Fragment {
         recyclerView_room.setLayoutManager(linearLayoutManager_room);
         recyclerView_room.setItemAnimator(new DefaultItemAnimator());
         ArrayList<Room> arrayList_room = new ArrayList<>();
-        arrayList_room.add(new Room(R.drawable.room,R.drawable.outline_favorite_border_white_24dp,R.drawable.room,"Quận 5, Hồ Chi Minh","bnms","500,000đ","Quận 5, Hồ Chi Minh","bnms","500,000đ"));
-        arrayList_room.add(new Room(R.drawable.room,R.drawable.outline_favorite_border_white_24dp,R.drawable.room,"Quận 5, Hồ Chi Minh","bnms","500,000đ","Quận 5, Hồ Chi Minh","bnms","500,000đ"));
-        arrayList_room.add(new Room(R.drawable.room,R.drawable.outline_favorite_border_white_24dp,R.drawable.room,"Quận 5, Hồ Chi Minh","bnms","500,000đ","Quận 5, Hồ Chi Minh","bnms","500,000đ"));
-        arrayList_room.add(new Room(R.drawable.room,R.drawable.outline_favorite_border_white_24dp,R.drawable.room,"Quận 5, Hồ Chi Minh","bnms","500,000đ","Quận 5, Hồ Chi Minh","bnms","500,000đ"));
-        arrayList_room.add(new Room(R.drawable.room,R.drawable.outline_favorite_border_white_24dp,R.drawable.room,"Quận 5, Hồ Chi Minh","bnms","500,000đ","Quận 5, Hồ Chi Minh","bnms","500,000đ"));
-        RoomAdapter roomAdapter = new RoomAdapter(arrayList_room,getActivity());
-        recyclerView_room.setAdapter(roomAdapter);
+//        arrayList_room.add(new Room(R.drawable.room,R.drawable.outline_favorite_border_white_24dp,R.drawable.room,"Quận 5, Hồ Chi Minh","bnms","500,000đ","Quận 5, Hồ Chi Minh","bnms","500,000đ"));
+//        arrayList_room.add(new Room(R.drawable.room,R.drawable.outline_favorite_border_white_24dp,R.drawable.room,"Quận 5, Hồ Chi Minh","bnms","500,000đ","Quận 5, Hồ Chi Minh","bnms","500,000đ"));
+//        arrayList_room.add(new Room(R.drawable.room,R.drawable.outline_favorite_border_white_24dp,R.drawable.room,"Quận 5, Hồ Chi Minh","bnms","500,000đ","Quận 5, Hồ Chi Minh","bnms","500,000đ"));
+//        arrayList_room.add(new Room(R.drawable.room,R.drawable.outline_favorite_border_white_24dp,R.drawable.room,"Quận 5, Hồ Chi Minh","bnms","500,000đ","Quận 5, Hồ Chi Minh","bnms","500,000đ"));
+//        arrayList_room.add(new Room(R.drawable.room,R.drawable.outline_favorite_border_white_24dp,R.drawable.room,"Quận 5, Hồ Chi Minh","bnms","500,000đ","Quận 5, Hồ Chi Minh","bnms","500,000đ"));
+//        RoomAdapter roomAdapter = new RoomAdapter(arrayList_room,getActivity());
+//        recyclerView_room.setAdapter(roomAdapter);
         return view;
     }
 }

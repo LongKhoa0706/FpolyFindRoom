@@ -61,7 +61,7 @@ public class DashBoardActivity extends AppCompatActivity {
                 Log.d("AAA",itemIndex+"");
                 switch (itemIndex){
                     case  0:
-                        fragment = new DetailRoomFragment();
+                        fragment = new HomeFragment();
                         loadFragment(fragment);
                         break;
                     case 1:

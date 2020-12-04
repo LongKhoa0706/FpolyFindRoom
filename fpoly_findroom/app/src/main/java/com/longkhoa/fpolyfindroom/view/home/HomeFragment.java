@@ -17,10 +17,12 @@ import android.widget.FrameLayout;
 import com.longkhoa.fpolyfindroom.R;
 import com.longkhoa.fpolyfindroom.adapter.BannerAdapter;
 import com.longkhoa.fpolyfindroom.adapter.DistrictAdapter;
+import com.longkhoa.fpolyfindroom.adapter.HomeAdapter;
 import com.longkhoa.fpolyfindroom.adapter.IntroAdapter;
 import com.longkhoa.fpolyfindroom.adapter.RoomAdapter;
 import com.longkhoa.fpolyfindroom.model.Banner;
 import com.longkhoa.fpolyfindroom.model.District;
+import com.longkhoa.fpolyfindroom.model.Home;
 import com.longkhoa.fpolyfindroom.model.Intro;
 import com.longkhoa.fpolyfindroom.model.Room;
 
@@ -89,14 +91,14 @@ public class HomeFragment extends Fragment {
         linearLayoutManager_room.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView_room.setLayoutManager(linearLayoutManager_room);
         recyclerView_room.setItemAnimator(new DefaultItemAnimator());
-        ArrayList<Room> arrayList_room = new ArrayList<>();
-        arrayList_room.add(new Room(R.drawable.room,R.drawable.outline_favorite_border_white_24dp,R.drawable.room,"Quận 5, Hồ Chi Minh","bnms","500,000đ","Quận 5, Hồ Chi Minh","bnms","500,000đ"));
-        arrayList_room.add(new Room(R.drawable.room,R.drawable.outline_favorite_border_white_24dp,R.drawable.room,"Quận 5, Hồ Chi Minh","bnms","500,000đ","Quận 5, Hồ Chi Minh","bnms","500,000đ"));
-        arrayList_room.add(new Room(R.drawable.room,R.drawable.outline_favorite_border_white_24dp,R.drawable.room,"Quận 5, Hồ Chi Minh","bnms","500,000đ","Quận 5, Hồ Chi Minh","bnms","500,000đ"));
-        arrayList_room.add(new Room(R.drawable.room,R.drawable.outline_favorite_border_white_24dp,R.drawable.room,"Quận 5, Hồ Chi Minh","bnms","500,000đ","Quận 5, Hồ Chi Minh","bnms","500,000đ"));
-        arrayList_room.add(new Room(R.drawable.room,R.drawable.outline_favorite_border_white_24dp,R.drawable.room,"Quận 5, Hồ Chi Minh","bnms","500,000đ","Quận 5, Hồ Chi Minh","bnms","500,000đ"));
-        RoomAdapter roomAdapter = new RoomAdapter(arrayList_room,getActivity());
-        recyclerView_room.setAdapter(roomAdapter);
+        ArrayList<Home> arrayList_room = new ArrayList<>();
+        arrayList_room.add(new Home(R.drawable.home,R.drawable.home,R.drawable.outline_favorite_border_white_24dp,R.drawable.outline_favorite_border_white_24dp,"Căn hộ","San's Home","500,000đ","Chung cư","Hồ Chí Minh","500,000đ"));
+        arrayList_room.add(new Home(R.drawable.home,R.drawable.home,R.drawable.outline_favorite_border_white_24dp,R.drawable.outline_favorite_border_white_24dp,"Căn hộ","San's Home","500,000đ","Chung cư","Hồ Chí Minh","500,000đ"));
+        arrayList_room.add(new Home(R.drawable.home,R.drawable.home,R.drawable.outline_favorite_border_white_24dp,R.drawable.outline_favorite_border_white_24dp,"Căn hộ","San's Home","500,000đ","Chung cư","Hồ Chí Minh","500,000đ"));
+        arrayList_room.add(new Home(R.drawable.home,R.drawable.home,R.drawable.outline_favorite_border_white_24dp,R.drawable.outline_favorite_border_white_24dp,"Căn hộ","San's Home","500,000đ","Chung cư","Hồ Chí Minh","500,000đ"));
+        arrayList_room.add(new Home(R.drawable.home,R.drawable.home,R.drawable.outline_favorite_border_white_24dp,R.drawable.outline_favorite_border_white_24dp,"Căn hộ","San's Home","500,000đ","Chung cư","Hồ Chí Minh","500,000đ"));
+        HomeAdapter homeAdapter = new HomeAdapter(arrayList_room,getActivity());
+        recyclerView_room.setAdapter(homeAdapter);
         return view;
     }
 }

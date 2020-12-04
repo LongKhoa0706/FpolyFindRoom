@@ -26,17 +26,17 @@ public class FavoriteFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //<<<<<<< HEAD
 //        View view = inflater.inflate(R.layout.custom_item_room, container, false);
 //=======
         View view = inflater.inflate(R.layout.favorite_fragment, container, false);
-=======
-
-        View view = inflater.inflate(R.layout.custom_item_room, container, false);
+//=======
+//
+//        View view = inflater.inflate(R.layout.custom_item_room, container, false);
 
 //        View view = inflater.inflate(R.layout.favorite_fragment, container, false);
->>>>>>> 953d66b0e1062c34560347aeecf3a99369be82d3
+//>>>>>>> 953d66b0e1062c34560347aeecf3a99369be82d3
 //        RecyclerView recyclerView_favorite = view.findViewById(R.id.recyclerview_favorite);
 //        LinearLayoutManager linearLayoutManager_favorite = new LinearLayoutManager(getActivity());
 //        linearLayoutManager_favorite.setOrientation(LinearLayoutManager.VERTICAL);
@@ -47,11 +47,11 @@ public class FavoriteFragment extends Fragment {
 //        arrayList_favorite.add(new Favorite(R.drawable.banner,R.drawable.outline_favorite_border_white_24dp,"abc","hjkl","vbn"));
 //        FavoriteAdapter favoriteAdapter = new FavoriteAdapter(arrayList_favorite,getActivity());
 //        recyclerView_favorite.setAdapter(favoriteAdapter);
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //>>>>>>> a5a166a5cb55f4029f3f524bd6397450b2a9e7e8
-=======
+//=======
 
->>>>>>> 953d66b0e1062c34560347aeecf3a99369be82d3
+//>>>>>>> 953d66b0e1062c34560347aeecf3a99369be82d3
         return view;
     }
 }

@@ -50,7 +50,7 @@ public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.ViewHo
         TextView txt_title;
         ViewHolder(@NonNull View itemView) {
             super(itemView);
-            image_district = itemView.findViewById(R.id.image_district);
+//            image_district = itemView.findViewById(R.id.image_district);
             txt_title = itemView.findViewById(R.id.txt2);
         }
     }

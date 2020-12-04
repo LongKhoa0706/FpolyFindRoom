@@ -9,10 +9,10 @@
 
     <ImageView
         android:id="@+id/imageLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="140dp"
+        android:layout_width="255dp"
+        android:layout_height="120dp"
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo5" />
 
     <TextView
         android:id="@+id/tvImage"
@@ -22,6 +22,7 @@
         android:layout_centerHorizontal="true"
         android:textSize="20dp"
         android:textStyle="bold"
+        android:layout_marginTop="45dp"
         android:textColor="@color/black"
         android:text="WELLCOME TO FINDROOM" />
 
@@ -30,6 +31,7 @@
         android:layout_below="@+id/tvImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
         android:hint="Tên đăng nhập..." />
 
     <EditText
@@ -37,24 +39,25 @@
         android:layout_below="@+id/edtUserName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:inputType="textPassword"
         android:hint="Mật khẩu..." />
 
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_below="@+id/edtPasswordd"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lưu đăng nhập? " />
 
     <Button
-
         android:id="@+id/btnDangNhap"
         android:layout_below="@+id/checkBox"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:background="@drawable/bottron_button"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:textStyle="bold"
         android:textSize="15dp"
         android:textColor="@color/white"
@@ -80,7 +83,7 @@
         android:layout_below="@+id/btnDangNhap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
         android:textColor="#f6b96a"
         android:textStyle="bold"
@@ -93,7 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:textColor="#0C0C0C"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
         android:textStyle="bold"
         android:text="Hoặc" />
 

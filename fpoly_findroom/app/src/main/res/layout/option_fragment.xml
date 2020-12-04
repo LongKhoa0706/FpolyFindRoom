@@ -13,21 +13,23 @@
 
         <ImageView
             android:scaleType="fitXY"
-            android:src="@drawable/logo"
-            android:layout_width="130dp"
-            android:layout_height="150dp">
+            android:layout_marginTop="20dp"
+            android:src="@drawable/logo5"
+            android:layout_width="100dp"
+            android:layout_height="100dp">
         </ImageView>
         <TextView
             android:textStyle="bold"
             android:text="Chào mừng bạn đến với Findroom!"
             android:textSize="20dp"
+            android:layout_marginTop="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </TextView>
 
         <Button
             android:id="@+id/btnRegister"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:textAllCaps="true"
             android:text="Đăng ký với email"
             android:layout_width="match_parent"
@@ -37,7 +39,7 @@
         <TextView
             android:gravity="center"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="25dp"
             android:textStyle="bold"
             android:text="Đăng nhập với tài khoản khác"
             android:layout_width="match_parent"
@@ -47,7 +49,7 @@
             android:id="@+id/txtLogin"
             android:gravity="center"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:textStyle="bold"
             android:textAllCaps="true"
             android:text="Đăng nhập"
@@ -55,17 +57,26 @@
             android:layout_height="wrap_content">
         </TextView>
 
+<!--<<<<<<< HEAD-->
       <RelativeLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:background="@drawable/spinner_drawable">
 
-          <FrameLayout
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="#B3FFFFFF" />
-
       </RelativeLayout>
+<!--=======-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="430dp"
+            android:background="@drawable/bg1">
+<!--&gt;>>>>>> 953d66b0e1062c34560347aeecf3a99369be82d3-->
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#B3FFFFFF" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 

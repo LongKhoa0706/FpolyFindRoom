@@ -38,11 +38,10 @@ public class LoginFragment extends Fragment implements LoginInterface {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//<<<<<<< HEAD
+
                 startActivity(new Intent(getActivity(),DashBoardActivity.class));
 //                startActivity(new Intent(getActivity(),DashBoardActivity.class));
                 Log.d("LOIIII",edtUserName.getText().toString());
-//=======
 
 //                startActivity(new Intent(getActivity(), DashBoardActivity.class));
 //                overridePendingTransition(0,0);
@@ -50,7 +49,7 @@ public class LoginFragment extends Fragment implements LoginInterface {
                 loginPresenter.login("1123232131","123456");
                 Intent i = new Intent(getContext(), DashBoardActivity.class);
                 startActivity(i);
-//>>>>>>> a5a166a5cb55f4029f3f524bd6397450b2a9e7e8
+
             }
         });
         return view;

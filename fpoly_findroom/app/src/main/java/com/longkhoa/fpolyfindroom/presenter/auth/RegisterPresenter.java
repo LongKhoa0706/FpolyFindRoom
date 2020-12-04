@@ -48,7 +48,7 @@ public class RegisterPresenter {
 //                    } catch (IOException e) {
 //                        e.printStackTrace();
 //                    }
-                    Log.d("======>",response.);
+//                    Log.d("======>");
                     registerInterface.registerSuccess();
                 } else {
                     Log.i("KET QUA FAIL", String.valueOf(response.message()) + "");

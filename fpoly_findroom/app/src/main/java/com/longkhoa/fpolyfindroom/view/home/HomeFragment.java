@@ -29,13 +29,15 @@ import java.util.TimerTask;
 
 public class HomeFragment extends Fragment {
     ViewPager viewPagerBanner;
-    RecyclerView recyclerView1, recyclerView2;
+    RecyclerView recyclerView1, recyclerView2,recyclerView3;
+
     BannerAdapter bannerAdapter;
     ArrayList<Integer> arrListBanner = new ArrayList<>();
     ArrayList<Categories> arrayCateries = new ArrayList<>();
     CateroriesAdapter cateroriesAdapter;
     HomeRoomAdapter homeRoomAdapter;
     ArrayList<Room> arrHomeRoom = new ArrayList<>();
+    ArrayList<Room> arrHomeItem = new ArrayList<>();
     int currentPage = 0;
     Timer timer;
     final long DELAY_MS = 500;
@@ -48,6 +50,8 @@ public class HomeFragment extends Fragment {
         viewPagerBanner = view.findViewById(R.id.viewPagerBanner);
         recyclerView1 = view.findViewById(R.id.reyclerView1);
         recyclerView2 = view.findViewById(R.id.reyclerView2);
+        recyclerView3 = view.findViewById(R.id.reyclerView3);
+
         arrListBanner.add(R.drawable.banner1);
         arrListBanner.add(R.drawable.banner2);
         arrListBanner.add(R.drawable.banner3);
@@ -92,6 +96,18 @@ public class HomeFragment extends Fragment {
         homeRoomAdapter = new HomeRoomAdapter(getActivity(), arrHomeRoom, R.layout.custom_item_homeroom);
         recyclerView2.setAdapter(homeRoomAdapter);
 //        recyclerView2.setNestedScrollingEnabled(false);
+
+        LinearLayoutManager linearLayoutManagerHorizone = new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false);
+        recyclerView3.setLayoutManager(linearLayoutManagerHorizone);
+
+        arrHomeItem.add(new Room("1,000,000đ", "Nhà", "43/12 Trần Quang Diệu,Phường 14, Quận 3,TPHCM", "", null, "", false, null, "Nhà giá rẻ", ""));
+        arrHomeItem.add(new Room("1,000,000đ", "Nhà", "43/12 Trần Quang Diệu,Phường 14, Quận 3,TPHCM", "", null, "", false, null, "Nhà giá rẻ", ""));
+        arrHomeItem.add(new Room("1,000,000đ", "Nhà", "43/12 Trần Quang Diệu,Phường 14, Quận 3,TPHCM", "", null, "", false, null, "Nhà giá rẻ", ""));
+        arrHomeItem.add(new Room("1,000,000đ", "Nhà", "43/12 Trần Quang Diệu,Phường 14, Quận 3,TPHCM", "", null, "", false, null, "Nhà giá rẻ", ""));
+        arrHomeItem.add(new Room("1,000,000đ", "Nhà", "43/12 Trần Quang Diệu,Phường 14, Quận 3,TPHCM", "", null, "", false, null, "Nhà giá rẻ", ""));
+        arrHomeItem.add(new Room("1,000,000đ", "Nhà", "43/12 Trần Quang Diệu,Phường 14, Quận 3,TPHCM", "", null, "", false, null, "Nhà giá rẻ", ""));
+        homeRoomAdapter = new HomeRoomAdapter(getActivity(), arrHomeItem, R.layout.custom_item_homeroom);
+        recyclerView3.setAdapter(homeRoomAdapter);
 
         return view;
     }

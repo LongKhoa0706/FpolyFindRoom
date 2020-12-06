@@ -23,9 +23,8 @@ public class AddInfoRoomFragment extends Fragment {
         View view = inflater.inflate(R.layout.addroominfo_fragment,container, false);
         spinnerChooseType = view.findViewById(R.id.spinner);
         btnCreateRoom = view.findViewById(R.id.btnCreateRoom);
-        spinnerChooseType.setItems("Ice Cream Sandwich", "Jelly Bean", "KitKat", "Lollipop", "Marshmallow");
+        spinnerChooseType.setItems("Nhà", "Căn hộ", "Phòng");
         spinnerChooseType.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
-
             @Override public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
                 Snackbar.make(view, "Clicked " + item, Snackbar.LENGTH_LONG).show();
             }

@@ -1,9 +1,5 @@
 package com.longkhoa.fpolyfindroom.adapter;
 
-//<<<<<<< HEAD
-//
-//=======
-//>>>>>>> a5a166a5cb55f4029f3f524bd6397450b2a9e7e8
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,8 +37,8 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        View view = layoutInflater.inflate(R.layout.cardview_room, parent, false);
-//>>>>>>> a5a166a5cb55f4029f3f524bd6397450b2a9e7e8
+        View view = layoutInflater.inflate(layout, parent, false);
+
         return new ViewHolder(view);
     }
 

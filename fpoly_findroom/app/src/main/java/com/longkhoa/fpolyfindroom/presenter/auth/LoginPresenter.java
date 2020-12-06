@@ -24,6 +24,7 @@ public class LoginPresenter {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.isSuccessful()){
+
                     loginInterface.loginSuccess();
                 }else {
                     Log.d("LOGIN",response.message());

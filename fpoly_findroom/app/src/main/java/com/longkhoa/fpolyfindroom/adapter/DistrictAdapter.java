@@ -36,7 +36,7 @@ public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         District district = districtList.get(position);
-        holder.image_district.setImageResource(district.getImage_district());
+//        holder.image_district.setImageResource(district.getImage_district());
         holder.txt_title.setText(district.getTxt2());
     }
 

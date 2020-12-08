@@ -1,8 +1,19 @@
 package com.longkhoa.fpolyfindroom.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class User {
+import java.util.List;
+
+public class User implements Parcelable {
+    @SerializedName("_id")
+    private String id;
+
+    @SerializedName("roles")
+    private List<String> roles;
+
     @SerializedName("email")
     private String email;
 
@@ -15,10 +26,10 @@ public class User {
     @SerializedName("password")
     private String password;
 
-    @SerializedName("createAt")
+    @SerializedName("create_at")
     private String createAt;
 
-    @SerializedName("updateAt")
+    @SerializedName("update_at")
     private String updateAt;
 
     @SerializedName("verify")
@@ -27,11 +38,54 @@ public class User {
     @SerializedName("avatar")
     private String avatar;
 
+    @SerializedName("token")
     private String token;
 
+    protected User(Parcel in) {
+        id = in.readString();
+        roles = in.createStringArrayList();
+        email = in.readString();
+        phone = in.readString();
+        userName = in.readString();
+        password = in.readString();
+        createAt = in.readString();
+        updateAt = in.readString();
+        verify = in.readByte() != 0;
+        avatar = in.readString();
+        token = in.readString();
+    }
+
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
 
     public String getToken() {
         return token;
+    }
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
     }
 
     public void setToken(String token) {
@@ -111,5 +165,25 @@ public class User {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(id);
+        parcel.writeStringList(roles);
+        parcel.writeString(email);
+        parcel.writeString(phone);
+        parcel.writeString(userName);
+        parcel.writeString(password);
+        parcel.writeString(createAt);
+        parcel.writeString(updateAt);
+        parcel.writeByte((byte) (verify ? 1 : 0));
+        parcel.writeString(avatar);
+        parcel.writeString(token);
     }
 }

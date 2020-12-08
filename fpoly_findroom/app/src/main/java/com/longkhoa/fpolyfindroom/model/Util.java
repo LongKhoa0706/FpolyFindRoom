@@ -1,10 +1,10 @@
 package com.longkhoa.fpolyfindroom.model;
 
-public class Categories {
+public class Util {
     private String title;
     private int icon;
 
-    public Categories(String title, int icon) {
+    public Util(String title, int icon) {
         this.title = title;
         this.icon = icon;
     }

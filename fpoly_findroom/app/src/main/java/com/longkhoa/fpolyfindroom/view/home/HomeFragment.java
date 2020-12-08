@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,7 +19,7 @@ import com.longkhoa.fpolyfindroom.R;
 import com.longkhoa.fpolyfindroom.adapter.BannerAdapter;
 import com.longkhoa.fpolyfindroom.adapter.CateroriesAdapter;
 import com.longkhoa.fpolyfindroom.adapter.HomeRoomAdapter;
-import com.longkhoa.fpolyfindroom.model.Categories;
+import com.longkhoa.fpolyfindroom.model.CategoriesRoom;
 import com.longkhoa.fpolyfindroom.model.Room;
 
 import java.util.ArrayList;
@@ -33,7 +32,7 @@ public class HomeFragment extends Fragment {
 
     BannerAdapter bannerAdapter;
     ArrayList<Integer> arrListBanner = new ArrayList<>();
-    ArrayList<Categories> arrayCateries = new ArrayList<>();
+    ArrayList<CategoriesRoom> arrayCateries = new ArrayList<>();
     CateroriesAdapter cateroriesAdapter;
     HomeRoomAdapter homeRoomAdapter;
     ArrayList<Room> arrHomeRoom = new ArrayList<>();
@@ -77,9 +76,9 @@ public class HomeFragment extends Fragment {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false);
         recyclerView1.setLayoutManager(linearLayoutManager);
-        arrayCateries.add(new Categories("Nhà", R.drawable.baseline_home_black_24dp));
-        arrayCateries.add(new Categories("Phòng", R.drawable.baseline_meeting_room_black_24dp));
-        arrayCateries.add(new Categories("Căn hộ", R.drawable.baseline_apartment_black_24dp));
+        arrayCateries.add(new CategoriesRoom("Nhà", R.drawable.baseline_home_black_24dp));
+        arrayCateries.add(new CategoriesRoom("Phòng", R.drawable.baseline_meeting_room_black_24dp));
+        arrayCateries.add(new CategoriesRoom("Căn hộ", R.drawable.baseline_apartment_black_24dp));
 
         cateroriesAdapter = new CateroriesAdapter(getActivity(), arrayCateries, R.layout.custom_categories);
         recyclerView1.setAdapter(cateroriesAdapter);

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:adjustViewBounds="true"
+            android:src="@drawable/icon5"
+            android:id="@+id/imgIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp">
+
+        </ImageView>
+
+        <TextView
+            android:textColor="#000"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/txtTitleUtil"
+            android:text="Wifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+    </LinearLayout>
+
+</LinearLayout>

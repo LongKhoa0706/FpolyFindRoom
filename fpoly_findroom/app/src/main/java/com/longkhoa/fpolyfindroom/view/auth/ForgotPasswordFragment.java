@@ -1,4 +1,4 @@
-package com.longkhoa.fpolyfindroom.view;
+package com.longkhoa.fpolyfindroom.view.auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;

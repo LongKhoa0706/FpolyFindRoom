@@ -17,12 +17,11 @@ import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-// cấu hình retrofit, NHỚ ĐỔI URL VÀ NHỚ URL LÀ 192.168.0.108:5000 trong đó 192.168.0.108  đường dẫn địa chỉ wifi
 public class RetrofitClient {
 //    private static Context context;
 
     private static Retrofit retrofit;
-    public static final String BASE_URL = "http://192.168.0.109:8080/";
+    public static final String BASE_URL = "https://fpolyfindroom.herokuapp.com/";
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {
 //

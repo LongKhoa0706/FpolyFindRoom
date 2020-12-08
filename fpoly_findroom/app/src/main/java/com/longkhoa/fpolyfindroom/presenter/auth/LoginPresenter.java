@@ -2,8 +2,12 @@ package com.longkhoa.fpolyfindroom.presenter.auth;
 
 import android.util.Log;
 
+import com.google.gson.Gson;
+import com.longkhoa.fpolyfindroom.model.MyStatus;
 import com.longkhoa.fpolyfindroom.networking.RetrofitClient;
 import com.longkhoa.fpolyfindroom.service.AuthService;
+
+import java.io.IOException;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -14,6 +18,7 @@ public class LoginPresenter {
     private AuthService authService;
     LoginInterface loginInterface;
 
+
     public LoginPresenter(LoginInterface loginInterface) {
         this.loginInterface = loginInterface;
     }
@@ -23,12 +28,25 @@ public class LoginPresenter {
         authService.login(phone,password).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if (response.isSuccessful()){
 
-                    loginInterface.loginSuccess();
-                }else {
-                    Log.d("LOGIN",response.message());
-                  loginInterface.loginFail(response.message().toString());
+                try {
+                    if (response.body() !=null){
+
+                        String jsonString = response.body().string();
+                        Log.d("KETQUA",jsonString);
+                        Gson gson = new Gson();
+                        MyStatus status = gson.fromJson(jsonString,MyStatus.class);
+                        loginInterface.loginSuccess(status);
+
+
+                    }else {
+                        String jsonString = response.errorBody().string();
+                        Gson gson = new Gson();
+                        MyStatus status = gson.fromJson(jsonString,MyStatus.class);
+                        loginInterface.loginFail(status.getMes());
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
 

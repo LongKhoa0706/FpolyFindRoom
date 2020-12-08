@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,12 +16,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.longkhoa.fpolyfindroom.R;
+import com.longkhoa.fpolyfindroom.model.MyStatus;
 import com.longkhoa.fpolyfindroom.presenter.auth.LoginInterface;
 import com.longkhoa.fpolyfindroom.presenter.auth.LoginPresenter;
 import com.longkhoa.fpolyfindroom.view.activity.DashBoardActivity;
 
 import es.dmoral.toasty.Toasty;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class LoginFragment extends Fragment implements LoginInterface {
     Button btnLogin;
@@ -28,6 +33,14 @@ public class LoginFragment extends Fragment implements LoginInterface {
     LoginPresenter loginPresenter;
 
     TextView tvQuenMatKhau;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        SharedPreferences sharedPref = context.getSharedPreferences("user", Context.MODE_PRIVATE);
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -39,25 +52,31 @@ public class LoginFragment extends Fragment implements LoginInterface {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getContext(), DashBoardActivity.class);
-                startActivity(i);
                 loginPresenter.login(edtUserName.getText().toString(),edtPassword.getText().toString());
             }
         });
         return view;
     }
 
+
     @Override
-    public void loginSuccess() {
-        Toasty.success(getActivity(),"Login Thành công",Toasty.LENGTH_SHORT).show();
-        Intent i = new Intent(getContext(), DashBoardActivity.class);
-        startActivity(i);
+    public void loginSuccess(MyStatus myStatus) {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        Gson gson = new Gson();
+        String json = gson.toJson(myStatus.getUser());
+        editor.putString("user", json);
+        editor.apply();
+
+        Toasty.success(getActivity(),myStatus.getMes(),Toasty.LENGTH_SHORT).show();
+        startActivity(new Intent(getActivity(), DashBoardActivity.class));
     }
 
     @Override
     public void loginFail(String message) {
         Log.d("LOIIII",message.toString());
-//        startActivity(new Intent(getActivity(),DashBoardActivity.class));
         Toasty.error(getActivity(),message,Toasty.LENGTH_SHORT).show();
     }
+
 }

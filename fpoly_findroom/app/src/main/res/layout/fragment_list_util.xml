@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#ffff"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Toolbar
+
+        android:navigationIcon="@drawable/baseline_arrow_back_black_24dp"
+        android:title="Thêm vật chất"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reyclerViewUtil"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>

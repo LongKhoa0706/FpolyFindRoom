@@ -11,16 +11,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.longkhoa.fpolyfindroom.R;
-import com.longkhoa.fpolyfindroom.model.Categories;
+import com.longkhoa.fpolyfindroom.model.CategoriesRoom;
 
 import java.util.List;
 
 public class CateroriesAdapter extends RecyclerView.Adapter<CateroriesAdapter.ViewHolder> {
     private Context context;
-    private List<Categories> arrayCategoies;
+    private List<CategoriesRoom> arrayCategoies;
     private int layout;
 
-    public CateroriesAdapter(Context context, List<Categories> arrayCategoies,int layout) {
+    public CateroriesAdapter(Context context, List<CategoriesRoom> arrayCategoies, int layout) {
         this.context = context;
         this.arrayCategoies = arrayCategoies;
         this.layout = layout;
@@ -35,7 +35,7 @@ public class CateroriesAdapter extends RecyclerView.Adapter<CateroriesAdapter.Vi
     }
 
     public void onBindViewHolder(@NonNull CateroriesAdapter.ViewHolder holder, int position) {
-        Categories categories = arrayCategoies.get(position);
+        CategoriesRoom categories = arrayCategoies.get(position);
         holder.txtTitleIcon.setText(categories.getTitle());
         holder.imageIconCategories.setImageResource(categories.getIcon());
     }

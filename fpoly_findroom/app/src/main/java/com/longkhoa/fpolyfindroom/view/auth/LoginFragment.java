@@ -46,7 +46,7 @@ public class LoginFragment extends Fragment implements LoginInterface {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.login_fragment, container, false);
         btnLogin = view.findViewById(R.id.btnDangNhap);
-        edtPassword = view.findViewById(R.id.edtPasswordLogin);
+//        edtPassword = view.findViewById(R.id.edtPasswordLogin);
         edtUserName = view.findViewById(R.id.edtEmail);
         loginPresenter = new LoginPresenter(this);
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -78,5 +78,5 @@ public class LoginFragment extends Fragment implements LoginInterface {
         Log.d("LOIIII",message.toString());
         Toasty.error(getActivity(),message,Toasty.LENGTH_SHORT).show();
     }
-
 }
+

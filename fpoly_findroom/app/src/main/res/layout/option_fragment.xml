@@ -57,19 +57,19 @@
             android:layout_height="wrap_content">
         </TextView>
 
-<!--<<<<<<< HEAD-->
-      <RelativeLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:background="@drawable/spinner_drawable">
+        <!--<<<<<<< HEAD-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/spinner_drawable">
 
-      </RelativeLayout>
-<!--=======-->
+        </RelativeLayout>
+        <!--=======-->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="430dp"
             android:background="@drawable/bg1">
-<!--&gt;>>>>>> 953d66b0e1062c34560347aeecf3a99369be82d3-->
+            <!--&gt;>>>>>> 953d66b0e1062c34560347aeecf3a99369be82d3-->
 
             <FrameLayout
                 android:layout_width="match_parent"

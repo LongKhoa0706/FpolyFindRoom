@@ -1,4 +1,4 @@
-package com.longkhoa.fpolyfindroom.view;
+package com.longkhoa.fpolyfindroom.view.room;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.longkhoa.fpolyfindroom.R;
+import com.longkhoa.fpolyfindroom.view.BottomSheet;
 
 public class AddInfoRoomFragment extends Fragment {
     MaterialSpinner spinnerChooseType;

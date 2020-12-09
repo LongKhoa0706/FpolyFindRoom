@@ -2,14 +2,11 @@ package com.longkhoa.fpolyfindroom.view.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.WindowManager;
 
 import com.longkhoa.fpolyfindroom.R;
-import com.longkhoa.fpolyfindroom.view.OptionAuthFragment;
+import com.longkhoa.fpolyfindroom.view.auth.OptionAuthFragment;
 
 public class ClientActivity extends AppCompatActivity {
 

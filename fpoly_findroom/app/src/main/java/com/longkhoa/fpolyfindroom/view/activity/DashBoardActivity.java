@@ -5,20 +5,15 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 
 import com.longkhoa.fpolyfindroom.R;
-import com.longkhoa.fpolyfindroom.view.AddInfoRoomFragment;
-import com.longkhoa.fpolyfindroom.view.DetailRoomFragment;
-import com.longkhoa.fpolyfindroom.view.GetAllRoomFragment;
-import com.longkhoa.fpolyfindroom.view.MapFragment;
-import com.longkhoa.fpolyfindroom.view.ProfileFragment;
+import com.longkhoa.fpolyfindroom.view.room.AddInfoRoomFragment;
+import com.longkhoa.fpolyfindroom.view.map.MapFragment;
+import com.longkhoa.fpolyfindroom.view.profile.ProfileFragment;
 import com.longkhoa.fpolyfindroom.view.favorite.FavoriteFragment;
 import com.longkhoa.fpolyfindroom.view.home.HomeFragment;
 import com.luseen.spacenavigation.SpaceItem;
@@ -58,7 +53,7 @@ public class DashBoardActivity extends AppCompatActivity {
             }
             @Override
             public void onItemClick(int itemIndex, String itemName) {
-                Log.d("AAA",itemIndex+"");
+
                 switch (itemIndex){
                     case  0:
                         fragment = new HomeFragment();

@@ -1,4 +1,4 @@
-package com.longkhoa.fpolyfindroom.view;
+package com.longkhoa.fpolyfindroom.view.auth;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

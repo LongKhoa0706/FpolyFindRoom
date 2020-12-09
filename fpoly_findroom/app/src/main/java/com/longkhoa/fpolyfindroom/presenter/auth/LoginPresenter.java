@@ -28,31 +28,31 @@ public class LoginPresenter {
         authService.login(phone,password).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-
-                try {
-                    if (response.body() !=null){
-
-                        String jsonString = response.body().string();
-                        Log.d("KETQUA",jsonString);
-                        Gson gson = new Gson();
-                        MyStatus status = gson.fromJson(jsonString,MyStatus.class);
-                        loginInterface.loginSuccess(status);
-
-
-                    }else {
-                        String jsonString = response.errorBody().string();
-                        Gson gson = new Gson();
-                        MyStatus status = gson.fromJson(jsonString,MyStatus.class);
-                        loginInterface.loginFail(status.getMes());
+                if (phone !=null || password !=null){
+                    try {
+                        if (response.body() !=null){
+                            String jsonString = response.body().string();
+                            Gson gson = new Gson();
+                            MyStatus status = gson.fromJson(jsonString,MyStatus.class);
+                            loginInterface.loginSuccess(status);
+                        }else {
+                            String jsonString = response.errorBody().string();
+                            Gson gson = new Gson();
+                            MyStatus status = gson.fromJson(jsonString,MyStatus.class);
+                            loginInterface.loginFail(status.getMes());
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
+                }else {
+                    Log.d("SAIIII","vo day ne");
+                    loginInterface.loginFail("Vui lòng nhập đủ thông tin");
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-
+                loginInterface.loginFail(t.getMessage());
             }
         });
     }

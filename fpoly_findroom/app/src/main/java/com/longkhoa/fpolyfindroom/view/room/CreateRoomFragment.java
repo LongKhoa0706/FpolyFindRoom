@@ -1,4 +1,4 @@
-package com.longkhoa.fpolyfindroom.view;
+package com.longkhoa.fpolyfindroom.view.room;
 
 import android.os.Bundle;
 
@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.longkhoa.fpolyfindroom.R;
+import com.longkhoa.fpolyfindroom.view.util.ListUtilFragment;
 
 
 public class CreateRoomFragment extends Fragment {

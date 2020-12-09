@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
    <ScrollView
@@ -13,13 +14,16 @@
            android:layout_height="match_parent"
            android:orientation="vertical">
 
-           <ImageView
-               android:adjustViewBounds="true"
+           <com.synnapps.carouselview.CarouselView
+               android:id="@+id/carouselView"
                android:layout_width="match_parent"
-               android:layout_height="300dp"
-               android:scaleType="fitXY"
-               android:src="@drawable/splash">
-           </ImageView>
+               android:layout_height="320dp"
+               app:fillColor="#FFFFFFFF"
+               app:pageColor="#00000000"
+               app:autoPlay="false"
+               app:slideInterval="3000"
+               app:strokeColor="#FF777777"
+               app:strokeWidth="1dp"/>
 
            <LinearLayout
                android:paddingRight="10dp"
@@ -35,12 +39,14 @@
                    android:layout_height="wrap_content">
 
                    <ImageView
+                       android:id="@+id/imgIconDetailRoom"
                        android:src="@drawable/iconpremium"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content">
                    </ImageView>
 
                    <TextView
+                       android:id="@+id/txtTypeDetailRoom"
                        android:layout_marginLeft="10dp"
                        android:textColor="#FF9800"
                        android:layout_marginTop="3dp"
@@ -58,6 +64,7 @@
                    android:layout_height="wrap_content">
 
                    <TextView
+                       android:id="@+id/txtTitleDetailRoom"
                        android:layout_weight="1"
                        android:layout_marginTop="5dp"
                        android:textColor="#000"
@@ -69,8 +76,10 @@
                    </TextView>
 
                    <TextView
+                       android:id="@+id/txtPriceDetailRoom"
+                       android:fontFamily="@font/gothammedium"
                        android:layout_marginTop="5dp"
-                       android:textColor="#000"
+                       android:textColor="#ff00"
                        android:textStyle="bold"
                        android:text="132,000d"
                        android:textSize="20dp"
@@ -81,9 +90,10 @@
                </LinearLayout>
 
                <TextView
+                   android:id="@+id/txtAddressDetailRoom"
                    android:layout_marginTop="2dp"
                    android:textColor="#ccc"
-                   android:textSize="15dp"
+                   android:textSize="13dp"
                    android:text="Quận 3,TPHCM"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content">
@@ -101,6 +111,7 @@
 
                     </ImageView>
                     <TextView
+                        android:id="@+id/txtDateDetailRoom"
                         android:layout_marginLeft="5dp"
                         android:textSize="12dp"
                         android:layout_marginTop="4dp"
@@ -132,6 +143,7 @@
                </TextView>
 
                <TextView
+                   android:id="@+id/txtDescDetailRoom"
                    android:layout_marginTop="15dp"
                    android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
                    android:textColor="#ccc"
@@ -164,6 +176,7 @@
                    </ImageView>
 
                    <TextView
+                       android:id="@+id/txtLocationDetailRoom"
                        android:layout_marginTop="5dp"
                        android:layout_marginLeft="8dp"
                        android:text="41-43 Đ. Đinh Tiên Hoàng, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh, Việt Nam"
@@ -210,7 +223,7 @@
                    android:layout_height="wrap_content">
 
                    <de.hdodenhof.circleimageview.CircleImageView
-                       android:id="@+id/profile_image"
+                       android:id="@+id/imgAuthorDetailRoom"
                        android:layout_marginTop="8dp"
                        android:layout_width="45dp"
                        android:layout_height="45dp"
@@ -223,6 +236,7 @@
                        android:layout_height="wrap_content">
 
                        <TextView
+                           android:id="@+id/txtAuthorDetailRoom"
                            android:layout_marginLeft="10dp"
                            android:layout_marginTop="10dp"
                            android:text="Long Khoa"

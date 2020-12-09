@@ -159,13 +159,26 @@
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:layout_width="match_parent"
-                            android:id="@+id/reyclerView3"
-                            android:layout_marginBottom="10dp"
-                            android:layout_height="wrap_content">
+                       <FrameLayout
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content">
 
-                        </androidx.recyclerview.widget.RecyclerView>
+                           <androidx.recyclerview.widget.RecyclerView
+                               android:layout_width="match_parent"
+                               android:id="@+id/reyclerView3"
+                               android:layout_marginBottom="10dp"
+                               android:layout_height="wrap_content">
+
+                           </androidx.recyclerview.widget.RecyclerView>
+                           <ProgressBar
+                               android:id="@+id/progress_circular"
+                               android:layout_gravity="center"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content">
+
+                           </ProgressBar>
+
+                       </FrameLayout>
                     </LinearLayout>
 
                 </LinearLayout>

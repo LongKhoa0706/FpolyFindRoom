@@ -1,7 +1,6 @@
 package com.longkhoa.fpolyfindroom.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.longkhoa.fpolyfindroom.R;
 import com.longkhoa.fpolyfindroom.model.Home;
-import com.longkhoa.fpolyfindroom.view.DetailRoomFragment;
 
 import java.util.ArrayList;
 import java.util.List;

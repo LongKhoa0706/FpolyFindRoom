@@ -50,6 +50,9 @@ public class LoginFragment extends Fragment implements LoginInterface {
         edtPassword = view.findViewById(R.id.edtPasswordLogin);
         edtUserName = view.findViewById(R.id.edtEmail);
         loginPresenter = new LoginPresenter(this);
+        edtUserName.setText("01234567890");
+        edtPassword.setText("longkhoa");
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,7 +74,6 @@ public class LoginFragment extends Fragment implements LoginInterface {
         String json = gson.toJson(myStatus.getUser());
         editor.putString("user", json);
         editor.apply();
-
         Toasty.success(getActivity(),myStatus.getMes(),Toasty.LENGTH_SHORT).show();
         startActivity(new Intent(getActivity(), DashBoardActivity.class));
     }

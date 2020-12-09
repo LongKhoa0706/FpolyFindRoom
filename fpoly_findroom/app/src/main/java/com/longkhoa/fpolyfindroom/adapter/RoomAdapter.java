@@ -13,18 +13,18 @@ import androidx.recyclerview.widget.RecyclerView;
 //<<<<<<< HEAD
 import com.google.android.material.card.MaterialCardView;
 import com.longkhoa.fpolyfindroom.R;
-import com.longkhoa.fpolyfindroom.model.Room;
-import com.longkhoa.fpolyfindroom.view.CallbackRoomAdapter;
+import com.longkhoa.fpolyfindroom.model.MyStatusRoom;
+import com.longkhoa.fpolyfindroom.view.room.CallbackRoomAdapter;
 
 import java.util.List;
 
 public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
-    private List<Room> arrRoom;
+    private List<MyStatusRoom> arrRoom;
     private Context context;
     private int layout;
     private CallbackRoomAdapter callbackRoomAdapter;
 
-    public RoomAdapter(List<Room> arrRoom, Context context, int layout, CallbackRoomAdapter callbackRoomAdapter) {
+    public RoomAdapter(List<MyStatusRoom> arrRoom, Context context, int layout, CallbackRoomAdapter callbackRoomAdapter) {
         this.arrRoom = arrRoom;
         this.context = context;
         this.layout = layout;
@@ -56,18 +56,18 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 //<<<<<<< HEAD
-        final Room room = arrRoom.get(position);
-        holder.txtTitleRoom.setText(room.getTitle());
-        holder.txtAddress.setText(room.getAddress());
-        holder.txtAddressRoom.setText(room.getAddress());
+        final MyStatusRoom room = arrRoom.get(position);
+//        holder.txtTitleRoom.setText(room.getTitle());
+//        holder.txtAddress.setText(room.getAddress());
+//        holder.txtAddressRoom.setText(room.getAddress());
 //        holder.txtPriceRoom.setText(room.getPrice());
-        holder.txtCategoriesRoom.setText(room.getCategoriesRoom());
-        holder.cardViewRoom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                callbackRoomAdapter.onClickListenerCardView(room);
-            }
-        });
+//        holder.txtCategoriesRoom.setText(room.getCategoriesRoom());
+//        holder.cardViewRoom.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                callbackRoomAdapter.onClickListenerCardView(room);
+//            }
+//        });
 //=======
 //        Room room = roomList.get(position);
 //        holder.image_room.setImageResource(room.getImage_room());

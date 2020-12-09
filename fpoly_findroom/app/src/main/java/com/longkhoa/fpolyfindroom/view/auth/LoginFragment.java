@@ -22,6 +22,7 @@ import com.longkhoa.fpolyfindroom.model.MyStatus;
 import com.longkhoa.fpolyfindroom.presenter.auth.LoginInterface;
 import com.longkhoa.fpolyfindroom.presenter.auth.LoginPresenter;
 import com.longkhoa.fpolyfindroom.view.activity.DashBoardActivity;
+import com.longkhoa.fpolyfindroom.view.activity.MainActivity;
 
 import es.dmoral.toasty.Toasty;
 
@@ -46,13 +47,15 @@ public class LoginFragment extends Fragment implements LoginInterface {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.login_fragment, container, false);
         btnLogin = view.findViewById(R.id.btnDangNhap);
-//        edtPassword = view.findViewById(R.id.edtPasswordLogin);
+        edtPassword = view.findViewById(R.id.edtPasswordLogin);
         edtUserName = view.findViewById(R.id.edtEmail);
         loginPresenter = new LoginPresenter(this);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 loginPresenter.login(edtUserName.getText().toString(),edtPassword.getText().toString());
+
+
             }
         });
         return view;

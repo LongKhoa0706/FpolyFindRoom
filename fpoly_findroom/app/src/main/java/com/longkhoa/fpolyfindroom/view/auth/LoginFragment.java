@@ -22,6 +22,7 @@ import com.longkhoa.fpolyfindroom.model.MyStatus;
 import com.longkhoa.fpolyfindroom.presenter.auth.LoginInterface;
 import com.longkhoa.fpolyfindroom.presenter.auth.LoginPresenter;
 import com.longkhoa.fpolyfindroom.view.activity.DashBoardActivity;
+import com.longkhoa.fpolyfindroom.view.activity.MainActivity;
 
 import es.dmoral.toasty.Toasty;
 
@@ -56,6 +57,8 @@ public class LoginFragment extends Fragment implements LoginInterface {
             @Override
             public void onClick(View view) {
                 loginPresenter.login(edtUserName.getText().toString(),edtPassword.getText().toString());
+
+
             }
         });
         return view;

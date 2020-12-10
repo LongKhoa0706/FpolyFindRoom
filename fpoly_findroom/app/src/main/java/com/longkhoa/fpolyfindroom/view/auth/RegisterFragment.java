@@ -53,8 +53,8 @@ public class RegisterFragment  extends Fragment implements RegisterInterface {
                String userName = edtUserName.getText().toString();
                String repassword = edtRepassword.getText().toString();
 
-                User user = new User(email,phone,userName,password,"","",false,"");
-                registerPresenter.register(user);
+//                User user = new User(email,phone,userName);
+//                registerPresenter.register(user);
 
             }
         });

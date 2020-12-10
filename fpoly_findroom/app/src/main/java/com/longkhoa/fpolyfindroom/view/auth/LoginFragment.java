@@ -66,7 +66,6 @@ public class LoginFragment extends Fragment implements LoginInterface {
     public void loginSuccess(MyStatus myStatus) {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-
         Gson gson = new Gson();
         String json = gson.toJson(myStatus.getUser());
         editor.putString("user", json);

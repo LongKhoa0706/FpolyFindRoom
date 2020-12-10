@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#F3f6f8"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Toolbar
+                android:id="@+id/txtTitleToolBar"
+                android:title="Quản lý nhà thuê"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </Toolbar>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_below="@id/txtTitleToolBar"
+                android:id="@+id/reyclerViewManageRoom"
+                android:layout_above="@id/layoutSubmitHome"
+                android:layout_height="match_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+           <com.google.android.material.card.MaterialCardView
+               android:layout_width="match_parent"
+               android:id="@+id/layoutSubmitHome"
+               android:elevation="10dp"
+               android:layout_marginRight="10dp"
+               android:layout_marginLeft="10dp"
+               app:cardElevation="10dp"
+               android:layout_alignParentBottom="true"
+               android:layout_height="50dp">
+
+               <Button
+                   android:text="Đăng nhà cho thuê"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent">
+
+               </Button>
+
+           </com.google.android.material.card.MaterialCardView>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -3,17 +3,21 @@ package com.longkhoa.fpolyfindroom.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
 public class User implements Parcelable {
     @SerializedName("_id")
+    @Expose()
     private String id;
 
+    @Expose()
     @SerializedName("roles")
-    private List<String> roles;
+    private List<Role> roles;
 
+    @Expose()
     @SerializedName("email")
     private String email;
 
@@ -41,36 +45,19 @@ public class User implements Parcelable {
     @SerializedName("token")
     private String token;
 
-    protected User(Parcel in) {
-        id = in.readString();
-        roles = in.createStringArrayList();
-        email = in.readString();
-        phone = in.readString();
-        userName = in.readString();
-        password = in.readString();
-        createAt = in.readString();
-        updateAt = in.readString();
-        verify = in.readByte() != 0;
-        avatar = in.readString();
-        token = in.readString();
+    public User(String id, List<Role> roles, String email, String phone, String userName, String password, String createAt, String updateAt, boolean verify, String avatar, String token) {
+        this.id = id;
+        this.roles = roles;
+        this.email = email;
+        this.phone = phone;
+        this.userName = userName;
+        this.password = password;
+        this.createAt = createAt;
+        this.updateAt = updateAt;
+        this.verify = verify;
+        this.avatar = avatar;
+        this.token = token;
     }
-
-    public static final Creator<User> CREATOR = new Creator<User>() {
-        @Override
-        public User createFromParcel(Parcel in) {
-            return new User(in);
-        }
-
-        @Override
-        public User[] newArray(int size) {
-            return new User[size];
-        }
-    };
-
-    public String getToken() {
-        return token;
-    }
-
 
     public String getId() {
         return id;
@@ -80,27 +67,12 @@ public class User implements Parcelable {
         this.id = id;
     }
 
-    public List<String> getRoles() {
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<String> roles) {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public User(String email, String phone, String userName, String password, String createAt, String updateAt, boolean verify, String avatar) {
-        this.email = email;
-        this.phone = phone;
-        this.userName = userName;
-        this.password = password;
-        this.createAt = createAt;
-        this.updateAt = updateAt;
-        this.verify = verify;
-        this.avatar = avatar;
     }
 
     public String getEmail() {
@@ -167,6 +139,39 @@ public class User implements Parcelable {
         this.avatar = avatar;
     }
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    protected User(Parcel in) {
+        id = in.readString();
+        email = in.readString();
+        phone = in.readString();
+        userName = in.readString();
+        password = in.readString();
+        createAt = in.readString();
+        updateAt = in.readString();
+        verify = in.readByte() != 0;
+        avatar = in.readString();
+        token = in.readString();
+    }
+
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
+
     @Override
     public int describeContents() {
         return 0;
@@ -175,7 +180,6 @@ public class User implements Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(id);
-        parcel.writeStringList(roles);
         parcel.writeString(email);
         parcel.writeString(phone);
         parcel.writeString(userName);

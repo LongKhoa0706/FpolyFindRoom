@@ -32,13 +32,15 @@
                android:layout_width="match_parent"
                android:id="@+id/layoutSubmitHome"
                android:elevation="10dp"
-               android:layout_marginRight="10dp"
-               android:layout_marginLeft="10dp"
+
                app:cardElevation="10dp"
                android:layout_alignParentBottom="true"
-               android:layout_height="50dp">
+               android:layout_height="wrap_content">
 
                <Button
+                   android:id="@+id/btnRoom"
+                   android:layout_marginRight="10dp"
+                   android:layout_marginLeft="10dp"
                    android:text="Đăng nhà cho thuê"
                    android:layout_width="match_parent"
                    android:layout_height="match_parent">

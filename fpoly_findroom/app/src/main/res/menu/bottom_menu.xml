@@ -2,24 +2,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/home"
-        android:title="Home"
-        android:icon="@drawable/ic_house">
+        android:id="@+id/homeItem"
+        android:title="Trang chủ"
+        android:icon="@drawable/outline_home_black_18dp">
     </item>
     <item
-        android:id="@+id/menuu"
+        android:id="@+id/favoriteItem"
         android:title="Yêu thích"
-        android:icon="@drawable/ic_house">
+        android:icon="@drawable/outline_favorite_border_white_18dp">
     </item>
     <item
-        android:id="@+id/cuahang"
-        android:title="Map"
-        android:icon="@drawable/ic_house">
+        android:id="@+id/mapItem"
+        android:title="Tìm kiếm"
+        android:icon="@drawable/outline_map_white_18dp">
     </item>
     <item
-        android:id="@+id/taikhoan"
-        android:title="Tài khoản"
-        android:icon="@drawable/ic_house">
+        android:id="@+id/profileItem"
+        android:title="Thông tin"
+        android:icon="@drawable/outline_person_white_18dp">
     </item>
 
 </menu>

@@ -20,7 +20,7 @@ public class RetrofitClient {
 //    private static Context context;
 
     private static Retrofit retrofit;
-    public static final String BASE_URL = "http://192.168.1.27:8080/";
+    public static final String BASE_URL = "http://192.168.0.112:8080/";
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {
             OkHttpClient okHttpClient = new OkHttpClient.Builder()

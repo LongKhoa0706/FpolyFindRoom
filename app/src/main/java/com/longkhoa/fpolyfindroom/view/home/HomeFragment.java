@@ -48,13 +48,13 @@ public class HomeFragment extends Fragment  {
         Gson gson = new Gson();
         String json = sharedPref.getString("user","");
         user = gson.fromJson(json,User.class);
-//        if (user.getRoles().get(0).getRoleName().equals("innkeeper")){
-//            HomeInkeeperFragment homeInkeeperFragment = new HomeInkeeperFragment();
-//            loadFragment(homeInkeeperFragment);
-//        }else {
-//            HomeCustomerFragment homeCustomerFragment = new HomeCustomerFragment();
-//            loadFragment(homeCustomerFragment);
-//        }
+        if (user.getRoles().getRoleName().equals("innkeeper")){
+            HomeInkeeperFragment homeInkeeperFragment = new HomeInkeeperFragment();
+            loadFragment(homeInkeeperFragment);
+        }else {
+            HomeCustomerFragment homeCustomerFragment = new HomeCustomerFragment();
+            loadFragment(homeCustomerFragment);
+        }
         return null;
     }
 

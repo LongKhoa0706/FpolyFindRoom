@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -54,10 +55,10 @@ public class DashBoardActivity extends AppCompatActivity implements BottomNaviga
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        locationManager = this.getSystemService(LocationManager.class);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         checkLocationPermission();
-
+        getLocationClient();
         bottomNavigationMenuView = findViewById(R.id.bottomBar);
         bottomNavigationMenuView.setOnNavigationItemSelectedListener(this);
 
@@ -69,7 +70,7 @@ public class DashBoardActivity extends AppCompatActivity implements BottomNaviga
                 ActivityCompat.requestPermissions(DashBoardActivity.this,
                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                         MY_PERMISSIONS_REQUEST_LOCATION);
-
+                getLocationClient();
             } else {
                 // goi lại khi user nhấn từ chối quyền location
                 ActivityCompat.requestPermissions(this,
@@ -89,11 +90,13 @@ public class DashBoardActivity extends AppCompatActivity implements BottomNaviga
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+//                        locationManager.requestLocationUpdates(1000,1000,mLocationListener);
                         getLocationClient();
+
                     }
 
                 } else {
-                    Log.d("PERMISONN", "FALSE");
+
                     new SweetAlertDialog(DashBoardActivity.this, SweetAlertDialog.ERROR_TYPE)
                             .setTitleText("Dịch vụ vị trí")
                             .setContentText("Vui lòng cho phép Findroom sử dụng dịch vụ vị trí để giúp bạn tìm địa điểm cho thuê phù hợp nhất ")
@@ -123,33 +126,6 @@ public class DashBoardActivity extends AppCompatActivity implements BottomNaviga
         }
     }
 
-
-//    private final LocationListener mLocationListener = new LocationListener() {
-//        @Override
-//        public void onStatusChanged(String s, int i, Bundle bundle) {
-//
-//        }
-//
-//        @Override
-//        public void onProviderEnabled(String s) {
-//
-//        }
-//
-//        @Override
-//        public void onProviderDisabled(String s) {
-//
-//        }
-//
-//        @Override
-//        public void onLocationChanged(final Location location) {
-//            Log.d("======>", location.getLongitude() + "--" + location.getLatitude() + "");
-//            SharedPreferences sharedPref = getApplication().getSharedPreferences(Constant.KEY_LOCATION, MODE_PRIVATE);
-//            SharedPreferences.Editor editor = sharedPref.edit();
-//            editor.putString("latitude", Double.valueOf(location.getLatitude()).toString());
-//            editor.putString("longitude", Double.valueOf(location.getLongitude()).toString());
-//            editor.commit();
-//        }
-//    };
 
     private boolean loadFragment(Fragment fragment) {
 
@@ -187,38 +163,24 @@ public class DashBoardActivity extends AppCompatActivity implements BottomNaviga
     private void getLocationClient() {
         String provider = BuildConfig.DEBUG ? LocationManager.GPS_PROVIDER : LocationManager.NETWORK_PROVIDER;
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+
             return;
         }
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000L
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000L
                 , 500.0F, new LocationListener() {
                     @Override
                     public void onLocationChanged(Location location) {
-                        Log.d("AAAAA",location.getLatitude()+"");
-
-//                        locationCurrent = new LatLng(location.getLatitude(), location.getLongitude());
-//                        progressDialog.dismiss();
-//                        mapFragment.getMapAsync(GoogleMapActivity.this);
-//
-//
-//                        if (locationCurrent != null) {
-//                            locationCurrent = new LatLng(location.getLatitude(), location.getLongitude());
-//                            mapFragment.getMapAsync(GoogleMapActivity.this);
-//                        } else {
-//                            Toast.makeText(GoogleMapActivity.this, "đéo định vị đc", Toast.LENGTH_SHORT).show();
-//                            finish();
-//                        }
-
+                        SharedPreferences sharedPreferences = DashBoardActivity.this.getSharedPreferences(Constant.KEY_LOCATION, Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        Log.d("OOO",location.getLatitude()+"");
+                        editor.putString("latitude",location.getLatitude()+"");
+                        editor.putString("longitude",location.getLongitude()+"");
+                        editor.commit();
                     }
 
                     @Override
                     public void onStatusChanged(String provider, int status, Bundle extras) {
+
                     }
 
                     @Override

@@ -1,6 +1,8 @@
 package com.longkhoa.fpolyfindroom.view.auth;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +21,7 @@ import com.longkhoa.fpolyfindroom.model.Role;
 import com.longkhoa.fpolyfindroom.model.User;
 import com.longkhoa.fpolyfindroom.presenter.auth.RegisterInterface;
 import com.longkhoa.fpolyfindroom.presenter.auth.RegisterPresenter;
+import com.longkhoa.fpolyfindroom.util.Constant;
 
 import es.dmoral.toasty.Toasty;
 
@@ -33,6 +36,9 @@ public class RegisterFragment  extends Fragment implements RegisterInterface {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.register_fragment, container, false);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Constant.KEY_CHOOSE_ROLE, Context.MODE_PRIVATE);
+        String roles = sharedPreferences.getString("customer","");
+
         btnSubmitRegister = view.findViewById(R.id.btnSubmitRegister);
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Loading...");
@@ -54,7 +60,7 @@ public class RegisterFragment  extends Fragment implements RegisterInterface {
                String userName = edtUserName.getText().toString();
                String repassword = edtRepassword.getText().toString();
 
-               Role role = new Role("","innkeeper");
+               Role role = new Role("",roles);
                 User user = new User(false,"","",phone,password,email,userName,role,"","","");
 
                 registerPresenter.register(user);

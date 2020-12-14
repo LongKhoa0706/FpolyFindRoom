@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.WindowManager;
 
 import com.longkhoa.fpolyfindroom.R;
+import com.longkhoa.fpolyfindroom.view.ChooseRoleFragment;
 import com.longkhoa.fpolyfindroom.view.auth.OptionAuthFragment;
 
 public class ClientActivity extends AppCompatActivity {
@@ -19,6 +20,6 @@ public class ClientActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.frameClient, new OptionAuthFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frameClient, new ChooseRoleFragment()).commit();
     }
 }

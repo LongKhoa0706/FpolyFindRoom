@@ -66,6 +66,7 @@
             android:layout_height="wrap_content"/>
 
         <EditText
+            android:id="@+id/edtTitle"
             android:hint="Tên nhà trọ"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
@@ -73,30 +74,14 @@
 
         </EditText>
 
-        <LinearLayout
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal"
+        <EditText
+            android:id="@+id/edtSearchAddress"
+            android:hint="Địa chỉ"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
-            <EditText
-                android:hint="Địa chỉ"
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            </EditText>
-
-            <EditText
-                android:layout_marginLeft="10dp"
-                android:hint="Tên đường "
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </EditText>
-        </LinearLayout>
+        </EditText>
 
         <LinearLayout
             android:layout_marginTop="20dp"
@@ -109,10 +94,29 @@
 
                 android:layout_height="match_parent">
 
-                <com.mapbox.mapboxsdk.maps.MapView
-                    android:id="@+id/mapBoxAddInfo"
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent">
+
+                    <com.mapbox.mapboxsdk.maps.MapView
+                        android:id="@+id/mapBoxAddInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+
+                        android:id="@+id/txtSetupLocation"
+                        android:text="Thiết lập vị trí "
+                        android:layout_marginBottom="10dp"
+                        android:layout_gravity="bottom|center"
+                        android:gravity="bottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+
+                </FrameLayout>
 
             </com.google.android.material.card.MaterialCardView>
 

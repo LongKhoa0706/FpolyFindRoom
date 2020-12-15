@@ -50,11 +50,9 @@ import static android.app.Activity.RESULT_OK;
 public class ProfileFragment extends Fragment {
     private static final int REQUEST_CODE_CAPTURE_IMAGE = 2;
     TextView tv_name, tv_phone, tv_email,tv_birthday, tv_signout, tv_update;
-    ImageView img_alert1, img_alert2,img_camera;
+    ImageView img_alert1, img_alert2,img_camera,imageSmall;
     private static final int REQUEST_CODE_PERMISSIONS =1;
     private String currentImagePath;
-    private ImageView imageSmall;
-
 
     @Nullable
     @Override
@@ -69,7 +67,7 @@ public class ProfileFragment extends Fragment {
         tv_signout = view.findViewById(R.id.txt_signout);
         img_alert1 = view.findViewById(R.id.img_alert);
         img_alert2 = view.findViewById(R.id.img_alert1);
-        imageSmall=view.findViewById(R.id.profile_image);
+        imageSmall=view.findViewById(R.id.capturedImageSmall);
         img_camera=view.findViewById(R.id.img_camera);
 
         img_camera.setOnClickListener(new View.OnClickListener() {
@@ -189,12 +187,12 @@ public class ProfileFragment extends Fragment {
             try {
                 imageFile = cretaImageFile();
             }catch (IOException e){
-                Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
             }
             if (imageFile!=null){
                 Uri imageUri = FileProvider.getUriForFile(
                         getContext(),
-                        "com.longkhoa.fpolyfindroom.fileprovider",
+                        "com.longkhoa.fpolyfindroom.view.profile.fileprovider",
                         imageFile
                 );
                 intent.putExtra(MediaStore.EXTRA_OUTPUT,imageUri);
@@ -217,8 +215,6 @@ public class ProfileFragment extends Fragment {
         return imageFile;
     }
 
-
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -234,11 +230,12 @@ public class ProfileFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == REQUEST_CODE_CAPTURE_IMAGE && requestCode ==RESULT_OK){
+        if (requestCode == REQUEST_CODE_CAPTURE_IMAGE && resultCode == RESULT_OK){
             try{
                 //display small image
                 imageSmall.setImageBitmap(getScaledBitmap(imageSmall));
             }catch (Exception e){
+//                Log.d("hình đâu rồi","hinhdaau r");
                 Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }

@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -50,7 +49,7 @@
         <activity android:name=".view.activity.DashBoardActivity" />
 
         <provider
-            android:authorities="com.longkhoa.fpolyfindroom.fileprovider"
+            android:authorities="com.longkhoa.fpolyfindroom.view.profile.fileprovider"
             android:name="androidx.core.content.FileProvider"
             android:exported="false"
             android:grantUriPermissions="true">

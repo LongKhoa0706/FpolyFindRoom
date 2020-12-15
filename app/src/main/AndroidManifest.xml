@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FpolyFindRoom"
         android:usesCleartextTraffic="true">
-          <!--        google map-->
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyC9LczPU2SXOq0wgxcIcAL7KNO92A4mwR0"/>
@@ -35,8 +35,8 @@
             <!-- <activity android:name=".SplashScreenActivity"> -->
 
         </activity>
-        <activity android:name=".view.activity.OnBoardingActivity" />
-        <activity android:name=".view.activity.SplashScreenActivity" >
+        <activity android:name=".view.activity.OnBoardingActivity"/>
+        <activity android:name=".view.activity.SplashScreenActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,6 +48,16 @@
 
         <activity android:name=".view.activity.MainActivity" />
         <activity android:name=".view.activity.DashBoardActivity" />
+
+        <provider
+            android:authorities="com.longkhoa.fpolyfindroom.fileprovider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_path" />
+        </provider>
     </application>
 
 </manifest>

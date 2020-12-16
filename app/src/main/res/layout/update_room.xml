@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"/>
             <EditText
                 android:id="@+id/txt_type"
-                android:layout_width="300dp"
+                android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
@@ -51,6 +51,11 @@
                 android:textColor="#172737"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+            <ImageView
+                android:src="@drawable/outline_delete_outline_black_18dp"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginTop="27dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -66,7 +71,7 @@
                 android:layout_height="wrap_content"/>
             <EditText
                 android:id="@+id/txt_location"
-                android:layout_width="300dp"
+                android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
@@ -74,6 +79,11 @@
                 android:textColor="#172737"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+            <ImageView
+                android:src="@drawable/outline_delete_outline_black_18dp"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginTop="27dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -89,7 +99,7 @@
                 android:layout_height="wrap_content"/>
             <EditText
                 android:id="@+id/txt_price"
-                android:layout_width="300dp"
+                android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
@@ -97,6 +107,11 @@
                 android:textColor="#172737"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+            <ImageView
+                android:src="@drawable/outline_delete_outline_black_18dp"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginTop="27dp"/>
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
@@ -111,7 +126,7 @@
                 android:layout_height="wrap_content"/>
             <EditText
                 android:id="@+id/txt_title"
-                android:layout_width="300dp"
+                android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
@@ -119,6 +134,11 @@
                 android:textColor="#172737"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+            <ImageView
+                android:src="@drawable/outline_delete_outline_black_18dp"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginTop="27dp"/>
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
@@ -133,7 +153,7 @@
                 android:layout_height="wrap_content"/>
             <EditText
                 android:id="@+id/txt_user"
-                android:layout_width="300dp"
+                android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
@@ -141,6 +161,11 @@
                 android:textColor="#172737"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+            <ImageView
+                android:src="@drawable/outline_delete_outline_black_18dp"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginTop="27dp"/>
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
@@ -155,7 +180,7 @@
                 android:layout_height="wrap_content"/>
             <EditText
                 android:id="@+id/txt_createAt"
-                android:layout_width="300dp"
+                android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
@@ -163,6 +188,11 @@
                 android:textColor="#172737"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+            <ImageView
+                android:src="@drawable/outline_delete_outline_black_18dp"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginTop="27dp"/>
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
@@ -177,7 +207,7 @@
                 android:layout_height="wrap_content"/>
             <EditText
                 android:id="@+id/txt_updateAt"
-                android:layout_width="300dp"
+                android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
@@ -185,6 +215,11 @@
                 android:textColor="#172737"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+            <ImageView
+                android:src="@drawable/outline_delete_outline_black_18dp"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginTop="27dp"/>
         </LinearLayout>
 
 
@@ -203,15 +238,15 @@
         android:orientation="horizontal"
         android:padding="10dp">
 
-        <Button
-            android:id="@+id/btn_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="1"
-            android:text="Hủy"
-            android:backgroundTint="#FF9800" />
+<!--        <Button-->
+<!--            android:id="@+id/btn_cancel"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="45dp"-->
+<!--            android:layout_marginRight="5dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="Hủy"-->
+<!--            android:backgroundTint="#FF9800" />-->
 
         <Button
             android:id="@+id/btn_xacnhan"
@@ -220,7 +255,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginBottom="5dp"
             android:layout_weight="1"
-            android:text="Xác nhận"
+            android:text="Cập nhật"
             android:backgroundTint="#FF9800"/>
     </LinearLayout>
 

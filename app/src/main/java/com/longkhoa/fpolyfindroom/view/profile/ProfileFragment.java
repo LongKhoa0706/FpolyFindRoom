@@ -31,8 +31,12 @@ import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.longkhoa.fpolyfindroom.R;
+import com.longkhoa.fpolyfindroom.model.MyStatus;
 import com.longkhoa.fpolyfindroom.model.User;
+import com.longkhoa.fpolyfindroom.presenter.user.UserInterface;
+import com.longkhoa.fpolyfindroom.presenter.user.UserPresenter;
 import com.longkhoa.fpolyfindroom.view.activity.DashBoardActivity;
 
 import java.io.File;
@@ -47,8 +51,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import static android.app.Activity.RESULT_OK;
 
 
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment implements UserInterface {
     private static final int REQUEST_CODE_CAPTURE_IMAGE = 2;
+    private UserPresenter userPresenter;
     TextView tv_name, tv_phone, tv_email,tv_birthday, tv_signout, tv_update;
     ImageView img_alert1, img_alert2,img_camera,imageSmall;
     private static final int REQUEST_CODE_PERMISSIONS =1;
@@ -69,6 +74,7 @@ public class ProfileFragment extends Fragment {
         img_alert2 = view.findViewById(R.id.img_alert1);
         imageSmall=view.findViewById(R.id.capturedImageSmall);
         img_camera=view.findViewById(R.id.img_camera);
+        userPresenter = new UserPresenter(this);
 
         img_camera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,6 +139,9 @@ public class ProfileFragment extends Fragment {
                         String email = tv_email_dialog.getText().toString();
                         String phone = tv_phone_dialog.getText().toString();
                         String birthday = tv_birthday_dialog.getText().toString();
+//                        User user = new User();
+//                       tv_email.setText(user.getEmail());
+//                        userPresenter.update(user);
                         tv_name.setText(name);
                         tv_email.setText(email);
                         tv_phone.setText(phone);
@@ -254,6 +263,11 @@ public class ProfileFragment extends Fragment {
         options.inPurgeable= true;
         return BitmapFactory.decodeFile(currentImagePath,options);
 
+
+    }
+
+    @Override
+    public void getProfile(MyStatus myStatus) {
 
     }
 }

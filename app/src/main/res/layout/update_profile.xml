@@ -31,72 +31,142 @@
         android:orientation="vertical"
         android:padding="10dp">
 
-        <EditText
-            android:id="@+id/txt_name"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:hint="Họ tên"
-            android:padding="10dp"
-            android:textColor="#172737"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="100dp"
+                android:text="* Tên"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="18dp"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/txt_name"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                android:textColor="#172737"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/txt_email"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:hint="Email"
-            android:padding="10dp"
-            android:textColor="#172737"
-            android:textSize="16sp" />
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="100dp"
+                android:text="* Email"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="18dp"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/txt_email"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                android:textColor="#172737"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/txt_phone"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:hint="Số điện thoại"
-            android:lineSpacingExtra="3dp"
-            android:padding="10dp"
-            android:textColor="#172737"
-            android:textSize="16sp" />
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="100dp"
+                android:text="* Số điện thoại"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="18dp"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/txt_phone"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                android:textColor="#172737"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/txt_date"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:hint="Sinh nhật"
-            android:inputType="date"
-            android:padding="10dp"
-            android:textColor="#172737"
-            android:textSize="16sp" />
-        <EditText
-            android:id="@+id/txt_createAt"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="100dp"
+                android:text="* Ngày sinh"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="18dp"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/txt_date"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                android:textColor="#172737"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:hint="Thời gian tạo"
-            android:inputType="date"
-            android:padding="10dp"
-            android:textColor="#172737"
-            android:textSize="16sp" />
-        <EditText
-            android:id="@+id/txt_updateAt"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="100dp"
+                android:text="* Thời gian tạo"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="18dp"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/txt_createAt"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                android:textColor="#172737"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:hint="Thời gian cập nhật"
-            android:inputType="date"
-            android:padding="10dp"
-            android:textColor="#172737"
-            android:textSize="16sp" />
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="100dp"
+                android:text="* Thời gian cập nhật"
+                android:textStyle="bold"
+                android:layout_marginTop="13dp"
+                android:textColor="@color/black"
+
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/txt_updateAt"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                android:textColor="#172737"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
 
     </LinearLayout>
@@ -122,7 +192,7 @@
             android:layout_marginBottom="5dp"
             android:layout_weight="1"
             android:text="Hủy"
-            android:textColor="#fff" />
+            android:backgroundTint="#FF9800" />
 
         <Button
             android:id="@+id/btn_xacnhan"
@@ -131,7 +201,8 @@
             android:layout_marginLeft="5dp"
             android:layout_marginBottom="5dp"
             android:layout_weight="1"
-            android:text="Xác nhận" />
+            android:text="Xác nhận"
+            android:backgroundTint="#FF9800"/>
     </LinearLayout>
 
 

@@ -289,16 +289,15 @@
             </TextView>
 
         </LinearLayout>
-<!--        <TextView-->
-<!--            android:id="@+id/txt_update"-->
-<!--            android:textColor="#000"-->
-<!--            android:layout_marginLeft="5dp"-->
-<!--            android:text="Thay đổi thông tin"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content">-->
-
-<!--        </TextView>-->
+        <Button
+            android:id="@+id/btn_own"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:background="@drawable/bottron_button"
+            android:text="Trở thành chủ nhà"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
     </LinearLayout>
 
 </LinearLayout>

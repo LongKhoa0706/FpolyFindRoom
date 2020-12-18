@@ -5,6 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
+        android:id="@+id/card_profile"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="80dp"
@@ -12,15 +13,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
+        <ImageView
+            android:id="@+id/capturedImageSmall"
             android:layout_marginTop="8dp"
             android:layout_gravity="center"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:src="@drawable/splash"
-            />
+            android:adjustViewBounds="true"
+            android:src="@color/gray" />
+        <ImageView
+            android:id="@+id/img_camera"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/baseline_camera_alt_black_18dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="150dp"
+            android:layout_marginTop="-20dp"/>
         <TextView
+            android:id="@+id/txt_name"
             android:textSize="22dp"
             android:textStyle="bold"
             android:textColor="#000"
@@ -50,31 +60,40 @@
                 android:layout_height="wrap_content">
             </TextView>
 
-           <LinearLayout
-               android:layout_marginTop="8dp"
-               android:layout_marginLeft="10dp"
-               android:orientation="horizontal"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-               <ImageView
-                   android:layout_marginTop="1dp"
-                   android:src="@drawable/outline_email_black_18dp"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginTop="1dp"
+                    android:src="@drawable/outline_email_black_18dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-               </ImageView>
+                </ImageView>
 
-               <TextView
-                   android:textColor="#000"
-                   android:layout_marginLeft="5dp"
-                   android:text="longkhoa@gmail.com"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/txt_email"
+                    android:textColor="#000"
+                    android:layout_marginLeft="5dp"
+                    android:text="longkhoa@gmail.com"
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <ImageView
+                    android:id="@+id/img_alert"
+                    android:layout_marginTop="1dp"
+                    android:src="@drawable/ic_alert"
+                   android:layout_marginRight="-10dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp">
 
-               </TextView>
+                </ImageView>
 
-           </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_marginTop="8dp"
@@ -93,19 +112,26 @@
                 </ImageView>
 
                 <TextView
+                    android:id="@+id/txt_phone"
                     android:textColor="#000"
-
                     android:layout_marginLeft="5dp"
                     android:text="090293123"
-                    android:layout_width="match_parent"
+                    android:layout_width="320dp"
                     android:layout_height="wrap_content">
-
                 </TextView>
+                <ImageView
+                    android:id="@+id/img_alert4"
+                    android:layout_marginTop="1dp"
+                    android:src="@drawable/ic_alert"
+                    android:layout_marginRight="-10dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"/>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="8dp"                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="10dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -119,14 +145,88 @@
                 </ImageView>
 
                 <TextView
+                    android:id="@+id/txt_date"
                     android:textColor="#000"
-
                     android:layout_marginLeft="5dp"
                     android:text="12-11-1020"
-                    android:layout_width="match_parent"
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <ImageView
+                    android:id="@+id/img_alert1"
+                    android:layout_marginTop="1dp"
+                    android:src="@drawable/ic_alert"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp">
+
+                </ImageView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginTop="1dp"
+                    android:src="@drawable/outline_date_range_black_18dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/txt_createAt"
+                    android:textColor="#000"
+                    android:layout_marginLeft="5dp"
+                    android:hint="Thời gian tạo"
+                    android:layout_width="320dp"
                     android:layout_height="wrap_content">
 
                 </TextView>
+                <ImageView
+                    android:id="@+id/img_alert2"
+                    android:layout_marginTop="1dp"
+                    android:src="@drawable/ic_alert"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp">
+                </ImageView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginTop="1dp"
+                    android:src="@drawable/outline_date_range_black_18dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/txt_updateAt"
+                    android:textColor="#000"
+                    android:layout_marginLeft="5dp"
+                    android:hint="Thời gian cập nhật"
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+                <ImageView
+                    android:id="@+id/img_alert3"
+                    android:layout_marginTop="1dp"
+                    android:src="@drawable/ic_alert"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp">
+
+                </ImageView>
 
             </LinearLayout>
 
@@ -141,6 +241,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+
             <ImageView
                 android:layout_marginTop="1dp"
                 android:src="@drawable/outline_email_black_18dp"
@@ -150,6 +251,7 @@
             </ImageView>
 
             <TextView
+                android:id="@+id/txt_signout"
                 android:textColor="#000"
                 android:layout_marginLeft="5dp"
                 android:text="Đăng xuất"
@@ -158,7 +260,44 @@
 
             </TextView>
 
+
+
         </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:layout_marginTop="1dp"
+                android:src="@drawable/baseline_search_black_24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </ImageView>
+
+            <TextView
+                android:id="@+id/txt_update"
+                android:textColor="#000"
+                android:layout_marginLeft="5dp"
+                android:text="Thay đổi thông tin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </TextView>
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn_own"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:background="@drawable/bottron_button"
+            android:text="Trở thành chủ nhà"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
     </LinearLayout>
 
 </LinearLayout>

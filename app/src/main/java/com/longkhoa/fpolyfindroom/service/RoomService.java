@@ -9,6 +9,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface RoomService {
 
@@ -20,5 +21,8 @@ public interface RoomService {
 
     @GET("my-rooms")
     Call<ResponseBody> getMyRoom();
+
+    @GET("rooms")
+    Call<ResponseBody> getListRoomByType(@Query("type") String type);
 
 }

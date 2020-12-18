@@ -24,16 +24,21 @@ import com.longkhoa.fpolyfindroom.model.Room;
 import com.longkhoa.fpolyfindroom.model.User;
 import com.longkhoa.fpolyfindroom.presenter.room.RoomInterface;
 import com.longkhoa.fpolyfindroom.presenter.room.RoomPresenter;
+import com.longkhoa.fpolyfindroom.presenter.room.getroombytype.GetRoomByTypeInterface;
+import com.longkhoa.fpolyfindroom.presenter.room.getroombytype.GetRoomByTypePresenter;
 import com.longkhoa.fpolyfindroom.util.Constant;
+import com.longkhoa.fpolyfindroom.view.CallBackAdapterType;
+import com.longkhoa.fpolyfindroom.view.ListRoomByTypeFragment;
 import com.longkhoa.fpolyfindroom.view.room.CallbackRoomAdapter;
 import com.longkhoa.fpolyfindroom.view.room.DetailRoomFragment;
+import com.longkhoa.fpolyfindroom.view.room.GetAllRoomFragment;
 
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class HomeCustomerFragment extends Fragment implements RoomInterface, CallbackRoomAdapter  {
+public class HomeCustomerFragment extends Fragment implements RoomInterface, CallbackRoomAdapter, CallBackAdapterType {
     ViewPager viewPagerBanner;
     RecyclerView recyclerView1, recyclerView2,recyclerView3;
     RoomPresenter roomPresenter;
@@ -77,6 +82,7 @@ public class HomeCustomerFragment extends Fragment implements RoomInterface, Cal
             }
         };
 
+
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -91,7 +97,7 @@ public class HomeCustomerFragment extends Fragment implements RoomInterface, Cal
         arrayCateries.add(new CategoriesRoom("Phòng", R.drawable.baseline_meeting_room_black_24dp));
         arrayCateries.add(new CategoriesRoom("Căn hộ", R.drawable.baseline_apartment_black_24dp));
 
-        cateroriesAdapter = new CateroriesAdapter(getActivity(), arrayCateries, R.layout.custom_categories);
+        cateroriesAdapter = new CateroriesAdapter(getActivity(), arrayCateries, R.layout.custom_categories,this);
         recyclerView1.setAdapter(cateroriesAdapter);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2, RecyclerView.VERTICAL, false);
@@ -118,5 +124,15 @@ public class HomeCustomerFragment extends Fragment implements RoomInterface, Cal
         DetailRoomFragment detailRoomFragment = new DetailRoomFragment();
         detailRoomFragment.setArguments(bundle);
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_frame, detailRoomFragment).addToBackStack(null).commit();
+    }
+
+
+    @Override
+    public void setOnItemClick(CategoriesRoom categoriesRoom) {
+        Bundle bundle = new Bundle();
+        bundle.putString("type",categoriesRoom.getTitle());
+        ListRoomByTypeFragment listRoomByTypeFragment = new ListRoomByTypeFragment();
+        listRoomByTypeFragment.setArguments(bundle);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_frame,listRoomByTypeFragment).commit();
     }
 }

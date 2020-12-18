@@ -50,8 +50,8 @@ public class LoginFragment extends Fragment implements LoginInterface {
         edtPassword = view.findViewById(R.id.edtPasswordLogin);
         edtUserName = view.findViewById(R.id.edtEmail);
         loginPresenter = new LoginPresenter(this);
-        edtUserName.setText("01234567890");
-        edtPassword.setText("longkhoa");
+        edtUserName.setText("999999999");
+        edtPassword.setText("1");
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -304,6 +304,7 @@ public class AddInfoRoomFragment extends Fragment implements OnMapReadyCallback,
 
                                     dialog.dismiss();
                                     String abc = uri.toString();
+//                                    Log.d("LINK",abc);
                                     arrayListImage.add(abc);
                                     recyclerViewDisplayImage.setHasFixedSize(true);
                                     GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2,RecyclerView.VERTICAL,false);

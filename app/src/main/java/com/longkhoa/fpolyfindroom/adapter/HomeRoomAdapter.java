@@ -1,6 +1,7 @@
 package com.longkhoa.fpolyfindroom.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +13,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.card.MaterialCardView;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.longkhoa.fpolyfindroom.R;
 import com.longkhoa.fpolyfindroom.model.MyStatusRoom;
 import com.longkhoa.fpolyfindroom.model.Room;
 import com.longkhoa.fpolyfindroom.view.room.CallbackRoomAdapter;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -59,7 +64,14 @@ public class HomeRoomAdapter extends RecyclerView.Adapter<HomeRoomAdapter.ViewHo
         holder.txtTitleRoom.setText(room.getTitle());
         holder.txtPriceRoom.setText(String.valueOf(room.getPrice()+"đ"));
         holder.txtAddressRoom.setText(room.getLocation());
-        Glide.with(context).load(room.getImage().get(0)).into(holder.imageHomeRoom);
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+//        storageReference.child(room.getImage().get(0)).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+//            @Override
+//            public void onSuccess(Uri uri) {
+//                Log.d("LINK",uri.toString());
+//            }
+//        });
+        Picasso.get().load(room.getImage().get(0)).into(holder.imageHomeRoom);
         holder.materialCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

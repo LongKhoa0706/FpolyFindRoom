@@ -3,7 +3,7 @@ package com.longkhoa.fpolyfindroom.presenter.auth;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.longkhoa.fpolyfindroom.model.MyStatus;
+import com.longkhoa.fpolyfindroom.model.MyStatusUser;
 import com.longkhoa.fpolyfindroom.networking.RetrofitClient;
 import com.longkhoa.fpolyfindroom.service.AuthService;
 
@@ -33,12 +33,12 @@ public class LoginPresenter {
                         if (response.body() !=null){
                             String jsonString = response.body().string();
                             Gson gson = new Gson();
-                            MyStatus status = gson.fromJson(jsonString,MyStatus.class);
+                            MyStatusUser status = gson.fromJson(jsonString, MyStatusUser.class);
                             loginInterface.loginSuccess(status);
                         }else {
                             String jsonString = response.errorBody().string();
                             Gson gson = new Gson();
-                            MyStatus status = gson.fromJson(jsonString,MyStatus.class);
+                            MyStatusUser status = gson.fromJson(jsonString, MyStatusUser.class);
                             loginInterface.loginFail(status.getMes());
                         }
                     } catch (IOException e) {

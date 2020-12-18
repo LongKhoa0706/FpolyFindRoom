@@ -1,38 +1,23 @@
 package com.longkhoa.fpolyfindroom.networking;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.util.Log;
 
-
-
-import java.io.IOException;
-import java.util.HashSet;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Logger;
-
-import okhttp3.Interceptor;
-import okhttp3.OkHttp;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RetrofitClient {
+public class RetrofitCity {
 //    private static Context context;
 
     private static Retrofit retrofit;
-    public static final String BASE_URL = "http://172.19.200.124:8080/";
+    public static final String BASE_URL = "http://192.168.0.103:8080/";
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {
             OkHttpClient okHttpClient = new OkHttpClient.Builder()
                     .addInterceptor(new LoggingInterceptor())
                     .addInterceptor(new AuthInterceptor())
                     .addNetworkInterceptor( new LoggingInterceptor())
-                    .connectTimeout(1, TimeUnit.MINUTES)
-                    .readTimeout(30, TimeUnit.SECONDS)
-                    .writeTimeout(15, TimeUnit.SECONDS)
                     .build();
-            retrofit = new retrofit2.Retrofit.Builder()
+            retrofit = new Retrofit.Builder()
 //                    .client(client)
                     .client(okHttpClient)
                     .baseUrl(BASE_URL)

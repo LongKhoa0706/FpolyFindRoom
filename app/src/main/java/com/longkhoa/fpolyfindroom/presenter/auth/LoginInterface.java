@@ -1,8 +1,8 @@
 package com.longkhoa.fpolyfindroom.presenter.auth;
 
-import com.longkhoa.fpolyfindroom.model.MyStatus;
+import com.longkhoa.fpolyfindroom.model.MyStatusUser;
 
 public interface LoginInterface {
-    void loginSuccess(MyStatus myStatus);
+    void loginSuccess(MyStatusUser myStatus);
     void loginFail(String message);
 }

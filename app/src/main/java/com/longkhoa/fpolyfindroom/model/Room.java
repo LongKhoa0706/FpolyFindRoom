@@ -18,7 +18,6 @@ public class Room implements Parcelable {
     @SerializedName("utilities")
     @Expose
     private List<String> utilities = null;
-
     @SerializedName("_id")
     @Expose
     private String id;
@@ -28,6 +27,12 @@ public class Room implements Parcelable {
     @SerializedName("location")
     @Expose
     private String location;
+    @SerializedName("lng")
+    @Expose
+    private String lng;
+    @SerializedName("lat")
+    @Expose
+    private String lat;
     @SerializedName("description")
     @Expose
     private String description;

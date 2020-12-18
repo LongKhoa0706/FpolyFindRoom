@@ -17,6 +17,7 @@ import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -50,7 +51,6 @@ public class DashBoardActivity extends AppCompatActivity implements BottomNaviga
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
     LocationManager locationManager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -161,18 +161,19 @@ public class DashBoardActivity extends AppCompatActivity implements BottomNaviga
 
 
     private void getLocationClient() {
-        String provider = BuildConfig.DEBUG ? LocationManager.GPS_PROVIDER : LocationManager.NETWORK_PROVIDER;
+        // check máy thật và máy ảo
+        String provider = Build.FINGERPRINT.contains("generic") ? LocationManager.GPS_PROVIDER : LocationManager.NETWORK_PROVIDER;
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
             return;
         }
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000L
+        locationManager.requestLocationUpdates(provider, 5000L
                 , 500.0F, new LocationListener() {
                     @Override
                     public void onLocationChanged(Location location) {
+                        Log.d("aaa",location.getLatitude()+"");
                         SharedPreferences sharedPreferences = DashBoardActivity.this.getSharedPreferences(Constant.KEY_LOCATION, Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
-                        Log.d("OOO",location.getLatitude()+"");
                         editor.putString("latitude",location.getLatitude()+"");
                         editor.putString("longitude",location.getLongitude()+"");
                         editor.commit();

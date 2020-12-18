@@ -3,6 +3,7 @@ package com.longkhoa.fpolyfindroom.model;
 public class Util {
     private String title;
     private int icon;
+    private boolean isCheck;
 
     public Util(String title, int icon) {
         this.title = title;
@@ -19,6 +20,14 @@ public class Util {
 
     public int getIcon() {
         return icon;
+    }
+
+    public boolean isCheck() {
+        return isCheck;
+    }
+
+    public void setCheck(boolean check) {
+        isCheck = check;
     }
 
     public void setIcon(int icon) {

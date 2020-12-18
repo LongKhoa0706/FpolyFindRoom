@@ -18,12 +18,11 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.longkhoa.fpolyfindroom.R;
-import com.longkhoa.fpolyfindroom.model.MyStatus;
+import com.longkhoa.fpolyfindroom.model.MyStatusUser;
 import com.longkhoa.fpolyfindroom.presenter.auth.LoginInterface;
 import com.longkhoa.fpolyfindroom.presenter.auth.LoginPresenter;
 import com.longkhoa.fpolyfindroom.util.Constant;
 import com.longkhoa.fpolyfindroom.view.activity.DashBoardActivity;
-import com.longkhoa.fpolyfindroom.view.activity.MainActivity;
 
 import es.dmoral.toasty.Toasty;
 
@@ -67,7 +66,7 @@ public class LoginFragment extends Fragment implements LoginInterface {
 
 
     @Override
-    public void loginSuccess(MyStatus myStatus) {
+    public void loginSuccess(MyStatusUser myStatus) {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Constant.KEY_ACCOUNT, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();

@@ -2,7 +2,7 @@ package com.longkhoa.fpolyfindroom.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class MyStatus {
+public class MyStatusUser {
     @SerializedName("statusCode")
    private int statusCode;
 

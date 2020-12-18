@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.longkhoa.fpolyfindroom.R;
-import com.longkhoa.fpolyfindroom.adapter.RoomAdapter;
+
 import com.longkhoa.fpolyfindroom.model.MyStatusRoom;
 import com.longkhoa.fpolyfindroom.model.Room;
 
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class GetAllRoomFragment extends Fragment implements CallbackRoomAdapter {
     RecyclerView recyclerViewGetRoom;
-    RoomAdapter roomAdapter;
+
      ArrayList<MyStatusRoom> arrRoom = new ArrayList<>();
 
     @Override
@@ -37,9 +37,9 @@ public class GetAllRoomFragment extends Fragment implements CallbackRoomAdapter 
 //         arrRoom.add(new Room("2.500.000đ","Phòng cho thuê","433/Trần Quang Diệu","25-10-2020",null,"Nhà giá rẻ",false,null,"Cho Thue","Quan 7"));
 //        arrRoom.add(new Room("2.500.000đ","Phòng cho thuê","433/Trần Quang Diệu","25-10-2020",null,"Nhà giá rẻ",false,null,"Cho Thue","Quan 7"));
 
-        roomAdapter = new RoomAdapter(arrRoom,getActivity(),R.layout.custom_item_room,this);
-        recyclerViewGetRoom.setAdapter(roomAdapter);
-        roomAdapter.notifyDataSetChanged();
+//        roomAdapter = new RoomAdapter(arrRoom,getActivity(),R.layout.custom_item_room,this);
+//        recyclerViewGetRoom.setAdapter(roomAdapter);
+//        roomAdapter.notifyDataSetChanged();
         return view;
     }
 

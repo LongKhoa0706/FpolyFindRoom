@@ -7,20 +7,18 @@
    <FrameLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent">
-
-
        <com.mapbox.mapboxsdk.maps.MapView
            android:id="@+id/mapBoxFragment"
            android:layout_width="match_parent"
            android:layout_height="match_parent" />
        <EditText
            android:drawableLeft="@drawable/baseline_search_black_24dp"
-           android:background="#ffff"
+           android:background="@drawable/container"
            android:layout_margin="10dp"
            android:id="@+id/edtSearch"
            android:hint="Search"
            android:layout_width="match_parent"
-           android:layout_height="wrap_content">
+           android:layout_height="35dp">
 
        </EditText>
    </FrameLayout>

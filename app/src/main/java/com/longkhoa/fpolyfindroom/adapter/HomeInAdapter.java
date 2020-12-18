@@ -20,13 +20,13 @@ import com.longkhoa.fpolyfindroom.view.room.CallbackRoomAdapter;
 
 import java.util.List;
 
-public class HomeRoomAdapter extends RecyclerView.Adapter<HomeRoomAdapter.ViewHolder> {
+public class HomeInAdapter extends RecyclerView.Adapter<HomeInAdapter.ViewHolder> {
     private Context context;
     private List<Room> arrListRoom;
     private int layout;
     private CallbackRoomAdapter callbackRoomAdapter;
 
-    public HomeRoomAdapter(Context context, List<Room> arrListRoom, int layout, CallbackRoomAdapter callbackRoomAdapter) {
+    public HomeInAdapter(Context context, List<Room> arrListRoom, int layout, CallbackRoomAdapter callbackRoomAdapter) {
         this.context = context;
         this.arrListRoom = arrListRoom;
         this.layout = layout;
@@ -44,28 +44,18 @@ public class HomeRoomAdapter extends RecyclerView.Adapter<HomeRoomAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Room room = arrListRoom.get(position);
-        switch (room.getType()){
-            case "nhà trọ":
-                holder.imgIconHomeRoom.setImageResource(R.drawable.baseline_home_white_18dp);
-                break;
-            case "căn hộ":
-                holder.imgIconHomeRoom.setImageResource(R.drawable.baseline_apartment_white_18dp);
-                break;
-            case "phòng":
-                holder.imgIconHomeRoom.setImageResource(R.drawable.baseline_meeting_room_white_18dp);
-                break;
-        }
-        holder.txtCategories.setText(room.getType());
-        holder.txtTitleRoom.setText(room.getTitle());
-        holder.txtPriceRoom.setText(String.valueOf(room.getPrice()+"đ"));
-        holder.txtAddressRoom.setText(room.getLocation());
+        holder.txtItemPriceRoom.setText(String.valueOf(room.getPrice()+"đ"));
+        holder.txtItemCategoriRoom.setText(room.getType());
+        holder.txtItemTitleRoom.setText(room.getTitle());
+        holder.txtItemAddressRoom.setText(room.getLocation());
 
-        holder.materialCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               callbackRoomAdapter.onClickListenerCardView(room);
-            }
-        });
+//
+//        holder.materialCardView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                callbackRoomAdapter.onClickListenerCardView(room);
+//            }
+//        });
     }
 
     @Override
@@ -74,18 +64,19 @@ public class HomeRoomAdapter extends RecyclerView.Adapter<HomeRoomAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageHomeRoom,imgIconHomeRoom;
-        TextView txtCategories,txtTitleRoom, txtPriceRoom,txtAddressRoom;
+        ImageView imgItemRoom,imgdiachi;
+        TextView txtItemPriceRoom,txtItemCategoriRoom,txtItemTitleRoom,txtItemAddressRoom,txtItemAddress;
         MaterialCardView materialCardView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageHomeRoom = itemView.findViewById(R.id.imgHomeRoom);
-            txtCategories = itemView.findViewById(R.id.txtCategoriesHome);
-            txtTitleRoom = itemView.findViewById(R.id.txtTitleHomeRoom);
-            txtPriceRoom = itemView.findViewById(R.id.txtPriceHomeRoom);
-            txtAddressRoom = itemView.findViewById(R.id.txtAddressHomeRoom);
-            imgIconHomeRoom = itemView.findViewById(R.id.imgIconHomeRoom);
+            imgdiachi=itemView.findViewById(R.id.imgdiachi);
+//            imgItemRoom=itemView.findViewById(R.id.imgItemRoom);
+            txtItemPriceRoom=itemView.findViewById(R.id.txtItemPriceRoom);
+            txtItemCategoriRoom=itemView.findViewById(R.id.txtItemCategoriRoom);
+            txtItemTitleRoom=itemView.findViewById(R.id.txtItemTitleRoom);
+            txtItemAddressRoom=itemView.findViewById(R.id.txtItemAddressRoom);
+            txtItemAddress=itemView.findViewById(R.id.txtItemAddress);
             materialCardView = itemView.findViewById(R.id.cardViewItem);
         }
     }

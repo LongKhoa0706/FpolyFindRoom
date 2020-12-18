@@ -32,16 +32,13 @@ public class LoginFragment extends Fragment implements LoginInterface {
     Button btnLogin;
     EditText edtUserName,edtPassword;
     LoginPresenter loginPresenter;
-
     TextView tvQuenMatKhau;
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         SharedPreferences sharedPref = context.getSharedPreferences("user", Context.MODE_PRIVATE);
-
     }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -57,14 +54,10 @@ public class LoginFragment extends Fragment implements LoginInterface {
             @Override
             public void onClick(View view) {
                 loginPresenter.login(edtUserName.getText().toString(),edtPassword.getText().toString());
-
-
             }
         });
         return view;
     }
-
-
     @Override
     public void loginSuccess(MyStatusUser myStatus) {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Constant.KEY_ACCOUNT, MODE_PRIVATE);
@@ -76,7 +69,6 @@ public class LoginFragment extends Fragment implements LoginInterface {
         Toasty.success(getActivity(),myStatus.getMes(),Toasty.LENGTH_SHORT).show();
         startActivity(new Intent(getActivity(), DashBoardActivity.class));
     }
-
     @Override
     public void loginFail(String message) {
         Log.d("LOIIII",message.toString());

@@ -33,10 +33,12 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.longkhoa.fpolyfindroom.R;
+
 import com.longkhoa.fpolyfindroom.model.MyStatusUser;
 import com.longkhoa.fpolyfindroom.model.User;
 import com.longkhoa.fpolyfindroom.presenter.user.UserInterface;
 import com.longkhoa.fpolyfindroom.presenter.user.UserPresenter;
+import com.longkhoa.fpolyfindroom.view.activity.ClientActivity;
 import com.longkhoa.fpolyfindroom.view.activity.DashBoardActivity;
 
 import java.io.File;
@@ -52,6 +54,7 @@ import static android.app.Activity.RESULT_OK;
 
 
 public class ProfileFragment extends Fragment implements UserInterface {
+    Button btn_own;
     private static final int REQUEST_CODE_CAPTURE_IMAGE = 2;
     private UserPresenter userPresenter;
     TextView tv_name, tv_phone, tv_email,tv_birthday, tv_signout, tv_update;
@@ -74,6 +77,14 @@ public class ProfileFragment extends Fragment implements UserInterface {
         img_alert2 = view.findViewById(R.id.img_alert1);
         imageSmall=view.findViewById(R.id.capturedImageSmall);
         img_camera=view.findViewById(R.id.img_camera);
+        btn_own = view.findViewById(R.id.btn_own);
+        btn_own.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(), ClientActivity.class);
+                getActivity().startActivity(i);
+            }
+        });
         userPresenter = new UserPresenter(this);
 
         img_camera.setOnClickListener(new View.OnClickListener() {
@@ -265,6 +276,7 @@ public class ProfileFragment extends Fragment implements UserInterface {
 
 
     }
+
 
     @Override
     public void getProfile(MyStatusUser myStatus) {

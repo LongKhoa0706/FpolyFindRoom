@@ -31,7 +31,6 @@ public class ListMyRoomPresenter {
                 try {
                     if (response.body() !=null){
                         String jsonString = response.body().string();
-
                         Gson gson = new Gson();
                         MyStatusRoom status = gson.fromJson(jsonString, MyStatusRoom.class);
                         listMyRoomInterface.getListMyRooms(status);

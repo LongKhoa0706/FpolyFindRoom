@@ -29,12 +29,12 @@
         </activity>
         <activity android:name=".view.activity.VerifyPhoneFragment" />
         <activity android:name=".view.activity.ClientActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <!-- <activity android:name=".OnBoardingScreenActivity"></activity> -->
             <!-- <activity android:name=".SplashScreenActivity"> -->
 

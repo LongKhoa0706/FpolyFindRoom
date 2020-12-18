@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.card.MaterialCardView;
 import com.longkhoa.fpolyfindroom.R;
 import com.longkhoa.fpolyfindroom.model.MyStatusRoom;
@@ -58,6 +59,7 @@ public class HomeRoomAdapter extends RecyclerView.Adapter<HomeRoomAdapter.ViewHo
         holder.txtTitleRoom.setText(room.getTitle());
         holder.txtPriceRoom.setText(String.valueOf(room.getPrice()+"đ"));
         holder.txtAddressRoom.setText(room.getLocation());
+        Glide.with(context).load(room.getImage().get(0)).into(holder.imageHomeRoom);
         holder.materialCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

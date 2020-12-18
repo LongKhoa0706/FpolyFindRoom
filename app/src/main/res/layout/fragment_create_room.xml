@@ -119,11 +119,11 @@
                </View>
                <com.google.android.material.textfield.TextInputLayout
                    android:layout_width="match_parent"
+                   android:id="@+id/edtPriceCreateRoom"
                    android:layout_height="wrap_content">
                    <com.google.android.material.textfield.TextInputEditText
                        android:layout_width="match_parent"
                        android:hint="Giá"
-                       android:id="@+id/edtPriceCreateRoom"
                        android:background="@android:color/transparent"
                        android:layout_height="wrap_content">
 
@@ -138,12 +138,13 @@
                    <com.google.android.material.textfield.TextInputLayout
                        android:layout_width="match_parent"
                        android:layout_weight="1"
+                       android:id="@+id/edtEcreage"
+
                        android:layout_marginRight="20dp"
                        android:layout_height="wrap_content">
                        <com.google.android.material.textfield.TextInputEditText
                            android:layout_width="match_parent"
                            android:hint="Diện tích"
-                           android:id="@+id/edEcreage"
                            android:background="@android:color/transparent"
                            android:layout_height="wrap_content">
 
@@ -152,11 +153,12 @@
                    <com.google.android.material.textfield.TextInputLayout
                        android:layout_width="match_parent"
                        android:layout_weight="1"
+                       android:id="@+id/edtBedCreateRoom"
+
                        android:layout_height="wrap_content">
                        <com.google.android.material.textfield.TextInputEditText
                            android:layout_width="match_parent"
                            android:hint="Phòng ngủ"
-                           android:id="@+id/edtBedCreateRoom"
                            android:background="@android:color/transparent"
                            android:layout_height="wrap_content">
 
@@ -172,12 +174,13 @@
                    <com.google.android.material.textfield.TextInputLayout
                        android:layout_width="match_parent"
                        android:layout_weight="1"
+                       android:id="@+id/edtShowerCreateRoom"
+
                        android:layout_marginRight="20dp"
                        android:layout_height="wrap_content">
                        <com.google.android.material.textfield.TextInputEditText
                            android:layout_width="match_parent"
                            android:hint="Phòng tắm"
-                           android:id="@+id/edtShowerCreateRoom"
                            android:background="@android:color/transparent"
                            android:layout_height="wrap_content">
 
@@ -186,11 +189,12 @@
                    <com.google.android.material.textfield.TextInputLayout
                        android:layout_width="match_parent"
                        android:layout_weight="1"
+                       android:id="@+id/edtAmountacreage"
+
                        android:layout_height="wrap_content">
                        <com.google.android.material.textfield.TextInputEditText
                            android:layout_width="match_parent"
                            android:hint="Số lượng phòng"
-                           android:id="@+id/edtAmountacreage"
                            android:background="@android:color/transparent"
                            android:layout_height="wrap_content">
 
@@ -294,13 +298,13 @@
                </View>
                <com.google.android.material.textfield.TextInputLayout
                    android:layout_width="match_parent"
+                   android:id="@+id/edtDescCreateRoom"
 
                    android:layout_marginRight="20dp"
                    android:layout_height="wrap_content">
                    <com.google.android.material.textfield.TextInputEditText
                        android:layout_width="match_parent"
                        android:hint="Mô tả"
-                       android:id="@+id/edtDescCreateRoom"
                        android:background="@android:color/transparent"
                        android:layout_height="100dp">
 
@@ -309,6 +313,7 @@
 
                <androidx.appcompat.widget.AppCompatButton
                    android:text="Lưu"
+                   android:id="@+id/btnSaveRoom"
                    android:layout_marginTop="10dp"
                    android:layout_gravity="center"
                    android:gravity="center"

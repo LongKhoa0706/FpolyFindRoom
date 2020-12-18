@@ -1,9 +1,9 @@
 package com.longkhoa.fpolyfindroom.presenter.user;
 
-import com.longkhoa.fpolyfindroom.model.MyStatus;
 import com.longkhoa.fpolyfindroom.model.MyStatusRoom;
+import com.longkhoa.fpolyfindroom.model.MyStatusUser;
 
 public interface UserInterface {
-    void getProfile(MyStatus myStatus);
+    void getProfile(MyStatusUser myStatus);
 
 }

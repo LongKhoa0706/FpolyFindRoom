@@ -3,7 +3,6 @@ package com.longkhoa.fpolyfindroom.presenter.user;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.longkhoa.fpolyfindroom.model.MyStatus;
 import com.longkhoa.fpolyfindroom.model.User;
 import com.longkhoa.fpolyfindroom.networking.RetrofitClient;
 import com.longkhoa.fpolyfindroom.presenter.auth.RegisterInterface;

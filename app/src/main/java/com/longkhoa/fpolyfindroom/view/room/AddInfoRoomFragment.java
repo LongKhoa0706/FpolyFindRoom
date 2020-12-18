@@ -94,7 +94,7 @@ public class AddInfoRoomFragment extends Fragment implements OnMapReadyCallback,
     ArrayList<String> arrayListImage = new ArrayList<>();
     RecyclerView recyclerViewDisplayImage;
     ImageView iconChooseImage;
-
+    CarmenFeature feature;
     SpinnerLocationAdapter spinnerLocationAdapter;
     private String geojsonSourceLayerId = "geojsonSourceLayerId";
     private String symbolIconId = "symbolIconId";
@@ -196,12 +196,11 @@ public class AddInfoRoomFragment extends Fragment implements OnMapReadyCallback,
             public void onClick(View view) {
 
                     Bundle bundle = new Bundle();
-                    Room room = new Room(arrayListImage,false,null,null,type,edtSearch.getText().toString(),"",0,edtTitle.getText().toString(),null,null,null);
+                    Room room = new Room(arrayListImage,false,null,null,type,
+                            edtSearch.getText().toString(),
+                            "",0,edtTitle.getText().toString(),
+                            null,null,null,((Point) feature.geometry()).latitude(),((Point) feature.geometry()).longitude(),0,0,0,0);
                     bundle.putParcelable("room",room);
-
-//                    bundle.putString("type",type);
-//                    bundle.putString("title",edtTitle.getText().toString());
-//                    bundle.putString("location",edtSearch.getText().toString());
                     CreateRoomFragment createRoomFragment = new CreateRoomFragment();
                     createRoomFragment.setArguments(bundle);
 
@@ -264,7 +263,7 @@ public class AddInfoRoomFragment extends Fragment implements OnMapReadyCallback,
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == getActivity().RESULT_OK && requestCode == REQUEST_CODE_AUTOCOMPLETE) {
-            CarmenFeature feature = PlaceAutocomplete.getPlace(data);
+             feature = PlaceAutocomplete.getPlace(data);
             edtSearch.setText(feature.placeName());
 
             if (mapbox != null) {
@@ -272,17 +271,14 @@ public class AddInfoRoomFragment extends Fragment implements OnMapReadyCallback,
                 if (style != null) {
                     GeoJsonSource source = style.getSourceAs(geojsonSourceLayerId);
                     if (source != null) {
-                        source.setGeoJson(FeatureCollection.fromFeatures(
-                                new Feature[]{Feature.fromJson(feature.toJson())}));
+                        source.setGeoJson(FeatureCollection.fromFeatures(new Feature[]{Feature.fromJson(feature.toJson())}));
                     }
-
-
                     mapbox.animateCamera(CameraUpdateFactory.newCameraPosition(
                             new CameraPosition.Builder()
-                                    .target(new LatLng(((Point) feature.geometry()).latitude(),
-                                            ((Point) feature.geometry()).longitude()))
+                                    .target(new LatLng(((Point) feature.geometry()).latitude(), ((Point) feature.geometry()).longitude()))
                                     .zoom(14)
                                     .build()), 4000);
+
                 }
 
             }
@@ -297,7 +293,7 @@ public class AddInfoRoomFragment extends Fragment implements OnMapReadyCallback,
                     dialog.show();
                     Uri imageUri = data.getClipData().getItemAt(i).getUri();
                      String image = getFileName(imageUri);
-                    storageReference = FirebaseStorage.getInstance().getReference("image").child(image);
+                    storageReference = FirebaseStorage.getInstance().getReference(image);
                     UploadTask uploadTask = storageReference.putFile(imageUri);
                     uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override

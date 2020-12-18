@@ -1,36 +1,32 @@
 package com.longkhoa.fpolyfindroom.view.room;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
+import com.google.android.material.textfield.TextInputLayout;
 import com.longkhoa.fpolyfindroom.R;
-import com.longkhoa.fpolyfindroom.adapter.SlideImageAdapter;
 import com.longkhoa.fpolyfindroom.adapter.UtilAdapter;
 import com.longkhoa.fpolyfindroom.model.Room;
 import com.longkhoa.fpolyfindroom.model.Util;
-import com.longkhoa.fpolyfindroom.view.ChooseImageFragment;
+import com.longkhoa.fpolyfindroom.presenter.room.addroom.AddRoomInterface;
+import com.longkhoa.fpolyfindroom.presenter.room.addroom.AddRoomPresenter;
+import com.longkhoa.fpolyfindroom.view.activity.DashBoardActivity;
 import com.longkhoa.fpolyfindroom.view.util.ListUtilFragment;
 
 import org.json.JSONArray;
@@ -41,17 +37,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class CreateRoomFragment extends Fragment {
+public class CreateRoomFragment extends Fragment  implements AddRoomInterface {
     LinearLayout linearAddUtil;
     ImageSlider slider;
     UtilAdapter utilAdapter;
     RecyclerView reyclerViewDisplayUtil;
+    AddRoomPresenter addRoomPresenter;
     final int REQUEST_CODE = 1;
     TextView txtType, txtTitle, txtAddress;
     LinearLayout linearLayout;
     Room room;
+    ArrayList<Util> arrayListUtil = new ArrayList<>();
     List<SlideModel> listImage = new ArrayList<SlideModel>();
-    EditText edtPrice,edtBed,edtShower,edtAmountRoom,edtDescription;
+    TextInputLayout edtPrice,edtBed,edtShower,edtAmountRoom,edtDescription,edtAcreage;
+    AppCompatButton btnSaveRoom;
+    ArrayList<String> arrList = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -62,12 +62,18 @@ public class CreateRoomFragment extends Fragment {
         edtShower = view.findViewById(R.id.edtShowerCreateRoom);
         edtAmountRoom = view.findViewById(R.id.edtAmountacreage);
         edtDescription = view.findViewById(R.id.edtDescCreateRoom);
+        edtAcreage = view.findViewById(R.id.edtEcreage);
+        btnSaveRoom = view.findViewById(R.id.btnSaveRoom);
         txtType = view.findViewById(R.id.txtTypeCreateRoom);
         txtTitle = view.findViewById(R.id.txtTitleCreateRoom);
         reyclerViewDisplayUtil = view.findViewById(R.id.reyclerViewDisplayUtil);
         txtAddress = view.findViewById(R.id.txtAddressCreateRoom);
         slider = view.findViewById(R.id.image_slider);
         linearLayout = view.findViewById(R.id.linear);
+        DashBoardActivity.bottomNavigationMenuView.setVisibility(View.GONE);
+
+
+        addRoomPresenter = new AddRoomPresenter(this);
 
         Bundle bundle = getArguments();
         if (bundle != null) {
@@ -80,14 +86,37 @@ public class CreateRoomFragment extends Fragment {
             txtType.setText(room.getType());
             txtAddress.setText(room.getLocation());
             txtTitle.setText(room.getTitle());
+
+
+
+            btnSaveRoom.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    Room saveRoom = new Room(room.getImage(),
+                            false,arrList,null,
+                            room.getType(),room.getLocation(),
+                            edtDescription.getEditText().getText().toString(),
+                            Integer.parseInt(edtPrice.getEditText().getText().toString()),
+                            room.getTitle(),null,null,null,
+                            room.getLat(),room.getLng(), Integer.parseInt(edtAmountRoom.getEditText().getText().toString()),
+                            Integer.parseInt(edtShower.getEditText().getText().toString()),Integer.parseInt(edtBed.getEditText().getText().toString()),
+                            Integer.parseInt(edtAcreage.getEditText().getText().toString()));
+
+                    addRoomPresenter.createRoom(saveRoom);
+                }
+            });
+
         } else {
 
         }
 
+
+
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("utils", 0);
         if (sharedPreferences != null) {
             String util = sharedPreferences.getString("utils", "");
-            ArrayList<Util> arrayList = new ArrayList<>();
+
             try {
                 JSONArray jsonArray = new JSONArray(util);
                 for (int i = 0; i < jsonArray.length(); i++) {
@@ -95,18 +124,21 @@ public class CreateRoomFragment extends Fragment {
                     String title = jsonObject.getString("title");
                     int icon = jsonObject.getInt("icon");
                     Util util1 = new Util(title, icon);
-                    arrayList.add(util1);
+                    arrayListUtil.add(util1);
                     reyclerViewDisplayUtil.setHasFixedSize(true);
                     LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);
                     reyclerViewDisplayUtil.setLayoutManager(layoutManager);
-                    utilAdapter = new UtilAdapter(arrayList, getActivity(), R.layout.custom_item_util, null);
+                    utilAdapter = new UtilAdapter(arrayListUtil, getActivity(), R.layout.custom_item_util, null);
                     reyclerViewDisplayUtil.setAdapter(utilAdapter);
+                    arrayListUtil.forEach((e)->{
+                        String total = String.valueOf(e.getIcon()) +" "+ e.getTitle() ;
+                        arrList.add(total);
+                    });
                     ViewGroup.LayoutParams params=reyclerViewDisplayUtil.getLayoutParams();
                     params.height=600;
                     reyclerViewDisplayUtil.setLayoutParams(params);
                     utilAdapter.notifyDataSetChanged();
                 }
-
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -130,4 +162,8 @@ public class CreateRoomFragment extends Fragment {
 
     }
 
+    @Override
+    public void creteRoom() {
+
+    }
 }

@@ -33,7 +33,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.longkhoa.fpolyfindroom.R;
-import com.longkhoa.fpolyfindroom.model.MyStatus;
+import com.longkhoa.fpolyfindroom.model.MyStatusUser;
 import com.longkhoa.fpolyfindroom.model.User;
 import com.longkhoa.fpolyfindroom.presenter.user.UserInterface;
 import com.longkhoa.fpolyfindroom.presenter.user.UserPresenter;
@@ -267,7 +267,7 @@ public class ProfileFragment extends Fragment implements UserInterface {
     }
 
     @Override
-    public void getProfile(MyStatus myStatus) {
+    public void getProfile(MyStatusUser myStatus) {
 
     }
 }

@@ -9,6 +9,9 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class Room implements Parcelable {
+    @SerializedName("coordinates")
+    @Expose
+    private List<Double> coordinates = null;
     @SerializedName("image")
     @Expose
     private List<String> image = null;
@@ -29,10 +32,10 @@ public class Room implements Parcelable {
     private String location;
     @SerializedName("lng")
     @Expose
-    private String lng;
+    private double lng;
     @SerializedName("lat")
     @Expose
-    private String lat;
+    private double lat;
     @SerializedName("description")
     @Expose
     private String description;
@@ -51,9 +54,22 @@ public class Room implements Parcelable {
     @SerializedName("updated_at")
     @Expose
     private String updatedAt;
+    @SerializedName("amount_room")
+    @Expose
+    private int amount_room;
+    @SerializedName("amount_bathroom")
+    @Expose
+    private int amount_bathroom;
+    @SerializedName("amount_bedroom")
+    @Expose
+    private int amount_bedroom;
+    @SerializedName("acreage")
+    @Expose
+    private int acreage;
 
 
-    public Room(List<String> image, boolean status, List<String> utilities, String id, String type, String location, String description, int price, String title, User user, String createdAt, String updatedAt) {
+
+    public Room(List<String> image, boolean status, List<String> utilities, String id, String type, String location, String description, int price, String title, User user, String createdAt, String updatedAt,double lat,double lng,int amount_room,int amount_bathroom,int amount_bedroom,int acreage) {
         this.image = image;
         this.status = status;
         this.utilities = utilities;
@@ -66,6 +82,65 @@ public class Room implements Parcelable {
         this.user = user;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+        this.lat = lat;
+        this.lng = lng;
+        this.acreage = acreage;
+        this.amount_bathroom = amount_bathroom;
+        this.amount_bedroom = amount_bedroom;
+        this.amount_room = amount_room;
+    }
+
+
+    public List<Double> getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(List<Double> coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    protected Room(Parcel in) {
+        image = in.createStringArrayList();
+        status = in.readByte() != 0;
+        utilities = in.createStringArrayList();
+        id = in.readString();
+        type = in.readString();
+        location = in.readString();
+        lng = in.readDouble();
+        lat = in.readDouble();
+        description = in.readString();
+        price = in.readInt();
+        title = in.readString();
+        createdAt = in.readString();
+        updatedAt = in.readString();
+    }
+
+    public static final Creator<Room> CREATOR = new Creator<Room>() {
+        @Override
+        public Room createFromParcel(Parcel in) {
+            return new Room(in);
+        }
+
+        @Override
+        public Room[] newArray(int size) {
+            return new Room[size];
+        }
+    };
+
+    public double getLng() {
+        return lng;
+    }
+
+    public void setLng(double lng) {
+        this.lng = lng;
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
     }
 
     public List<String> getImage() {
@@ -164,35 +239,39 @@ public class Room implements Parcelable {
         this.updatedAt = updatedAt;
     }
 
-    public static Creator<Room> getCREATOR() {
-        return CREATOR;
+
+    public int getAmount_room() {
+        return amount_room;
     }
 
-    protected Room(Parcel in) {
-        image = in.createStringArrayList();
-        status = in.readByte() != 0;
-        utilities = in.createStringArrayList();
-        id = in.readString();
-        type = in.readString();
-        location = in.readString();
-        description = in.readString();
-        price = in.readInt();
-        title = in.readString();
-        createdAt = in.readString();
-        updatedAt = in.readString();
+    public void setAmount_room(int amount_room) {
+        this.amount_room = amount_room;
     }
 
-    public static final Creator<Room> CREATOR = new Creator<Room>() {
-        @Override
-        public Room createFromParcel(Parcel in) {
-            return new Room(in);
-        }
+    public int getAmount_bathroom() {
+        return amount_bathroom;
+    }
 
-        @Override
-        public Room[] newArray(int size) {
-            return new Room[size];
-        }
-    };
+    public void setAmount_bathroom(int amount_bathroom) {
+        this.amount_bathroom = amount_bathroom;
+    }
+
+    public int getAmount_bedroom() {
+        return amount_bedroom;
+    }
+
+    public void setAmount_bedroom(int amount_bedroom) {
+        this.amount_bedroom = amount_bedroom;
+    }
+
+    public int getAcreage() {
+        return acreage;
+    }
+
+    public void setAcreage(int acreage) {
+        this.acreage = acreage;
+    }
+
 
     @Override
     public int describeContents() {
@@ -201,16 +280,6 @@ public class Room implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeStringList(image);
-        parcel.writeByte((byte) (status ? 1 : 0));
-        parcel.writeStringList(utilities);
-        parcel.writeString(id);
-        parcel.writeString(type);
-        parcel.writeString(location);
-        parcel.writeString(description);
-        parcel.writeInt(price);
-        parcel.writeString(title);
-        parcel.writeString(createdAt);
-        parcel.writeString(updatedAt);
+
     }
 }

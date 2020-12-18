@@ -4,5 +4,5 @@ import com.longkhoa.fpolyfindroom.model.MyStatusRoom;
 import com.longkhoa.fpolyfindroom.model.Room;
 
 public interface AddRoomInterface {
-    void creteRoom(MyStatusRoom myStatusRoom);
+    void creteRoom();
 }

@@ -51,7 +51,6 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
             <ImageView
-                android:src="@drawable/outline_delete_outline_black_18dp"
                 android:layout_width="17dp"
                 android:layout_height="17dp"
                 android:layout_marginTop="27dp"/>
@@ -79,7 +78,6 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
             <ImageView
-                android:src="@drawable/outline_delete_outline_black_18dp"
                 android:layout_width="17dp"
                 android:layout_height="17dp"
                 android:layout_marginTop="27dp"/>
@@ -107,7 +105,6 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
             <ImageView
-                android:src="@drawable/outline_delete_outline_black_18dp"
                 android:layout_width="17dp"
                 android:layout_height="17dp"
                 android:layout_marginTop="27dp"/>
@@ -134,7 +131,6 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
             <ImageView
-                android:src="@drawable/outline_delete_outline_black_18dp"
                 android:layout_width="17dp"
                 android:layout_height="17dp"
                 android:layout_marginTop="27dp"/>
@@ -161,7 +157,6 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
             <ImageView
-                android:src="@drawable/outline_delete_outline_black_18dp"
                 android:layout_width="17dp"
                 android:layout_height="17dp"
                 android:layout_marginTop="27dp"/>
@@ -188,7 +183,6 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
             <ImageView
-                android:src="@drawable/outline_delete_outline_black_18dp"
                 android:layout_width="17dp"
                 android:layout_height="17dp"
                 android:layout_marginTop="27dp"/>
@@ -215,7 +209,6 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
             <ImageView
-                android:src="@drawable/outline_delete_outline_black_18dp"
                 android:layout_width="17dp"
                 android:layout_height="17dp"
                 android:layout_marginTop="27dp"/>

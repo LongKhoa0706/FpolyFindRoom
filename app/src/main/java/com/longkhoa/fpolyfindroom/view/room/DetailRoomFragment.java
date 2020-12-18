@@ -13,9 +13,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.longkhoa.fpolyfindroom.R;
+import com.longkhoa.fpolyfindroom.adapter.UtilDetailRoomAdapter;
 import com.longkhoa.fpolyfindroom.model.Room;
 import com.longkhoa.fpolyfindroom.util.Constant;
 import com.synnapps.carouselview.CarouselView;
@@ -28,6 +31,8 @@ public class DetailRoomFragment extends Fragment {
     TextView txtType,txtTitle,txtPrice,txtDate,txtDesc,txtLocation,txtAuthor;
     ImageView imgIconType;
     CircleImageView imgAuthor;
+    UtilDetailRoomAdapter utilDetailRoomAdapter;
+    RecyclerView recyclerViewUtil;
     CarouselView carouselView;
 
     @Nullable
@@ -39,6 +44,7 @@ public class DetailRoomFragment extends Fragment {
         txtAuthor = view.findViewById(R.id.txtAuthorDetailRoom);
         txtTitle = view.findViewById(R.id.txtTitleDetailRoom);
         txtPrice = view.findViewById(R.id.txtPriceDetailRoom);
+        recyclerViewUtil = view.findViewById(R.id.reyclerViewUtilDetailRoom);
         txtDate = view.findViewById(R.id.txtDateDetailRoom);
         txtDesc = view.findViewById(R.id.txtDescDetailRoom);
         imgIconType = view.findViewById(R.id.imgIconDetailRoom);
@@ -64,6 +70,14 @@ public class DetailRoomFragment extends Fragment {
             txtPrice.setText(room.getPrice() +"đ");
             txtDate.setText(room.getCreatedAt());
             txtType.setText(room.getType());
+            txtAuthor.setText(room.getUser().getName());
+            Context context;
+            GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
+            recyclerViewUtil.setLayoutManager(gridLayoutManager);
+
+
+            utilDetailRoomAdapter = new UtilDetailRoomAdapter(room.getUtilities(),getActivity(),R.layout.custom_item_util_detail_room);
+            recyclerViewUtil.setAdapter(utilDetailRoomAdapter);
             carouselView.setPageCount(room.getImage().size());
             carouselView.setImageListener(new ImageListener() {
                 @Override

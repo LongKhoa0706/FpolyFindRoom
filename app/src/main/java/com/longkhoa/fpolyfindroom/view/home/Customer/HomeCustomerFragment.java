@@ -67,8 +67,8 @@ public class HomeCustomerFragment extends Fragment implements RoomInterface, Cal
         progressBar = view.findViewById(R.id.progress_circular);
         roomPresenter = new RoomPresenter(this);
         roomPresenter.getListRoomm();
-        arrListBanner.add(R.drawable.banner1);
-        arrListBanner.add(R.drawable.banner2);
+        arrListBanner.add(R.drawable.banner);
+        arrListBanner.add(R.drawable.banner4);
         arrListBanner.add(R.drawable.banner3);
         bannerAdapter = new BannerAdapter(getActivity(), arrListBanner);
         viewPagerBanner.setAdapter(bannerAdapter);
@@ -133,6 +133,6 @@ public class HomeCustomerFragment extends Fragment implements RoomInterface, Cal
         bundle.putString("type",categoriesRoom.getTitle());
         ListRoomByTypeFragment listRoomByTypeFragment = new ListRoomByTypeFragment();
         listRoomByTypeFragment.setArguments(bundle);
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_frame,listRoomByTypeFragment).commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_frame,listRoomByTypeFragment).addToBackStack(null).commit();
     }
 }

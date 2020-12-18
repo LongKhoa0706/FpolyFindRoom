@@ -21,7 +21,8 @@ public class RetrofitClient {
 
     private static Retrofit retrofit;
 
-    public static final String BASE_URL = "http://192.168.10.155:8080/";
+    public static final String BASE_URL = "http://192.168.1.27:8080/";
+
 
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {

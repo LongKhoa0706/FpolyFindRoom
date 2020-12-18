@@ -18,7 +18,6 @@ public class ClientActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         initView();
     }
-
     private void initView() {
         getSupportFragmentManager().beginTransaction().replace(R.id.frameClient, new ChooseRoleFragment()).commit();
     }

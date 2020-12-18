@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_marginBottom="7dp"
+        android:id="@+id/cardViewTypeRoom"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/image_slider_item"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:iss_period="1000"
+                app:iss_delay="0"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/txtItemPriceTypeRoom"
+                            android:textSize="18dp"
+                            android:textStyle="bold"
+                            android:text="2.800.000 đ  "
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+
+                        <TextView
+                            android:id="@+id/txtTypeRoom"
+                            android:text="Phòng "
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/outline_king_bed_black_24dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </ImageView>
+                        <TextView
+                            android:id="@+id/txtAmountBedRoom"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/outline_king_bed_black_24dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </ImageView>
+                        <TextView
+                            android:id="@+id/txtAmountBathRoom"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+                    </LinearLayout>
+                    <!--                    <ImageView-->
+                    <!--                        android:src="@drawable/outline_bathtub_black_24dp"-->
+                    <!--                        android:layout_width="wrap_content"-->
+                    <!--                        android:layout_height="wrap_content">-->
+
+                    <!--                    </ImageView>-->
+
+
+                </LinearLayout>
+
+                <View
+                    android:background="#CCC"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp">
+
+                </View>
+
+                <TextView
+                    android:id="@+id/txtTitleTypeRoom"
+                    android:textSize="18dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/gothammedium"
+                    android:text="Cho thuê nhà"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imgdiachi"
+                        android:src="@drawable/outline_location_on_red_50_18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </ImageView>
+                    <TextView
+
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/txtLocationTypeRoom"
+                        android:layout_marginLeft="5dp"
+                        android:text="Phường 15, Bình Thạnh, TPHCM"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

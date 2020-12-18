@@ -7,7 +7,6 @@
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:background="#F3f6f8"
         android:layout_height="match_parent">
 
         <LinearLayout
@@ -28,14 +27,14 @@
                 android:fontFamily="@font/gothammedium"
                 android:textColor="#000"
                 android:textSize="22dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="18dp"
                 android:text="Hi, Long Khoa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
             </TextView>
             <TextView
-
+                android:layout_marginTop="15dp"
                 android:text="Bạn muốn thuê chỗ nào?"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -47,6 +46,7 @@
                 android:id="@+id/viewPagerBanner"
                 android:layout_width="match_parent"
                 android:layout_marginBottom="30dp"
+                android:background="@drawable/container"
                 android:layout_height="200dp">
 
             </androidx.viewpager.widget.ViewPager>
@@ -168,7 +168,6 @@
                                android:id="@+id/reyclerView3"
                                android:layout_marginBottom="10dp"
                                android:layout_height="wrap_content">
-
                            </androidx.recyclerview.widget.RecyclerView>
                            <ProgressBar
                                android:id="@+id/progress_circular"

@@ -55,7 +55,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         ViewHolder(@NonNull View itemView) {
             super(itemView);
             image_favorite = itemView.findViewById(R.id.image_favorite);
-            image_icon =itemView.findViewById(R.id.image_icon);
+//            image_icon =itemView.findViewById(R.id.image_icon);
             txt_title = itemView.findViewById(R.id.txt_title);
             txt_district=itemView.findViewById(R.id.txt_district);
             txt_price=itemView.findViewById(R.id.txt_price);

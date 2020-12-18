@@ -72,6 +72,7 @@ public class HomeRoomAdapter extends RecyclerView.Adapter<HomeRoomAdapter.ViewHo
 //            }
 //        });
         Picasso.get().load(room.getImage().get(0)).into(holder.imageHomeRoom);
+
         holder.materialCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -72,7 +72,6 @@ public class CreateRoomFragment extends Fragment  implements AddRoomInterface {
         linearLayout = view.findViewById(R.id.linear);
         DashBoardActivity.bottomNavigationMenuView.setVisibility(View.GONE);
 
-
         addRoomPresenter = new AddRoomPresenter(this);
 
         Bundle bundle = getArguments();

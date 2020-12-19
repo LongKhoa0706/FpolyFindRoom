@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import com.jpardogo.android.googleprogressbar.library.ChromeFloatingCirclesDrawable;
 import com.longkhoa.fpolyfindroom.R;
 import com.longkhoa.fpolyfindroom.adapter.BannerAdapter;
 import com.longkhoa.fpolyfindroom.adapter.CateroriesAdapter;
@@ -73,6 +74,8 @@ public class HomeCustomerFragment extends Fragment implements RoomInterface, Cal
         bannerAdapter = new BannerAdapter(getActivity(), arrListBanner);
         viewPagerBanner.setAdapter(bannerAdapter);
         Handler handler = new Handler();
+        progressBar.setIndeterminateDrawable(new ChromeFloatingCirclesDrawable.Builder(getActivity())
+                .build());
         final Runnable Update = new Runnable() {
             public void run() {
                 if (currentPage == arrListBanner.size() - 1) {
@@ -109,6 +112,7 @@ public class HomeCustomerFragment extends Fragment implements RoomInterface, Cal
     }
     @Override
     public void getListRoom(MyStatusRoom myStatusRoom) {
+
         LinearLayoutManager linearLayoutManagerHorizone = new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false);
         recyclerView3.setLayoutManager(linearLayoutManagerHorizone);
         homeRoomAdapter = new HomeRoomAdapter(getActivity(), myStatusRoom.getData(), R.layout.custom_item_homeroom,this);

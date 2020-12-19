@@ -61,7 +61,8 @@ dependencies {
     implementation 'com.synnapps:carouselview:0.1.5'
     implementation 'com.github.f0ris.sweetalert:library:1.6.2'
     implementation 'com.squareup.picasso:picasso:2.71828'
-
+    implementation 'com.jpardogo.googleprogressbar:library:1.2.0'
+    implementation 'com.github.TutorialsAndroid:KAlertDialog:v14.0.19'
 
     //noinspection GradleCompatible,GradleCompatible
     implementation 'com.android.support:design:28.0.0'

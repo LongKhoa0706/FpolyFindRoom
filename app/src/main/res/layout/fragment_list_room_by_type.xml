@@ -4,10 +4,25 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-   <androidx.recyclerview.widget.RecyclerView
+   <FrameLayout
        android:layout_width="match_parent"
-       android:id="@+id/reyclerViewTypeRoom"
        android:layout_height="match_parent">
 
-   </androidx.recyclerview.widget.RecyclerView>
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:layout_width="match_parent"
+          android:layout_margin="5dp"
+          android:id="@+id/reyclerViewTypeRoom"
+          android:layout_height="match_parent">
+
+      </androidx.recyclerview.widget.RecyclerView>
+
+      <ProgressBar
+          android:id="@+id/progressBarListByType"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"/>
+
+
+   </FrameLayout>
 </LinearLayout>

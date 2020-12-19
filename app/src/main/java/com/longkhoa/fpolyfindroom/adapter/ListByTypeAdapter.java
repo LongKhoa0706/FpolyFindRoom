@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
@@ -45,13 +46,15 @@ public class ListByTypeAdapter  extends RecyclerView.Adapter<ListByTypeAdapter.V
     @Override
     public void onBindViewHolder(@NonNull ListByTypeAdapter.ViewHolder holder, int position) {
         Room room = arrListTypeRoom.get(position);
-//        listImage.add(new SlideModel(room.getImage().get(position), ScaleTypes.CENTER_CROP));
-//        holder.imageSlider.setImageList(listImage);
+        listImage.add(new SlideModel(room.getImage().get(position), ScaleTypes.CENTER_CROP));
+        holder.imageSlider.setImageList(listImage);
         holder.txtPrice.setText(room.getPrice()+"đ");
         holder.txtTitle.setText(room.getTitle());
         holder.txtAmountBath.setText(room.getAmount_bathroom()+"");
         holder.txtAmountBed.setText(room.getAmount_bedroom()+"");
         holder.txtLocatio.setText(room.getLocation());
+
+
         holder.materialCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

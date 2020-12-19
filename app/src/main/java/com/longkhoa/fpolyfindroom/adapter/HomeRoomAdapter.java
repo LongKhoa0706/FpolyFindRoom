@@ -64,15 +64,7 @@ public class HomeRoomAdapter extends RecyclerView.Adapter<HomeRoomAdapter.ViewHo
         holder.txtTitleRoom.setText(room.getTitle());
         holder.txtPriceRoom.setText(String.valueOf(room.getPrice()+"đ"));
         holder.txtAddressRoom.setText(room.getLocation());
-        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-//        storageReference.child(room.getImage().get(0)).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-//            @Override
-//            public void onSuccess(Uri uri) {
-//                Log.d("LINK",uri.toString());
-//            }
-//        });
-        Picasso.get().load(room.getImage().get(0)).into(holder.imageHomeRoom);
-
+        Glide.with(context).load(room.getImage().get(0)).into(holder.imageHomeRoom);
         holder.materialCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

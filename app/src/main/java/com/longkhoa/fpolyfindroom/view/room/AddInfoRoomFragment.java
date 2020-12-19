@@ -293,6 +293,7 @@ public class AddInfoRoomFragment extends Fragment implements OnMapReadyCallback,
                     dialog.show();
                     Uri imageUri = data.getClipData().getItemAt(i).getUri();
                      String image = getFileName(imageUri);
+
                     storageReference = FirebaseStorage.getInstance().getReference(image);
                     UploadTask uploadTask = storageReference.putFile(imageUri);
                     uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -304,7 +305,7 @@ public class AddInfoRoomFragment extends Fragment implements OnMapReadyCallback,
 
                                     dialog.dismiss();
                                     String abc = uri.toString();
-//                                    Log.d("LINK",abc);
+                                    Log.d("LINK",abc);
                                     arrayListImage.add(abc);
                                     recyclerViewDisplayImage.setHasFixedSize(true);
                                     GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2,RecyclerView.VERTICAL,false);

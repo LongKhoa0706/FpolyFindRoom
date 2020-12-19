@@ -90,6 +90,9 @@ public class Room implements Parcelable {
         this.amount_room = amount_room;
     }
 
+    public Room() {
+    }
+
 
     public List<Double> getCoordinates() {
         return coordinates;

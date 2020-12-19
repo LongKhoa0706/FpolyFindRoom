@@ -1,145 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:layout_height="wrap_content"
     android:layout_width="match_parent"
-
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.card.MaterialCardView
-        android:layout_marginTop="20dp"
+
         android:layout_width="match_parent"
         android:elevation="20dp"
-        android:id="@+id/cardViewRoom"
-        app:cardCornerRadius="10dp"
-        android:layout_marginBottom="15dp"
+        android:id="@+id/cardViewRoomManager"
+        android:layout_marginBottom="5dp"
         android:layout_height="wrap_content">
 
         <LinearLayout
-
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/imgHomeRoom"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:scaleType="centerCrop"
-                    android:layout_marginTop="30dp"
-                    android:src="@drawable/splash">
-
-                </ImageView>
-
-                <LinearLayout
-                    android:layout_gravity="top"
-                    android:background="#FF9800"
-                    android:gravity="top"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal"
-                    android:layout_width="150dp"
-                    android:layout_height="30dp">
-                    <TextView
-                        android:layout_marginLeft="5dp"
-                        android:id="@+id/txtCategoriesHome"
-                        android:textSize="16sp"
-                        android:text="Bị từ chối"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                    </TextView>
-
-
-                </LinearLayout>
-            </FrameLayout>
-
             <LinearLayout
-                android:layout_margin="8dp"
-                android:orientation="vertical"
+
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/txtItemPriceRoom"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="2.800.000đ"
-                    android:textColor="#ff00"
-                    android:textSize="20dp"
-                    android:textStyle="bold">
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/txtItemCategoriRoom"
-                    android:textSize="13dp"
-                    android:text="Phòng cho thuê "
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                </TextView>
-
-                <View
-                    android:layout_marginTop="8dp"
-                    android:background="#ccc"
-                    android:layout_width="match_parent"
-                    android:layout_height="0.4dp">
-                </View>
-
-                <TextView
-                    android:id="@+id/txtItemTitleRoom"
-                    android:layout_marginTop="10dp"
-                    android:textColor="#000"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:text="Nhà nguyên căn "
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/txtItemAddressRoom"
-                    android:layout_marginTop="5dp"
-                    android:textColor="#000"
-                    android:textSize="15dp"
-                    android:textStyle="bold"
-                    android:text="Điện Biên Phủ "
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                </TextView>
-
-                <LinearLayout
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                android:layout_height="match_parent">
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
 
                     <ImageView
-                        android:id="@+id/imgdiachi"
-                        android:src="@drawable/outline_location_on_red_50_18dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+
+                        android:id="@+id/imgHomeRoomManager"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+
+                        android:src="@drawable/splash">
 
                     </ImageView>
-                    <TextView
 
-                        android:layout_marginBottom="5dp"
-                        android:id="@+id/txtItemAddress"
-                        android:layout_marginLeft="5dp"
-                        android:text="Phường 15, Bình Thạnh, TPHCM"
+                    <LinearLayout
+                        android:id="@+id/lineColor"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/txtStatusManageRoom"
+                            android:textColor="#FFFF"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="Bị từ chối"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_margin="8dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                   <LinearLayout
+                       android:orientation="horizontal"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+
+                       <TextView
+                           android:id="@+id/txtItemPriceRoom"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="2.800.000đ"
+                           android:layout_weight="1"
+                           android:textColor="#ff00"
+                           android:textSize="20dp"
+                           android:textStyle="bold">
+
+                       </TextView>
+
+                       <ImageView
+                           android:id="@+id/imgOption"
+                           android:src="@drawable/outline_bathtub_black_24dp"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content">
+
+                       </ImageView>
+
+
+
+                   </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/txtItemCategoriRoom"
+                        android:layout_width="231dp"
+                        android:layout_height="wrap_content"
+                        android:text="Phòng cho thuê "
+                        android:textSize="13dp">
+
+                    </TextView>
+
+                    <View
+                        android:layout_marginTop="8dp"
+                        android:background="#ccc"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp">
+                    </View>
+
+                    <TextView
+                        android:id="@+id/txtItemTitleRoom"
+                        android:layout_marginTop="10dp"
+                        android:textColor="#000"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:text="Nhà nguyên căn "
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                     </TextView>
+
+
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imgdiachi"
+                            android:src="@drawable/outline_location_on_red_50_18dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </ImageView>
+                        <TextView
+                            android:ellipsize="marquee"
+                            android:singleLine="true"
+                            android:layout_marginBottom="5dp"
+                            android:id="@+id/txtAddressManager"
+                            android:layout_marginLeft="5dp"
+                            android:text="Phường 15, Bình Thạnh, TPHCM"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                    </LinearLayout>
+
                 </LinearLayout>
 
             </LinearLayout>
-
         </LinearLayout>
+
 
 
 

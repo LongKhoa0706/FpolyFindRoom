@@ -7,12 +7,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +21,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
@@ -31,62 +30,65 @@ import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import com.google.firebase.auth.UserProfileChangeRequest;
 import com.longkhoa.fpolyfindroom.R;
 
 import com.longkhoa.fpolyfindroom.model.MyStatusUser;
-import com.longkhoa.fpolyfindroom.model.User;
+import com.longkhoa.fpolyfindroom.presenter.user.GetProfile.GetProfileInterface;
+import com.longkhoa.fpolyfindroom.presenter.user.GetProfile.GetProfilePresenter;
 import com.longkhoa.fpolyfindroom.presenter.user.UserInterface;
 import com.longkhoa.fpolyfindroom.presenter.user.UserPresenter;
 import com.longkhoa.fpolyfindroom.view.activity.ClientActivity;
 import com.longkhoa.fpolyfindroom.view.activity.DashBoardActivity;
+import com.longkhoa.fpolyfindroom.view.home.Customer.HomeCustomerFragment;
+import com.longkhoa.fpolyfindroom.view.home.Inkeeper.HomeInkeeperFragment;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 import static android.app.Activity.RESULT_OK;
 
 
-public class ProfileFragment extends Fragment implements UserInterface {
-    Button btn_own;
+public class ProfileFragment extends Fragment implements UserInterface, GetProfileInterface {
+    AppCompatButton btn_own;
     private static final int REQUEST_CODE_CAPTURE_IMAGE = 2;
     private UserPresenter userPresenter;
-    TextView tv_name, tv_phone, tv_email,tv_birthday, tv_signout, tv_update;
-    ImageView img_alert1, img_alert2,img_camera,imageSmall;
+    TextView tv_name, tv_phone, tv_email,tv_birthday, tv_signout, tv_update,txtCreateAt;
+    ImageView img_alert1,img_camera,imageSmall;
     private static final int REQUEST_CODE_PERMISSIONS =1;
     private String currentImagePath;
+    private GetProfilePresenter getProfilePresenter;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.profile_fragment, container, false);
         //ánh xạ
-        tv_name = view.findViewById(R.id.txt_name);
-        tv_phone = view.findViewById(R.id.txt_phone);
-        tv_email = view.findViewById(R.id.txt_email);
+        tv_name = view.findViewById(R.id.txtProfile);
+        txtCreateAt = view.findViewById(R.id.txtCreateAt);
+        tv_phone = view.findViewById(R.id.txtPhoneProfile);
+        tv_email = view.findViewById(R.id.txtEmailProfile);
         tv_birthday = view.findViewById(R.id.txt_date);
         tv_update = view.findViewById(R.id.txt_update);
         tv_signout = view.findViewById(R.id.txt_signout);
         img_alert1 = view.findViewById(R.id.img_alert);
-        img_alert2 = view.findViewById(R.id.img_alert1);
+//        img_alert2 = view.findViewById(R.id.img_alert1);
         imageSmall=view.findViewById(R.id.capturedImageSmall);
         img_camera=view.findViewById(R.id.img_camera);
         btn_own = view.findViewById(R.id.btn_own);
         btn_own.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getContext(), ClientActivity.class);
-                getActivity().startActivity(i);
+
+//                Intent i = new Intent(getContext(), ClientActivity.class);
+//                getActivity().startActivity(i);
             }
         });
         userPresenter = new UserPresenter(this);
-
+        getProfilePresenter = new GetProfilePresenter(this);
+        getProfilePresenter.getProfile(DashBoardActivity.Token);
         img_camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,9 +125,9 @@ public class ProfileFragment extends Fragment implements UserInterface {
 
                 //anh xa
 
-                final TextView tv_name_dialog = dialogView.findViewById(R.id.txt_name);
-                final TextView tv_email_dialog = dialogView.findViewById(R.id.txt_email);
-                final TextView tv_phone_dialog = dialogView.findViewById(R.id.txt_phone);
+                final TextView tv_name_dialog = dialogView.findViewById(R.id.txtProfile);
+                final TextView tv_email_dialog = dialogView.findViewById(R.id.txtEmailProfile);
+                final TextView tv_phone_dialog = dialogView.findViewById(R.id.txtPhoneProfile);
                 final TextView tv_birthday_dialog = dialogView.findViewById(R.id.txt_date);
                 Button btn_cancel = dialogView.findViewById(R.id.btn_cancel);
                 Button btn_xacnhan = dialogView.findViewById(R.id.btn_xacnhan);
@@ -281,6 +283,19 @@ public class ProfileFragment extends Fragment implements UserInterface {
     @Override
     public void getProfile(MyStatusUser myStatus) {
 
+    }
+
+    @Override
+    public void getProfileSuccess(MyStatusUser myStatusUser) {
+        tv_name.setText(myStatusUser.getUser().getName());
+        tv_email.setText(myStatusUser.getUser().getEmail());
+        tv_phone.setText(myStatusUser.getUser().getPhone());
+        txtCreateAt.setText(myStatusUser.getUser().getCreateAt());
+        if (myStatusUser.getUser().getRoles().getRoleName().equals("innkeeper")){
+            btn_own.setText("Trờ thành người thuê");
+        }else {
+            btn_own.setText("Trờ thành chủ nhà");
+        }
     }
 }
 

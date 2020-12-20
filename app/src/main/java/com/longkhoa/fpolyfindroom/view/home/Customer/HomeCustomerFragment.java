@@ -30,6 +30,7 @@ import com.longkhoa.fpolyfindroom.presenter.room.getroombytype.GetRoomByTypePres
 import com.longkhoa.fpolyfindroom.util.Constant;
 import com.longkhoa.fpolyfindroom.view.CallBackAdapterType;
 import com.longkhoa.fpolyfindroom.view.ListRoomByTypeFragment;
+import com.longkhoa.fpolyfindroom.view.activity.DashBoardActivity;
 import com.longkhoa.fpolyfindroom.view.room.CallbackRoomAdapter;
 import com.longkhoa.fpolyfindroom.view.room.DetailRoomFragment;
 import com.longkhoa.fpolyfindroom.view.room.GetAllRoomFragment;
@@ -67,7 +68,7 @@ public class HomeCustomerFragment extends Fragment implements RoomInterface, Cal
         recyclerView3 = view.findViewById(R.id.reyclerView3);
         progressBar = view.findViewById(R.id.progress_circular);
         roomPresenter = new RoomPresenter(this);
-        roomPresenter.getListRoomm();
+        roomPresenter.getListRoomm(DashBoardActivity.Token);
         arrListBanner.add(R.drawable.banner);
         arrListBanner.add(R.drawable.banner4);
         arrListBanner.add(R.drawable.banner3);

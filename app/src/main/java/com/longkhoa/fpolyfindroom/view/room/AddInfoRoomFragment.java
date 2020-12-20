@@ -105,11 +105,12 @@ public class AddInfoRoomFragment extends Fragment implements OnMapReadyCallback,
     DatabaseReference databaseReference;
     TextView txtSetupLocation;
     LocationPresenter locationPresenter;
-    private MapView mapView;
+
     private EditText edtTitle, edtSearch;
     String type = "";
     List<String> listImageUrl = new ArrayList<>();
     MapboxMap mapbox;
+    private MapView mapView;
     private static final String SOURCE_ID = "SOURCE_ID";
     private static final String ICON_ID = "ICON_ID";
     private static final String LAYER_ID = "LAYER_ID";
@@ -148,6 +149,7 @@ public class AddInfoRoomFragment extends Fragment implements OnMapReadyCallback,
         Mapbox.getInstance(getActivity(), "pk.eyJ1IjoibG9uZ2tob2EwNzA2IiwiYSI6ImNraWswdTR3YzA1OGwzMmw5bHhrbHZocnUifQ.GEKhu3FRz7wmLV2E-0KG5A");
         View view = inflater.inflate(R.layout.addroominfo_fragment, container, false);
         edtSearch = view.findViewById(R.id.edtSearchAddress);
+
         iconChooseImage = view.findViewById(R.id.iconChooseImage);
         edtTitle = view.findViewById(R.id.edtTitle);
         recyclerViewDisplayImage = view.findViewById(R.id.reyclerViewDisplayImage);
@@ -201,6 +203,7 @@ public class AddInfoRoomFragment extends Fragment implements OnMapReadyCallback,
                             "",0,edtTitle.getText().toString(),
                             null,null,null,((Point) feature.geometry()).latitude(),((Point) feature.geometry()).longitude(),0,0,0,0);
                     bundle.putParcelable("room",room);
+                    bundle.putInt("option",0);
                     CreateRoomFragment createRoomFragment = new CreateRoomFragment();
                     createRoomFragment.setArguments(bundle);
 
@@ -225,7 +228,6 @@ public class AddInfoRoomFragment extends Fragment implements OnMapReadyCallback,
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Constant.KEY_LOCATION, Context.MODE_PRIVATE);
         latitude = Double.parseDouble(sharedPreferences.getString("latitude", ""));
         longitude = Double.parseDouble(sharedPreferences.getString("longitude", ""));
-
         mapbox = mapboxMap;
         mapbox.setStyle(Style.OUTDOORS, new Style.OnStyleLoaded() {
             @Override

@@ -1,7 +1,9 @@
 package com.longkhoa.fpolyfindroom.view.home.Inkeeper;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,9 +34,13 @@ import com.longkhoa.fpolyfindroom.view.CallBackItemOption;
 import com.longkhoa.fpolyfindroom.view.activity.DashBoardActivity;
 import com.longkhoa.fpolyfindroom.view.room.AddInfoRoomFragment;
 import com.longkhoa.fpolyfindroom.view.room.CallbackRoomAdapter;
+import com.longkhoa.fpolyfindroom.view.room.CreateRoomFragment;
 import com.longkhoa.fpolyfindroom.view.room.DetailRoomFragment;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class HomeInkeeperFragment extends Fragment implements ListMyRoomInterface, CallbackRoomAdapter, CallBackItemOption {
     HomeInAdapter homeInAdapter;
@@ -47,9 +53,11 @@ public class HomeInkeeperFragment extends Fragment implements ListMyRoomInterfac
     ArrayList<Room> arrayList = new ArrayList<>();
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home_inkeeper_fragment, container, false);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Constant.KEY_ACCOUNT, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
         recyclerViewInkeeper = view.findViewById(R.id.reyclerViewManageRoom);
         btnRoom = view.findViewById(R.id.btnRoom);
         progressBar = view.findViewById(R.id.progress_circular);
@@ -57,12 +65,11 @@ public class HomeInkeeperFragment extends Fragment implements ListMyRoomInterfac
         progressBar.setIndeterminateDrawable(new ChromeFloatingCirclesDrawable.Builder(getActivity())
                 .build());
         listMyRoomPresenter = new ListMyRoomPresenter(this);
-        listMyRoomPresenter.getListMyRoom();
+        listMyRoomPresenter.getListMyRoom("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZmRlOGY2OTkxNzY4OTA2ZjRlMjNkNGYiLCJwaG9uZSI6IjA5MDMwOTIxIiwiaWF0IjoxNjA4NDI0NTk2LCJleHAiOjE2MTEwMTY1OTZ9.qIIJELW4QnbwmktkUOAiVbGBKL7dXrq8VsAtZwBqNIs");
         btnRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.dashboard_frame, new AddInfoRoomFragment()).commit();
-                DashBoardActivity.bottomNavigationMenuView.setVisibility(View.GONE);
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_frame, new AddInfoRoomFragment()).commit();
             }
         });
 
@@ -73,7 +80,6 @@ public class HomeInkeeperFragment extends Fragment implements ListMyRoomInterfac
 
     @Override
     public void getListMyRooms(MyStatusRoom myStatusRoom) {
-
         arrayList = myStatusRoom.getData();
         progressBar.setVisibility(View.GONE);
         LinearLayoutManager linearLayoutManagerHorizone = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);
@@ -107,7 +113,7 @@ public class HomeInkeeperFragment extends Fragment implements ListMyRoomInterfac
                         .setConfirmClickListener(new KAlertDialog.KAlertClickListener() {
                             @Override
                             public void onClick(KAlertDialog kAlertDialog) {
-                                deleteRoomPresenter.deleteRoom(room.getId());
+                                deleteRoomPresenter.deleteRoom(DashBoardActivity.Token,room.getId());
                                 arrayList.remove(room);
                                 homeInAdapter.notifyDataSetChanged();
                                 kAlertDialog.dismissWithAnimation();
@@ -117,8 +123,28 @@ public class HomeInkeeperFragment extends Fragment implements ListMyRoomInterfac
                 bottomSheet.dismiss();
             }
         });
+        view.findViewById(R.id.txtEditRoom).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle1 = new Bundle();
+                bundle1.putParcelable("room1", room);
+                bundle1.putInt("option",1);
+                CreateRoomFragment createRoomFragment = new CreateRoomFragment();
+                createRoomFragment.setArguments(bundle1);
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_frame, createRoomFragment).addToBackStack(null).commit();
+                bottomSheet.dismiss();
+
+            }
+        });
         bottomSheet.setContentView(view);
         bottomSheet.show();
+    }
+
+    @Override
+    public void onResume() {
+
+        Log.d("ONRESUME","ONRESUME");
+        super.onResume();
     }
 
 }

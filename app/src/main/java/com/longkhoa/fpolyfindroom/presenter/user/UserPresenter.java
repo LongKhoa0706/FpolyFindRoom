@@ -25,9 +25,9 @@ public class UserPresenter {
         this.userInterface = userInterface;
     }
 
-    public void update (User user){
+    public void update (String token,User user){
         userService = RetrofitClient.getRetrofitInstance().create(UserService.class);
-        userService.update(user.getName(),user.getEmail(),user.getPhone()).enqueue(new Callback<ResponseBody>() {
+        userService.update(token,user.getName(),user.getEmail(),user.getPhone()).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 Log.d("update thành công",response.message());

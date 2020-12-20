@@ -51,7 +51,7 @@ public class ListRoomByTypeFragment extends Fragment implements GetRoomByTypeInt
         Bundle bundle = getArguments();
         if (bundle !=null){
             String type = bundle.getString("type");
-            getRoomByTypePresenter.getListRoomByType(type);
+            getRoomByTypePresenter.getListRoomByType(DashBoardActivity.Token,type);
         }
         return view;
     }

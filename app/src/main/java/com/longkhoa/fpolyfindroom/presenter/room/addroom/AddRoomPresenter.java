@@ -20,9 +20,9 @@ public class AddRoomPresenter {
         this.addRoomInterface = addRoomInterface;
     }
 
-    public void createRoom(Room room){
+    public void createRoom(Room room,String token){
         roomService = RetrofitClient.getRetrofitInstance().create(RoomService.class);
-        roomService.createRoom(room).enqueue(new Callback<ResponseBody>() {
+        roomService.createRoom(token,room).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 Log.d("KETQUA",response.message());

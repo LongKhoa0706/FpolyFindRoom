@@ -1,4 +1,4 @@
-package com.longkhoa.fpolyfindroom.presenter.room.deleteroom;
+package com.longkhoa.fpolyfindroom.presenter.room.updateroom;
 
 import android.util.Log;
 
@@ -10,21 +10,22 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DeleteRoomPresenter {
+public class UpdateRoomPresenter {
     RoomService roomService;
 
-    public void deleteRoom(String token,String idRoom){
+    public void updateRoom(String idRoom,int price,String token){
         roomService = RetrofitClient.getRetrofitInstance().create(RoomService.class);
-        roomService.deleteRoom(token,idRoom).enqueue(new Callback<ResponseBody>() {
+        roomService.updateRoom(token,idRoom,price).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                Log.d("KETQUA",idRoom);
+
                 Log.d("KETQUA",response.message());
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 Log.d("KETQUA",t.getMessage());
-
             }
         });
     }

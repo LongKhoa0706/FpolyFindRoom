@@ -19,6 +19,7 @@ import com.longkhoa.fpolyfindroom.model.Room;
 import com.longkhoa.fpolyfindroom.view.CallBackItemOption;
 import com.longkhoa.fpolyfindroom.view.room.CallbackRoomAdapter;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class HomeInAdapter extends RecyclerView.Adapter<HomeInAdapter.ViewHolder> {
@@ -48,7 +49,7 @@ public class HomeInAdapter extends RecyclerView.Adapter<HomeInAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Room room = arrListRoom.get(position);
-        holder.txtItemPriceRoom.setText(String.valueOf(room.getPrice()+"đ"));
+        holder.txtItemPriceRoom.setText(numberFormat(room.getPrice()+"")+"đ");
         holder.txtItemCategoriRoom.setText(room.getType());
         holder.txtItemTitleRoom.setText(room.getTitle());
         Glide.with(context).load(room.getImage().get(0)).placeholder(R.drawable.loading).into(holder.imgRoom);
@@ -100,5 +101,25 @@ public class HomeInAdapter extends RecyclerView.Adapter<HomeInAdapter.ViewHolder
             txtItemAddress=itemView.findViewById(R.id.txtAddressManager);
             materialCardView = itemView.findViewById(R.id.cardViewRoomManager);
         }
+    }
+    public static String numberFormat(String input) {
+        String newString = "";
+        DecimalFormat formatter = new DecimalFormat("#,###");
+        if (null != input && input.length() > 0) {
+            if (input.contains(".") && !input.contains(",")) {
+                int endIndex = input.lastIndexOf(".");
+                if (endIndex != -1) {
+                    newString = formatter.format(Long.parseLong(input.substring(0, endIndex)));
+                }
+            } else if (input.contains(".") && input.contains(",")) {
+                int endIndex = input.lastIndexOf(".");
+                newString = input.substring(0, endIndex);
+            } else if (input.contains(",") || input.contains(" ")) {
+                newString = input;
+            } else {
+                newString = formatter.format(Long.parseLong(input));
+            }
+        }
+        return newString;
     }
 }

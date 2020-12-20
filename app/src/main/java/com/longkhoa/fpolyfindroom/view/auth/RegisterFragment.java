@@ -62,9 +62,8 @@ public class RegisterFragment  extends Fragment implements RegisterInterface {
 
                Role role = new Role("",roles);
                 User user = new User(false,"","",phone,password,email,userName,role,"","","");
-
                 registerPresenter.register(user);
-
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameClient,new LoginFragment()).commit();
             }
         });
         return view;

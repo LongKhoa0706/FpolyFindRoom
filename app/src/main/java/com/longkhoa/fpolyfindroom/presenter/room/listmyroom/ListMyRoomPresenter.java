@@ -1,5 +1,6 @@
 package com.longkhoa.fpolyfindroom.presenter.room.listmyroom;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -18,14 +19,15 @@ import retrofit2.Response;
 public class ListMyRoomPresenter {
     RoomService roomService;
     ListMyRoomInterface listMyRoomInterface;
+    Context context;
 
     public ListMyRoomPresenter(ListMyRoomInterface listMyRoomInterface) {
         this.listMyRoomInterface = listMyRoomInterface;
     }
 
-    public void getListMyRoom(){
+    public void getListMyRoom(String token){
         roomService = RetrofitClient.getRetrofitInstance().create(RoomService.class);
-        roomService.getMyRoom().enqueue(new Callback<ResponseBody>() {
+        roomService.getMyRoom(token).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 try {

@@ -2,6 +2,8 @@ package com.longkhoa.fpolyfindroom.networking;
 import android.util.Log;
 
 import com.longkhoa.fpolyfindroom.service.AuthService;
+import com.longkhoa.fpolyfindroom.view.activity.ClientActivity;
+import com.longkhoa.fpolyfindroom.view.auth.LoginFragment;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -16,14 +18,13 @@ import retrofit2.Retrofit;
 
 public class AuthInterceptor implements Interceptor {
 
-    private static String token = null;
+    public static String token ;
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-
         //rewrite the request to add bearer token
         Request newRequest=chain.request().newBuilder()
-                .header("Authorization","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZmRlOGY2OTkxNzY4OTA2ZjRlMjNkNGYiLCJwaG9uZSI6IjA5MDMwOTIxIiwiaWF0IjoxNjA4NDI0NzMxLCJleHAiOjE2MTEwMTY3MzF9.yu1i2cZMQmh3X_AtVVpBlpNi06f2mlygc8eZVoMmals")
+                .header("Authorization","")
                 .build();
 
         return chain.proceed(newRequest);

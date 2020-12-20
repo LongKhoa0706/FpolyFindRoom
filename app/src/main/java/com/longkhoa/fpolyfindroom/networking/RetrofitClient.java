@@ -21,13 +21,12 @@ public class RetrofitClient {
 
     private static Retrofit retrofit;
 
-    public static final String BASE_URL = "http://192.168.1.27:8080/";
+    public static final String BASE_URL = "http://172.16.4.236:8080/";
 
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {
             OkHttpClient okHttpClient = new OkHttpClient.Builder()
                     .addInterceptor(new LoggingInterceptor())
-                    .addInterceptor(new AuthInterceptor())
                     .addNetworkInterceptor( new LoggingInterceptor())
                     .connectTimeout(1, TimeUnit.MINUTES)
                     .readTimeout(30, TimeUnit.SECONDS)

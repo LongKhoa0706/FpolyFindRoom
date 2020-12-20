@@ -33,6 +33,8 @@ public class LoginFragment extends Fragment implements LoginInterface {
     EditText edtUserName,edtPassword;
     LoginPresenter loginPresenter;
     TextView tvQuenMatKhau;
+    public  static String tokenUser;
+
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -47,7 +49,7 @@ public class LoginFragment extends Fragment implements LoginInterface {
         edtPassword = view.findViewById(R.id.edtPasswordLogin);
         edtUserName = view.findViewById(R.id.edtEmail);
         loginPresenter = new LoginPresenter(this);
-        edtUserName.setText("09030921");
+        edtUserName.setText("09021825323");
         edtPassword.setText("longkhoa");
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +66,9 @@ public class LoginFragment extends Fragment implements LoginInterface {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
         String json = gson.toJson(myStatus.getUser());
+        tokenUser = myStatus.getUser().getToken();
         editor.putString("user", json);
+        editor.putString("tokenUser",tokenUser);
         editor.apply();
         Toasty.success(getActivity(),myStatus.getMes(),Toasty.LENGTH_SHORT).show();
         startActivity(new Intent(getActivity(), DashBoardActivity.class));

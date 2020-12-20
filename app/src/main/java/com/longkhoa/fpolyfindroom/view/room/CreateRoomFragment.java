@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,9 @@ import com.longkhoa.fpolyfindroom.model.Room;
 import com.longkhoa.fpolyfindroom.model.Util;
 import com.longkhoa.fpolyfindroom.presenter.room.addroom.AddRoomInterface;
 import com.longkhoa.fpolyfindroom.presenter.room.addroom.AddRoomPresenter;
+import com.longkhoa.fpolyfindroom.presenter.room.updateroom.UpdateRoomPresenter;
 import com.longkhoa.fpolyfindroom.view.activity.DashBoardActivity;
+import com.longkhoa.fpolyfindroom.view.home.Inkeeper.HomeInkeeperFragment;
 import com.longkhoa.fpolyfindroom.view.util.ListUtilFragment;
 
 import org.json.JSONArray;
@@ -41,12 +44,16 @@ public class CreateRoomFragment extends Fragment  implements AddRoomInterface {
     LinearLayout linearAddUtil;
     ImageSlider slider;
     UtilAdapter utilAdapter;
+    UpdateRoomPresenter updateRoomPresenter;
     RecyclerView reyclerViewDisplayUtil;
     AddRoomPresenter addRoomPresenter;
     final int REQUEST_CODE = 1;
+    int option =0;
+
     TextView txtType, txtTitle, txtAddress;
     LinearLayout linearLayout;
     Room room;
+    Room room1;
     ArrayList<Util> arrayListUtil = new ArrayList<>();
     List<SlideModel> listImage = new ArrayList<SlideModel>();
     TextInputLayout edtPrice,edtBed,edtShower,edtAmountRoom,edtDescription,edtAcreage;
@@ -64,6 +71,7 @@ public class CreateRoomFragment extends Fragment  implements AddRoomInterface {
         edtDescription = view.findViewById(R.id.edtDescCreateRoom);
         edtAcreage = view.findViewById(R.id.edtEcreage);
         btnSaveRoom = view.findViewById(R.id.btnSaveRoom);
+        updateRoomPresenter = new UpdateRoomPresenter();
         txtType = view.findViewById(R.id.txtTypeCreateRoom);
         txtTitle = view.findViewById(R.id.txtTitleCreateRoom);
         reyclerViewDisplayUtil = view.findViewById(R.id.reyclerViewDisplayUtil);
@@ -76,40 +84,85 @@ public class CreateRoomFragment extends Fragment  implements AddRoomInterface {
 
         Bundle bundle = getArguments();
         if (bundle != null) {
-            room = bundle.getParcelable("room");
-            room.getImage().forEach((e) -> {
-                listImage.add(new SlideModel(e, ScaleTypes.CENTER_CROP));
-                slider.setImageList(listImage);
-            });
-            slider.startSliding(1500);
-            txtType.setText(room.getType());
-            txtAddress.setText(room.getLocation());
-            txtTitle.setText(room.getTitle());
+            option = bundle.getInt("option");
+            switch (option){
+                case 0:
+                    room = bundle.getParcelable("room");
+                    room.getImage().forEach((e) -> {
+                        listImage.add(new SlideModel(e, ScaleTypes.CENTER_CROP));
+                        slider.setImageList(listImage);
+                    });
+                    slider.startSliding(1500);
+                    txtType.setText(room.getType());
+                    txtAddress.setText(room.getLocation());
+                    txtTitle.setText(room.getTitle());
+
+                    btnSaveRoom.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Room saveRoom = new Room(room.getImage(),
+                                    false,arrList,null,
+                                    room.getType(),room.getLocation(),
+                                    edtDescription.getEditText().getText().toString(),
+                                    Integer.parseInt(edtPrice.getEditText().getText().toString()),
+                                    room.getTitle(),null,null,null,
+                                    room.getLat(),room.getLng(), Integer.parseInt(edtAmountRoom.getEditText().getText().toString()),
+                                    Integer.parseInt(edtShower.getEditText().getText().toString()),Integer.parseInt(edtBed.getEditText().getText().toString()),
+                                    Integer.parseInt(edtAcreage.getEditText().getText().toString()));
+
+                            addRoomPresenter.createRoom(saveRoom,DashBoardActivity.Token);
+                            getActivity().getSharedPreferences("utils",0).edit().clear().apply();
+                        }
+                    });
+                    break;
+                case 1:
+                    btnSaveRoom.setText("Thay đổi");
+                    room = bundle.getParcelable("room1");
+                    room.getImage().forEach((e) -> {
+                        listImage.add(new SlideModel(e, ScaleTypes.CENTER_CROP));
+                        slider.setImageList(listImage);
+                    });
+                    slider.startSliding(1500);
+                    txtType.setText(room.getType());
+                    txtAddress.setText(room.getLocation());
+                    txtTitle.setText(room.getTitle());
+
+                    edtPrice.getEditText().setText(room.getPrice()+"");
+                    edtAmountRoom.getEditText().setText(room.getAmount_room()+"");
+                    edtAcreage.getEditText().setText(room.getAcreage()+"");
+                    edtDescription.getEditText().setText(room.getDescription()+"");
+                    edtShower.getEditText().setText(room.getAmount_bathroom()+"");
+                    edtBed.getEditText().setText(room.getAmount_bedroom()+"");
 
 
+                    btnSaveRoom.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            updateRoomPresenter.updateRoom(room.getId(),Integer.parseInt(edtPrice.getEditText().getText().toString()),DashBoardActivity.Token);
+                            getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.dashboard_frame,new HomeInkeeperFragment()).commit();
 
-            btnSaveRoom.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+//                            Room saveRoom = new Room(room.getImage(),
+//                                    false,arrList,null,
+//                                    room.getType(),room.getLocation(),
+//                                    edtDescription.getEditText().getText().toString(),
+//                                    Integer.parseInt(edtPrice.getEditText().getText().toString()),
+//                                    room.getTitle(),null,null,null,
+//                                    room.getLat(),room.getLng(), Integer.parseInt(edtAmountRoom.getEditText().getText().toString()),
+//                                    Integer.parseInt(edtShower.getEditText().getText().toString()),Integer.parseInt(edtBed.getEditText().getText().toString()),
+//                                    Integer.parseInt(edtAcreage.getEditText().getText().toString()));
+//
+//                            addRoomPresenter.createRoom(saveRoom);
+//                            getActivity().getSharedPreferences("utils",0).edit().clear().apply();
+                        }
+                    });
+                    break;
 
-                    Room saveRoom = new Room(room.getImage(),
-                            false,arrList,null,
-                            room.getType(),room.getLocation(),
-                            edtDescription.getEditText().getText().toString(),
-                            Integer.parseInt(edtPrice.getEditText().getText().toString()),
-                            room.getTitle(),null,null,null,
-                            room.getLat(),room.getLng(), Integer.parseInt(edtAmountRoom.getEditText().getText().toString()),
-                            Integer.parseInt(edtShower.getEditText().getText().toString()),Integer.parseInt(edtBed.getEditText().getText().toString()),
-                            Integer.parseInt(edtAcreage.getEditText().getText().toString()));
-
-                    addRoomPresenter.createRoom(saveRoom);
-                    getActivity().getSharedPreferences("utils",0).edit().clear().apply();
-                }
-            });
-
+            }
         } else {
 
         }
+
+
         if (sharedPreferences != null) {
             String util = sharedPreferences.getString("utils", "");
             try {

@@ -30,7 +30,7 @@
             android:layout_marginRight="150dp"
             android:layout_marginTop="-20dp"/>
         <TextView
-            android:id="@+id/txt_name"
+            android:id="@+id/txtProfile"
             android:textSize="22dp"
             android:textStyle="bold"
             android:textColor="#000"
@@ -76,7 +76,7 @@
                 </ImageView>
 
                 <TextView
-                    android:id="@+id/txt_email"
+                    android:id="@+id/txtEmailProfile"
                     android:textColor="#000"
                     android:layout_marginLeft="5dp"
                     android:text="longkhoa@gmail.com"
@@ -112,7 +112,7 @@
                 </ImageView>
 
                 <TextView
-                    android:id="@+id/txt_phone"
+                    android:id="@+id/txtPhoneProfile"
                     android:textColor="#000"
                     android:layout_marginLeft="5dp"
                     android:text="090293123"
@@ -136,30 +136,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView
-                    android:layout_marginTop="1dp"
-                    android:src="@drawable/outline_date_range_black_18dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
 
-                </ImageView>
-
-                <TextView
-                    android:id="@+id/txt_date"
-                    android:textColor="#000"
-                    android:layout_marginLeft="5dp"
-                    android:text="12-11-1020"
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content">
-                </TextView>
-                <ImageView
-                    android:id="@+id/img_alert1"
-                    android:layout_marginTop="1dp"
-                    android:src="@drawable/ic_alert"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp">
-
-                </ImageView>
 
             </LinearLayout>
             <LinearLayout
@@ -178,10 +155,10 @@
                 </ImageView>
 
                 <TextView
-                    android:id="@+id/txt_createAt"
+                    android:id="@+id/txtCreateAt"
                     android:textColor="#000"
                     android:layout_marginLeft="5dp"
-                    android:hint="Thời gian tạo"
+
                     android:layout_width="320dp"
                     android:layout_height="wrap_content">
 
@@ -192,40 +169,6 @@
                     android:src="@drawable/ic_alert"
                     android:layout_width="20dp"
                     android:layout_height="20dp">
-                </ImageView>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="10dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_marginTop="1dp"
-                    android:src="@drawable/outline_date_range_black_18dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                </ImageView>
-
-                <TextView
-                    android:id="@+id/txt_updateAt"
-                    android:textColor="#000"
-                    android:layout_marginLeft="5dp"
-                    android:hint="Thời gian cập nhật"
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content">
-
-                </TextView>
-                <ImageView
-                    android:id="@+id/img_alert3"
-                    android:layout_marginTop="1dp"
-                    android:src="@drawable/ic_alert"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp">
-
                 </ImageView>
 
             </LinearLayout>
@@ -289,15 +232,14 @@
             </TextView>
 
         </LinearLayout>
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_own"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
             android:background="@drawable/bottron_button"
-            android:text="Trở thành chủ nhà"
             android:textSize="16sp"
-            android:textStyle="bold"/>
+            />
     </LinearLayout>
 
 </LinearLayout>

@@ -26,9 +26,9 @@ public class RoomPresenter {
         this.roomInterface = roomInterface;
     }
 
-    public void getListRoomm(){
+    public void getListRoomm(String token){
         roomService = RetrofitClient.getRetrofitInstance().create(RoomService.class);
-        roomService.getListRoom().enqueue(new Callback<ResponseBody>() {
+        roomService.getListRoom( token).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.isSuccessful()){

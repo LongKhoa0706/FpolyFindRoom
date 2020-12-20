@@ -27,10 +27,14 @@ import android.view.WindowManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.gson.Gson;
 import com.longkhoa.fpolyfindroom.BuildConfig;
 import com.longkhoa.fpolyfindroom.R;
 import com.longkhoa.fpolyfindroom.model.Home;
+import com.longkhoa.fpolyfindroom.model.User;
 import com.longkhoa.fpolyfindroom.util.Constant;
+import com.longkhoa.fpolyfindroom.view.home.Customer.HomeCustomerFragment;
+import com.longkhoa.fpolyfindroom.view.home.Inkeeper.HomeInkeeperFragment;
 import com.longkhoa.fpolyfindroom.view.room.AddInfoRoomFragment;
 import com.longkhoa.fpolyfindroom.view.map.MapFragment;
 import com.longkhoa.fpolyfindroom.view.profile.ProfileFragment;
@@ -48,18 +52,36 @@ public class DashBoardActivity extends AppCompatActivity implements BottomNaviga
     private static final String TAG = MainActivity.class.getSimpleName();
     FragmentManager manager;
     Fragment fragment = null;
+    User user;
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
     LocationManager locationManager;
+    public static String Token;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
         locationManager = this.getSystemService(LocationManager.class);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         checkLocationPermission();
+        SharedPreferences sharedPref = getSharedPreferences(Constant.KEY_ACCOUNT, Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPref.getString("user","");
+         user = gson.fromJson(json, User.class);
+         Token = user.getToken();
+
         getLocationClient();
         bottomNavigationMenuView = findViewById(R.id.bottomBar);
+
+        if (user.getRoles().getRoleName().equals("innkeeper")){
+            bottomNavigationMenuView.inflateMenu(R.menu.bottom_innkeeper);
+            loadFragment(new HomeInkeeperFragment());
+        }else {
+            bottomNavigationMenuView.inflateMenu(R.menu.bottom_customer);
+            loadFragment(new HomeCustomerFragment());
+        }
         bottomNavigationMenuView.setOnNavigationItemSelectedListener(this);
 
     }
@@ -96,7 +118,6 @@ public class DashBoardActivity extends AppCompatActivity implements BottomNaviga
                     }
 
                 } else {
-
                     new SweetAlertDialog(DashBoardActivity.this, SweetAlertDialog.ERROR_TYPE)
                             .setTitleText("Dịch vụ vị trí")
                             .setContentText("Vui lòng cho phép Findroom sử dụng dịch vụ vị trí để giúp bạn tìm địa điểm cho thuê phù hợp nhất ")
@@ -126,7 +147,6 @@ public class DashBoardActivity extends AppCompatActivity implements BottomNaviga
         }
     }
 
-
     private boolean loadFragment(Fragment fragment) {
 
         if (fragment != null) {
@@ -138,28 +158,41 @@ public class DashBoardActivity extends AppCompatActivity implements BottomNaviga
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.homeItem:
-                fragment = new HomeFragment();
-                loadFragment(fragment);
-                break;
-            case R.id.favoriteItem:
-                fragment = new FavoriteFragment();
-                loadFragment(fragment);
-                break;
-            case R.id.mapItem:
-                fragment = new MapFragment();
-                loadFragment(fragment);
-                break;
-            case R.id.profileItem:
-                fragment = new ProfileFragment();
-                loadFragment(fragment);
-                break;
+        if (user.getRoles().getRoleName().equals("innkeeper")){
+            switch (item.getItemId()) {
+                case R.id.homeItemInnkeeper:
+                    fragment = new HomeFragment();
+                    loadFragment(fragment);
+                    break;
+                case R.id.profileItemInnkeeper:
+                    fragment = new ProfileFragment();
+                    loadFragment(fragment);
+                    break;
+            }
+        }else {
+            switch (item.getItemId()) {
+                case R.id.homeItem:
+                    fragment = new HomeFragment();
+                    loadFragment(fragment);
+                    break;
+                case R.id.favoriteItem:
+                    fragment = new FavoriteFragment();
+                    loadFragment(fragment);
+                    break;
+                case R.id.mapItem:
+                    fragment = new MapFragment();
+                    loadFragment(fragment);
+                    break;
+                case R.id.profileItem:
+                    fragment = new ProfileFragment();
+                    loadFragment(fragment);
+                    break;
+            }
+
         }
+
         return true;
     }
-
-
     private void getLocationClient() {
         // check máy thật và máy ảo
         String provider = Build.FINGERPRINT.contains("generic") ? LocationManager.GPS_PROVIDER : LocationManager.NETWORK_PROVIDER;

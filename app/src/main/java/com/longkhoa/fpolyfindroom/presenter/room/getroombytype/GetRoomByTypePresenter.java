@@ -23,9 +23,9 @@ public class GetRoomByTypePresenter {
         this.getRoomByTypeInterface = getRoomByTypeInterface;
     }
 
-    public void getListRoomByType(String type){
+    public void getListRoomByType(String token,String type){
         roomService = RetrofitClient.getRetrofitInstance().create(RoomService.class);
-        roomService.getListRoomByType(type).enqueue(new Callback<ResponseBody>() {
+        roomService.getListRoomByType(token,type).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 try {

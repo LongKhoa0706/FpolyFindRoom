@@ -34,6 +34,7 @@ public class LoginPresenter {
                             String jsonString = response.body().string();
                             Gson gson = new Gson();
                             MyStatusUser status = gson.fromJson(jsonString, MyStatusUser.class);
+//                            Log.d("TOKENT",status.getUser().getToken());
                             loginInterface.loginSuccess(status);
                         }else {
                             String jsonString = response.errorBody().string();

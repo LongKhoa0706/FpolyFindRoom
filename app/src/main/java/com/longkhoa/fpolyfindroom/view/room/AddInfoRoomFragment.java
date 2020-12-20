@@ -151,14 +151,14 @@ public class AddInfoRoomFragment extends Fragment implements OnMapReadyCallback,
         iconChooseImage = view.findViewById(R.id.iconChooseImage);
         edtTitle = view.findViewById(R.id.edtTitle);
         recyclerViewDisplayImage = view.findViewById(R.id.reyclerViewDisplayImage);
-        spinnerCity = view.findViewById(R.id.spinnerCity);
+//        spinnerCity = view.findViewById(R.id.spinnerCity);
         spinnerChooseType = view.findViewById(R.id.spinner);
         btnCreateRoom = view.findViewById(R.id.btnAddRoom);
         mapView = view.findViewById(R.id.mapBoxAddInfo);
 
 //        imgChooseImage = view.findViewById(R.id.imgChooseImage);
-        spinnerDistrict = view.findViewById(R.id.spinnerDistrict);
-        spinnerWard = view.findViewById(R.id.spinnerWard);
+//        spinnerDistrict = view.findViewById(R.id.spinnerDistrict);
+//        spinnerWard = view.findViewById(R.id.spinnerWard);
         iconChooseImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -356,58 +356,58 @@ public class AddInfoRoomFragment extends Fragment implements OnMapReadyCallback,
 
     @Override
     public void getCity(List<City> listCity) {
-
-        spinnerLocationAdapter = new SpinnerLocationAdapter(listCity,getActivity(),R.layout.custom_item_location);
-        spinnerCity.setAdapter(spinnerLocationAdapter);
-        spinnerCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                spinnerDistrict.setVisibility(View.VISIBLE);
-                locationPresenter.getDistrictByCity(i+1);
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
+//
+//        spinnerLocationAdapter = new SpinnerLocationAdapter(listCity,getActivity(),R.layout.custom_item_location);
+//        spinnerCity.setAdapter(spinnerLocationAdapter);
+//        spinnerCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                spinnerDistrict.setVisibility(View.VISIBLE);
+//                locationPresenter.getDistrictByCity(i+1);
+//
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
     }
 
     @Override
     public void getDistrictByCity(List<City> listCity) {
-        spinnerLocationAdapter = new SpinnerLocationAdapter(listCity,getActivity(),R.layout.custom_item_location);
-        spinnerDistrict.setAdapter(spinnerLocationAdapter);
-        spinnerDistrict.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                spinnerDistrict.setVisibility(View.VISIBLE);
-                locationPresenter.getWardByDistrict(listCity.get(i).getID());
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
+//        spinnerLocationAdapter = new SpinnerLocationAdapter(listCity,getActivity(),R.layout.custom_item_location);
+//        spinnerDistrict.setAdapter(spinnerLocationAdapter);
+//        spinnerDistrict.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                spinnerDistrict.setVisibility(View.VISIBLE);
+//                locationPresenter.getWardByDistrict(listCity.get(i).getID());
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
     }
 
     @Override
     public void getWardByDistrict(List<City> listCity) {
-        spinnerLocationAdapter = new SpinnerLocationAdapter(listCity,getActivity(),R.layout.custom_item_location);
-        spinnerWard.setAdapter(spinnerLocationAdapter);
-        spinnerWard.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
+//        spinnerLocationAdapter = new SpinnerLocationAdapter(listCity,getActivity(),R.layout.custom_item_location);
+//        spinnerWard.setAdapter(spinnerLocationAdapter);
+//        spinnerWard.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
     }
 
     public String getFileName(Uri uri) {

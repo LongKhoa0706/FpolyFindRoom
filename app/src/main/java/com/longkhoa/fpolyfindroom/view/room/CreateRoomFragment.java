@@ -71,7 +71,7 @@ public class CreateRoomFragment extends Fragment  implements AddRoomInterface {
         slider = view.findViewById(R.id.image_slider);
         linearLayout = view.findViewById(R.id.linear);
         DashBoardActivity.bottomNavigationMenuView.setVisibility(View.GONE);
-
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("utils", 0);
         addRoomPresenter = new AddRoomPresenter(this);
 
         Bundle bundle = getArguments();
@@ -103,19 +103,15 @@ public class CreateRoomFragment extends Fragment  implements AddRoomInterface {
                             Integer.parseInt(edtAcreage.getEditText().getText().toString()));
 
                     addRoomPresenter.createRoom(saveRoom);
+                    getActivity().getSharedPreferences("utils",0).edit().clear().apply();
                 }
             });
 
         } else {
 
         }
-
-
-
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("utils", 0);
         if (sharedPreferences != null) {
             String util = sharedPreferences.getString("utils", "");
-
             try {
                 JSONArray jsonArray = new JSONArray(util);
                 for (int i = 0; i < jsonArray.length(); i++) {

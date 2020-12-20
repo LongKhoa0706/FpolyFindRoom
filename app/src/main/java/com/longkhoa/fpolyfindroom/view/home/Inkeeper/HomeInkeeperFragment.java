@@ -73,6 +73,7 @@ public class HomeInkeeperFragment extends Fragment implements ListMyRoomInterfac
 
     @Override
     public void getListMyRooms(MyStatusRoom myStatusRoom) {
+
         arrayList = myStatusRoom.getData();
         progressBar.setVisibility(View.GONE);
         LinearLayoutManager linearLayoutManagerHorizone = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);

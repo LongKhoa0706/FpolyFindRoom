@@ -110,7 +110,7 @@
                             android:text="Mật khẩu"></TextView>
 
                         <EditText
-
+                            android:password="true"
                             android:id="@+id/edtPassword"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -124,6 +124,7 @@
                             android:text="Xác nhận mật khẩu"></TextView>
 
                         <EditText
+                            android:password="true"
                             android:id="@+id/edtRepassword"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

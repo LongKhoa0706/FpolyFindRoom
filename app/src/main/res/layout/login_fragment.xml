@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:orientation="vertical"
@@ -60,18 +61,23 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
-                            android:text="Địa chỉ email">
+                            android:text="Số điện thoại">
 
                         </TextView>
 
-                        <EditText
-                            android:id="@+id/edtEmail"
+                        <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:id="@+id/edtEmail"
+                            app:errorEnabled="true"
 
-                            android:textSize="15dp">
+                            android:layout_height="wrap_content">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:background="@color/float_transparent"
+                                android:layout_height="wrap_content">
 
-                        </EditText>
+                            </com.google.android.material.textfield.TextInputEditText>
+                        </com.google.android.material.textfield.TextInputLayout>
 
                         <TextView
 
@@ -82,15 +88,21 @@
 
                         </TextView>
 
-                        <EditText
-                            android:password="true"
-                            android:id="@+id/edtPasswordLogin"
+                        <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="15dp">
+                            android:id="@+id/edtPasswordLogin"
+                            app:errorEnabled="true"
+                            android:layout_height="wrap_content">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:inputType="textPassword"
+                                android:password="true"
+                                android:background="@color/float_transparent"
 
-                        </EditText>
+                                android:layout_height="wrap_content">
 
+                            </com.google.android.material.textfield.TextInputEditText>
+                        </com.google.android.material.textfield.TextInputLayout>
 
                         <Button
                             android:layout_gravity="center"

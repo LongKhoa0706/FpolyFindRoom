@@ -2,28 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:padding="10dp"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:background="#FF9800"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingVertical="20dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            app:civ_border_color="#FF000000"
-            app:civ_border_width="2dp"
-            android:src="@drawable/splash"/>
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,7 +27,7 @@
                 android:layout_marginTop="18dp"
                 android:layout_height="wrap_content"/>
             <EditText
-                android:id="@+id/txtProfile"
+                android:id="@+id/edtNameDialog"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -66,7 +50,7 @@
                 android:layout_marginTop="18dp"
                 android:layout_height="wrap_content"/>
             <EditText
-                android:id="@+id/txtEmailProfile"
+                android:id="@+id/edtEmailDialog"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -89,7 +73,7 @@
                 android:layout_marginTop="18dp"
                 android:layout_height="wrap_content"/>
             <EditText
-                android:id="@+id/txtPhoneProfile"
+                android:id="@+id/edtPhoneDialog"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -122,61 +106,16 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
         </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_width="100dp"
-                android:text="* Thời gian tạo"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginTop="18dp"
-                android:layout_height="wrap_content"/>
-            <EditText
-                android:id="@+id/txtCreateAt"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:padding="10dp"
-                android:textColor="#172737"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_width="100dp"
-                android:text="* Thời gian cập nhật"
-                android:textStyle="bold"
-                android:layout_marginTop="13dp"
-                android:textColor="@color/black"
 
-                android:layout_height="wrap_content"/>
-            <EditText
-                android:id="@+id/txt_updateAt"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:padding="10dp"
-                android:textColor="#172737"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-        </LinearLayout>
 
 
     </LinearLayout>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="0.4dp"
-        android:layout_marginHorizontal="11dp"
-        android:layout_marginVertical="5dp"
-        android:background="#172737" />
+        android:layout_height="0.1dp"
+
+        android:background="#CCC" />
 
     <LinearLayout
         android:layout_width="match_parent"
